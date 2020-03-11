@@ -333,7 +333,6 @@ void truncateString(char *input, int startPos)
         {
         input[i] = tmp[i];
         }
-        //printf("Tmp string: %s", tmp);
     }
 }
 
