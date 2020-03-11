@@ -16,7 +16,6 @@
  */
 
 #include "controller.h"
-#include "dataTypes.h"
 
 void flowController(bool* running)
 {

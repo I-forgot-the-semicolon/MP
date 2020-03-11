@@ -21,9 +21,9 @@
 Client* getClients(int *clientsNumber)
 {
     *clientsNumber = 0;
-    Client *tmpClients = NULL;
+    Client *tmpClients = nullptr;
     FILE *inputFile = fopen("clientes.txt", "r");
-    if(inputFile != NULL)
+    if(inputFile != nullptr)
     {
         tmpClients = malloc(sizeof(Client));
         while(!feof(inputFile))
@@ -75,9 +75,9 @@ void getClientFromFile(char *input, int field, int maxFields, Client* clientArra
 AdminProvider* getAdminsProviders(int *adminsProvidersNumber)
 {
     *adminsProvidersNumber = 0;
-    AdminProvider *tmpAdminsProviders = NULL;
+    AdminProvider *tmpAdminsProviders = nullptr;
     FILE *inputFile = fopen("adminprov.txt", "r");
-    if(inputFile != NULL)
+    if(inputFile != nullptr)
     {
         tmpAdminsProviders = malloc(sizeof(AdminProvider));
         while(!feof(inputFile))
@@ -120,9 +120,9 @@ void getAdminsProvidersFromFile(char *input, int field, int maxFields, AdminProv
 Product* getProducts(int *productsNumber)
 {
     *productsNumber = 0;
-    Product *tmpProducts = NULL;
+    Product *tmpProducts = nullptr;
     FILE *inputFile = fopen("adminprov.txt", "r");
-    if(inputFile != NULL)
+    if(inputFile != nullptr)
     {
         tmpProducts = malloc(sizeof(Product));
         while(!feof(inputFile))
@@ -174,12 +174,12 @@ void getProductFromFile(char *input, int field, int maxFields, Product* productA
 Carrier* getCarriers(int *carriersNumber)
 {
     *carriersNumber = 0;
-    Carrier *tmpCarriers = NULL;
+    Carrier *tmpCarriers = nullptr;
     FILE *inputFile = fopen("carriers.txt", "r");
-    if(inputFile != NULL)
+    if(inputFile != nullptr)
     {
         tmpCarriers = malloc(sizeof(Carrier));
-        if(tmpCarriers != NULL)
+        if(tmpCarriers != nullptr)
         {
             while(!feof(inputFile))
             {
