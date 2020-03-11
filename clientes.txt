@@ -1,0 +1,2 @@
+000001/Juan/Pérez/Plaza Juan de Austria 1 11100/Puerto Real/Cádiz/juanperez@gmail.com/psw1234/1000
+000002/Pedro/López/Calle Plocia 2 11100/Cádiz/Cádiz/pedrolopez@gmail.com/psw4321/500

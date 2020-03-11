@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "filehandler.h": "c",
+        "datatypes.h": "c",
+        "stdio.h": "c",
+        "typeinfo": "c",
+        "stdlib.h": "c",
+        "controller.h": "c",
+        "string.h": "c"
+    }
+}
