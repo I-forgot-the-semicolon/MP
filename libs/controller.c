@@ -53,13 +53,13 @@ void redirectUser(User *user, bool *running)
             break;
         case carrier:
             printf("Welcome carrier: %s\n", user->carrierUser.fields[carrierEmail]);
-            *running = false;
             break;
         case adminProvider:
             break;
         default:
             break;
     }
+    *running = false;
 }
 
 bool login(User *userArray)
