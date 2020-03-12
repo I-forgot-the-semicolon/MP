@@ -15,13 +15,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _CONTROLLER_
-#define _CONTROLLER_
-#include "fileHandler.h"
-#include "Client/client.h"
-#include "Carrier/carrier.h"
+#ifndef _CLIENT_
+#define _CLIENT_
 
-void flowController(bool* running);
-bool login(User *userArray);
-void redirectUser(User *userArray, bool *running);
+#include <string.h>
+#include "../fileHandler.h"
+
+Client loginClient(char *email, char *password, int *pos);
+
 #endif

@@ -49,9 +49,10 @@ void redirectUser(User *user, bool *running)
     switch (user->userType)
     {
         case client:
+            printf("Welcome user: %s\n", user->clientUser.fields[clientEmail]);
             break;
         case carrier:
-            printf("Welcome: %s\n", user->carrierUser.fields[carrierEmail]);
+            printf("Welcome carrier: %s\n", user->carrierUser.fields[carrierEmail]);
             *running = false;
             break;
         case adminProvider:
@@ -87,6 +88,7 @@ bool login(User *userArray)
         {
             case client:
                 printf("Searching in client\n");
+                userArray->clientUser = loginClient(username, password, &pos);
                 userArray->userType = client;
                 break;
             case carrier:

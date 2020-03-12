@@ -53,12 +53,6 @@ void getClientFromFile(char *input, int field, int maxFields, Client* clientArra
         return;
     unsigned int pos = getFieldLength(input);
     char *tmpString = copyUntil(input, pos);
-    /*char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
-    for (int i = 0; i < pos; i++) 
-    {
-        tmpString[i] = input[i];
-    }
-    tmpString[pos] = '\x0';*/
     clientArray[clientNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(clientArray[clientNumber].fields[field], tmpString);
     truncateString(input, pos + 1);
