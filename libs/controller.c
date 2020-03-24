@@ -54,7 +54,9 @@ void redirectUser(User *user, bool *running)
         case carrier:
             printf("Welcome carrier: %s\n", user->carrierUser.fields[carrierEmail]);
             break;
-        case adminProvider:
+        case admin:
+            break;
+        case provider:
             break;
         default:
             break;
@@ -82,7 +84,7 @@ bool login(User *userArray)
     int mode = client;
 
     printf("Searching...\n");
-    while(pos == -1 && mode < 3)
+    while(pos == -1 && mode < 4)
     {
         switch (mode)
         {
@@ -96,8 +98,11 @@ bool login(User *userArray)
                 userArray->carrierUser = loginCarrier(username, password, &pos);
                 userArray->userType = carrier;
                 break;
-            case adminProvider:
-                userArray->userType = adminProvider;
+            case admin:
+                userArray->userType = admin;
+                break;
+            case provider:
+                userArray->userType = provider;
                 break;
             default:
                 break;

@@ -31,7 +31,7 @@ typedef struct
     int year;
 } Date;
 
-enum userType {client, carrier, adminProvider};
+enum userType {client, carrier, admin, provider};
 
 //Custom structs
 
