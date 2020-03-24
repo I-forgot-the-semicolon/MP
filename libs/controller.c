@@ -49,7 +49,7 @@ void redirectUser(User *user, bool *running)
     switch (user->userType)
     {
         case client:
-            printf("Welcome user: %s\n", user->clientUser.fields[clientEmail]);
+            clientMenu(user, running);
             break;
         case carrier:
             printf("Welcome carrier: %s\n", user->carrierUser.fields[carrierEmail]);
@@ -61,7 +61,7 @@ void redirectUser(User *user, bool *running)
         default:
             break;
     }
-    *running = false;
+    //*running = false;
 }
 
 bool login(User *userArray)
