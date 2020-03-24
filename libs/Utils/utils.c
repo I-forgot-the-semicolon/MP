@@ -20,3 +20,56 @@ void clearBuffer()
 {
     while ((getchar()) != '\n'); 
 }
+
+int getFieldLength(char *input)
+{
+    int pos = 0;
+    int found = 0;
+    for(int i = 0; i < strlen(input) && !found; i++)
+    {
+        if(input[i] == '/' || input[i] == '\n' || input[i] == EOF || input [i] == '\x00')
+        {
+            pos = i;
+            found = 1;
+        }
+    }
+
+    pos = found == 0 ? strlen(input) : pos;
+    return pos;
+}
+
+void truncateString(char *input, int startPos) 
+{
+    int finalLength = strlen(input) - startPos;
+    if (finalLength > 0) 
+    {
+        #ifdef DEBUG
+        printf("final length: %d\n", finalLength);
+        #endif
+        char *tmp = malloc(sizeof(char) * finalLength + sizeof(char));
+        int pos = startPos;
+        for (int i = 0; i < finalLength; i++) 
+        {
+            tmp[i] = input[pos];
+            pos++;
+        }
+        tmp[finalLength] = '\x0';
+
+        input = realloc(input, sizeof(char) * finalLength + sizeof(char));
+        for (int i = 0; i < finalLength + 1; i++) 
+        {
+        input[i] = tmp[i];
+        }
+    }
+}
+
+char *copyUntil(char *sString, int pos)
+{
+    char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
+    for (int i = 0; i < pos; i++) 
+    {
+        tmpString[i] = sString[i];
+    }
+    tmpString[pos] = '\x0';
+    return tmpString;
+}

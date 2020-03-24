@@ -17,6 +17,12 @@
 #ifndef _UTILS_
 #define _UTILS_
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 void clearBuffer();
+int getFieldLength(char *input);
+void truncateString(char *input, int startPos);
+char *copyUntil(char *sString, int pos);
+
 #endif

@@ -19,9 +19,8 @@
 #define _FILEHANDLER_
 //#define DEBUG
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include "Utils/utils.h"
 #include "dataTypes.h"
 
 
@@ -40,7 +39,5 @@ void getCarrierFromFile(char *input, int field, int maxFields, Carrier* carrierA
 Refund* getRefunds(int *refundsNumber);
 void getRefundFromFile(char *input, int field, int maxFields, Refund* refundArray, int refundNumber);
 
-int getFieldLength(char *input);
-void truncateString(char *input, int startPos);
-char *copyUntil(char *sString, int pos);
+
 #endif
