@@ -110,7 +110,7 @@ bool login(User *userArray)
         printf("Searching: %d\n", mode);
         mode++;
     }
-
+    
     if(pos != -1)
     {
         printf("Login correct, welcome %s\n", username);
