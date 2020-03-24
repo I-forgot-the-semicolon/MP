@@ -14,3 +14,15 @@
  * You should have received a copy of the GNU General Public License 
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+
+
+
+#ifndef _PROVIDER_
+#define _PROVIDER_
+
+#include<string.h>
+#include "../fileHandler.h"
+
+AdminProvider loginProvider(char *email, char *password, int *pos);
+
+#endif

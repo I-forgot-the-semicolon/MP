@@ -27,6 +27,7 @@ Client loginClient(char *email, char *password, int *pos)
 
 void clientMenu(User *user, bool *running)
 {
+    Client actualClient = user->clientUser;
     printf("Welcome user: %s\n", user->clientUser.fields[clientEmail]);
     bool logged = true;
     do

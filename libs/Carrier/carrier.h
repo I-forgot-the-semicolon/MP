@@ -22,5 +22,6 @@
 #include "../fileHandler.h"
 
 Carrier loginCarrier(char *email, char *password, int *pos);
+void OptionMenu(int OptionSelect);
 
 #endif
