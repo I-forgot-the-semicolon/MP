@@ -1,3 +1,20 @@
+/* 
+ * This file is part of the ESIZON distribution.
+ * Copyright (c) 2020 Ruben Cordero Ramos.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include "client.h"
 
 Client loginClient(char *email, char *password, int *pos)
@@ -43,9 +60,132 @@ void clientMenu(User *user, bool *running)
         printf("Select an option: ");
         scanf("%d", &option);
 
-        if(option == 6)
-            logged = false;
-
+        switch (option)
+        {
+            case 1:
+                clientProfile(&actualClient);
+                break;
+            case 6:
+                logged = false;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
     } while (logged);
     
+}
+
+void clientProfile(Client *actualClient)
+{
+    int option;
+    bool back = false;
+    do
+    {
+        int option;
+        printf("1. View profile\n");
+        printf("2. Modify profile\n");
+        printf("3. Back\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                viewProfile(*actualClient);
+                break;
+            case 2:
+                modifyProfile(actualClient);
+                break;
+            case 3:
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+
+void viewProfile(Client actualClient)
+{
+    printf("#---------------------------\n");
+    printf("# Name: %s\n", actualClient.fields[clientName]);
+    printf("# Surname: %s\n", actualClient.fields[clientSurname]);
+    printf("# Address: %s\n", actualClient.fields[clientAddress]);
+    printf("# City: %s\n", actualClient.fields[clientCity]);
+    printf("# Province: %s\n", actualClient.fields[clientProvince]);
+    printf("# Email: %s\n", actualClient.fields[clientEmail]);
+    printf("# Password: %s\n", actualClient.fields[clientPassword]);
+    printf("# Wallet: %s\n", actualClient.fields[clientWallet]);
+    printf("#---------------------------\n");
+}
+
+void modifyProfile(Client *actualClient)
+{
+    int option;
+    bool back = false;
+    do
+    {
+        printf("1. Name\n");
+        printf("2. Surname\n");
+        printf("3. Address\n");
+        printf("4. City\n");
+        printf("5. Province\n");
+        printf("6. Email\n");
+        printf("7. Password\n");
+        printf("8. Wallet\n");
+        printf("9. Back\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                modifyField(actualClient, option);
+                break;
+            case 9:
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+
+
+void modifyField(Client *actualClient, int field)
+{
+    bool correct = false;
+    do
+    {
+        char buffer[1024];
+        char answer[10];
+
+        printf("The actual value is: %s\n", actualClient->fields[field]);
+        printf("Type the new value: ");
+        clearBuffer();
+        scanf("%[^\n]", buffer);
+
+        printf("The new value is: %s\n", buffer);
+        printf("Is that correct? y/n: ");
+        scanf("%s", answer);
+
+        if(answer[0] == 'y')
+        {
+            unsigned long newSize = strlen(buffer);
+            actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
+            strcpy(actualClient->fields[field], buffer);
+            correct = true;
+        }
+    } while (!correct);
+
 }

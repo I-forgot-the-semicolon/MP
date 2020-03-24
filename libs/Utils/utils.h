@@ -14,19 +14,9 @@
  * You should have received a copy of the GNU General Public License 
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+#ifndef _UTILS_
+#define _UTILS_
+#include <stdio.h>
 
-#ifndef _CLIENT_
-#define _CLIENT_
-
-#include <string.h>
-#include "../Utils/utils.h"
-#include "../fileHandler.h"
-
-Client loginClient(char *email, char *password, int *pos);
-void clientMenu(User *user, bool *running);
-void clientProfile(Client *actualClient);
-void viewProfile(Client actualClient);
-void modifyProfile(Client *actualClient);
-void modifyField(Client *actualClient, int field);
-
+void clearBuffer();
 #endif
