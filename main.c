@@ -26,6 +26,7 @@ int main()
 
     while(running)
     {
+        //jeje
         flowController(&running);
     }
     
