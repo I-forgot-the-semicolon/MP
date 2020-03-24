@@ -11,7 +11,7 @@ Client loginClient(char *email, char *password, int *pos)
     for (int i = 0; i < clientsArraySize && !found; i++) 
     {
         //printf("%s -> %s\n", email, carriersArray[i].fields[carrierEmail]);
-        if(strcasecmp(email, clientsArray[i].fields[clientEmail]) == 0 && strcmp(password, clientsArray[i].fields[clientPassword]) == 0)
+        if(strcmp(email, clientsArray[i].fields[clientEmail]) == 0 && strcmp(password, clientsArray[i].fields[clientPassword]) == 0)
         {
             printf("Username found!\n");
             printf("Password correct!\n");

@@ -24,4 +24,5 @@
 void flowController(bool* running);
 bool login(User *userArray);
 void redirectUser(User *userArray, bool *running);
+
 #endif
