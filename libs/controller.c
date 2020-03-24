@@ -61,7 +61,6 @@ void redirectUser(User *user, bool *running)
         default:
             break;
     }
-    //*running = false;
 }
 
 bool login(User *userArray)

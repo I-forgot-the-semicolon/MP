@@ -44,12 +44,14 @@ Carrier loginCarrier(char *email, char *password, int *pos)
     return tmpCarrier;
 }
 
-void CarrierMenu(Carrier *user, bool *runing)
+//David
+void CarrierMenu(User *user, bool *runing)
 {
     Carrier actualCarrier = user->carrierUser;
-    bool looged = true
+    bool looged = true;
+
     int OptionSelect;
-    printf("Hi, %s\n",user->carrierUser.fields[carrierEmail]);
+    printf("Hi, %s\n", actualCarrier.fields[carrierEmail]);
     printf("Select the option that you want.\n");
     printf("1.Profile Options.\n");
     printf("1.Distribution Options.\n");
@@ -59,20 +61,20 @@ void CarrierMenu(Carrier *user, bool *runing)
     switch (OptionSelect)
     {
     case 1:
-        ProfileMenu(carrier);
+        ProfileMenu(actualCarrier);
         break;
     case 2:
-        DistributionMenu(carrier);
+        //DistributionMenu(carrier);
         break;
     case 3:
-        ReturnMenu(carrier);
+        //ReturnMenu(carrier);
         break;    
     default:
         break;
     }
 }
 
-Carrier ProfileMenu(carrier)
+void ProfileMenu(Carrier actualCarrier)
 {
     int optionselect;
     printf("Please, select the option that the user wants.\n");
@@ -85,12 +87,12 @@ Carrier ProfileMenu(carrier)
         switch (optionselect)
         {
         case 1:
-            ShowCarrierInfo(carrierID, carrierEmail, carrierCompany, carrierCity);
+            ShowCarrierInfo(actualCarrier);
 
         break;
 
         case 2:
-            ModifyCarrierInfo(carrierID, carrierEmail, carrierCompany, carrierCity);
+            ModifyCarrierInfo(actualCarrier);
         break;
 
         default: 
@@ -100,24 +102,25 @@ Carrier ProfileMenu(carrier)
     } while (optionselect>0 && optionselect<3);
 }
 
-Carrier ShowCarrierInfo(int *carrierID, char *carrierEmail, char *carrierCompany, char *carrierCity)
+void ShowCarrierInfo(Carrier actualCarrier)
 {
+    char optionSelect[1];
     do
     {
-        char optionSelect[1];
+        
         printf("Your info is:\n\n");
-        printf("ID: %i",carrierID);
-        printf("Email: %s",carrierEmail);
-        printf("The company that the Carriers work for: %s\n",carrierCompany);
-        printf("The city of the business that work for:%s\n",carrierCity);
+        printf("Email: %s", actualCarrier.fields[carrierEmail]);
+        printf("The company that the Carriers work for: %s\n", actualCarrier.fields[carrierCompany]);
+        printf("The city of the business that work for:%s\n", actualCarrier.fields[carrierCity]);
         printf("Do you want to modify something about your profile?(y/n)\n");
-        scanf("%c",&optionSelect);
-        ModifyCarrierInfo(carrierID, carrierEmail, carrierCompany, carrierCity);
-    } while (strcmp('y',optionSelect)==1);
+        scanf("%c", optionSelect);
+
+        ModifyCarrierInfo(actualCarrier);
+    } while (optionSelect[0] != 'y');
     
 }
 
-Carrier ModifyCarrierInfo(int *carrierID, char *carrierEmail, char *carrierCompany, char *carrierCity)
+void ModifyCarrierInfo(Carrier actualCarrier)
 {
     printf("To modify a fie");
 }

@@ -23,5 +23,8 @@
 
 Carrier loginCarrier(char *email, char *password, int *pos);
 void OptionMenu(int OptionSelect);
+void ProfileMenu(Carrier actualCarrier);
+void ShowCarrierInfo(Carrier actualCarrier);
+void ModifyCarrierInfo(Carrier actualCarrier);
 
 #endif

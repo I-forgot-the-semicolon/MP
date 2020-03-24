@@ -23,5 +23,6 @@
 
 Client loginClient(char *email, char *password, int *pos);
 void clientMenu(User *user, bool *running);
+void clientProfile();
 
 #endif
