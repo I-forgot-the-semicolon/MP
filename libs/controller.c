@@ -22,29 +22,28 @@ void flowController()
 {
     int flag;
     int loginCorrect;
+    User *user = malloc(sizeof(User));
     do
     {
-        User *user = malloc(sizeof(User));
-        bool loginCorrect = false;
-
-            loginCorrect = login(user);
-            if(loginCorrect == -1)
+        loginCorrect = login(user);
+        if(loginCorrect == -1)
+        {
+            char answer;
+            printf("Do you want to exit? y/n\n");
+            clearBuffer();
+            scanf("%c", &answer);
+            if(answer == 'y' || answer == 'Y')
             {
-                char answer;
-                printf("Do you want to exit? y/n\n");
-                clearBuffer();
-                scanf("%c", &answer);
-                if(answer == 'y' || answer == 'Y')
-                {
-                    flag = exitFlag;
-                }       
-            }
-    
-        if(loginCorrect != -1)    
+                flag = exitFlag;
+            }       
+        }
+        else
+        {
             flag = redirectUser(user);
-
-        free(user);
+        }
     } while(flag != exitFlag);
+
+    free(user);
 }
 
 int redirectUser(User *user)
