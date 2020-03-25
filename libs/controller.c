@@ -45,10 +45,7 @@ void flowController(bool* running)
             flag = redirectUser(user, running);
 
         free(user);
-
     } while(flag != exitFlag);
-    
-    
 }
 
 int redirectUser(User *user, bool *running)

@@ -48,32 +48,34 @@ Carrier loginCarrier(char *email, char *password, int *pos)
 void CarrierMenu(User *user, bool *runing, Client actualClient)
 {
     Carrier actualCarrier = user->carrierUser;
-    bool looged = true;
+    bool logged = true;
 
-    int OptionSelect;
-    printf("Hi, %s\n", actualCarrier.fields[carrierEmail]);
-    printf("1.Profile Options.\n");
-    printf("2.Distribution Options.\n");
-    printf("3.Return Options.\n");
-    printf("Select an option.\n");
     do
     {
-       scanf("%i",&OptionSelect);
+        int OptionSelect;
+        printf("Hi, %s\n", actualCarrier.fields[carrierEmail]);
+        printf("1.Profile Options.\n");
+        printf("2.Distribution Options.\n");
+        printf("3.Return Options.\n");
+        printf("4.Logout.\n");
+        printf("Select an option.\n");
+        scanf("%i",&OptionSelect);
+
         switch (OptionSelect)
         {
-        case 1:
-        ProfileMenu(actualCarrier);
-        break;
-        case 2:
-        DistributionMenu(actualCarrier,actualClient);
-        break;
-        case 3:
-        //ReturnMenu(carrier);
-        break;    
-        default:
-        break;
+            case 1:
+            ProfileMenu(actualCarrier);
+            break;
+            case 2:
+            DistributionMenu(actualCarrier,actualClient);
+            break;
+            case 3:
+            //ReturnMenu(carrier);
+            break;    
+            default:
+            break;
         }
-    } while (looged);
+    } while (logged);
     
     
 }
@@ -106,7 +108,7 @@ void ProfileMenu(Carrier actualCarrier)
             }
 
             printf("Do you want to do something else befoer leaving?\n");
-            scanf("%s",&awnser);
+            scanf("%s", awnser);
 
     } while (awnser[0]!='y');
 }
@@ -126,36 +128,35 @@ void ShowCarrierInfo(Carrier actualCarrier)
 void ModifyCarrierInfo(Carrier actualCarrier)
 {
     int optionSelect;
-    char anwser[1];
+    char anwser;
     printf("Please select the field that you want to modify.\n");
     printf("1. Email.\n");
     printf("2.The company.\n");
     printf("3.The city.\n");
     scanf("%i",&optionSelect);
+    clearBuffer();
     switch (optionSelect)
     {
-    case 1:
+        case 1:
         do
         {
             printf("Modifying Email.\n");
             printf("Add your new Email account.\n");
-            scanf("%s",actualCarrier.fields[carrierEmail]);
-            printf("Is that correct?(y/n).\n");
             scanf("%c",&anwser);
-        } while (anwser[0]!='y');
+        } while (anwser !='y');
         break;
-    case 2:
+        case 2:
         do
         {
             printf("Modifying The Company.\n");
             printf("Modify the name of the company.\n");
             scanf("%s",actualCarrier.fields[carrierCompany]);
             printf("Is that correct?(y/n).\n");
-            scanf("%c",&anwser);
-        } while (anwser[0]!='y');
+            scanf("%c", &anwser);
+        } while (anwser !='y');
 
         break;
-    case 3:
+        case 3:
         do
         {
             printf("Modifying The City.\n");
@@ -163,9 +164,9 @@ void ModifyCarrierInfo(Carrier actualCarrier)
             scanf("%s",actualCarrier.fields[carrierEmail]);
             printf("Is that correct?(y/n).\n");
             scanf("%c",&anwser);
-        } while (anwser[0]!='y');
+        } while (anwser !='y');
         break;
-    default:
+        default:
         break;
     }
 
@@ -190,10 +191,10 @@ void DistributionMenu(Carrier actualCarrier, Client actualClient)
         switch (optionSelect)
         {
         case 1:
-            ShowDistributionInfo(actualCarrier,actualClient);
+            //ShowDistributionInfo(actualCarrier,actualClient);
             break;
         case 2:
-            ModifyDistributionInfo(actualCarrier, actualClient);
+            //ModifyDistributionInfo(actualCarrier, actualClient);
             break;
         case 3:
             break;

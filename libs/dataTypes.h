@@ -98,6 +98,93 @@ typedef struct
     char *fields[7];
 } Product;
 
+
+typedef struct 
+{
+    int orderID;
+    int clientID;
+    int lockerCode;
+    Date orderDate;
+    char *fields[7];
+} Order;
+
+enum OrderFields {orderID, orderDate, orderClientID, orderDeliveryPlace, orderLockerCode,
+                  orderGiftDiscount, orderPromotionalCode};
+
+typedef struct 
+{
+    int orderID;
+    int productID;
+    int unitNumber;
+    int carrierID;
+    int lockerCode;
+    Date deliveryDate;
+    float buyPrice;
+    Date returnDate;
+    char *fields[8];
+} ProductOrder;
+
+enum ProductOrderFields {productOrderID, productOrderProductID, productOrderUnitNumber,
+                          productOrderDeliveryDate, productOrderOrderStatus, productOrderCarrierID,
+                          productOrderLockerCode, productOrderReturnDate};
+
+
+typedef struct 
+{
+    int categoryID;
+    char *fields[2];
+} Category;
+
+enum CategoryFields {categoryID, categoryDescription};
+
+
+typedef struct 
+{
+    int discountID;
+    int discountMoney;
+    char *fields[6];
+} Discount;
+
+enum DiscountFields {discountID, discountDescription, discountType, discountStatus,
+                     discountMoney, discountApply};
+
+typedef struct 
+{
+    int clientID;
+    int discountID;
+    Date assignDate;
+    Date caducityDate;
+    bool Applied;
+    char *fields[5];
+} DiscountsClient;
+
+enum DiscountsClientFields {discountsClientID, discountsClientDiscountID, discountsClientAssignDate, 
+                            discountsClientCaducityDate, discountsClientApplied};
+
+typedef struct 
+{
+    int lockerID;
+    int totalSpace;
+    int busySpace;
+    char *fields[6];
+} Locker;
+
+enum LockerFields {lockerID, lockerCity, lockerProvice, lockerPosition, lockerTotalSpace,
+                   lockerBusySpace};
+
+typedef struct 
+{
+    int lockerID;
+    int SpaceID;
+    int lockerCode;
+    Date busyDate;
+    Date caducityDate;
+    char *fields[6];
+} LockerSpace;
+
+enum LockerSpaceFields {lockerSpaceLockerID, lockerSpaceID, lockerSpaceCode, lockerSpaceStatus, 
+                        lockerSpaceBusyDate, lockerSpaceCaducityDate};
+//------------------
 typedef struct
 {
     Client clientUser;
