@@ -193,7 +193,7 @@ void DistributionMenu(Carrier actualCarrier, Client actualClient) //
         switch (optionSelect)
         {
         case 1:
-                ShowDistributionInfo();
+                //ShowDistributionInfo();
             break;
         case 2:
             //ModifyDistributionInfo(actualCarrier, actualClient);

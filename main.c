@@ -22,14 +22,10 @@
 
 int main()
 {
-    /*bool running = true;
 
-    while(running)
-    {
-        flowController(&running);
-    }*/
+    flowController();
     
-    int orderNumber;
+    /*int orderNumber;
     Discount* orders = getDiscounts(&orderNumber);
     printf("Order number: %d\n", orderNumber);
     for(int i = 0; i < orderNumber; i++)
@@ -37,7 +33,7 @@ int main()
         for(int j = 0; j < 6; j++)
             printf("-> %s\n", orders[i].fields[j]);
         printf("\n\n");
-    }
+    }*/
     return 0;
 }
 

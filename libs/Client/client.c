@@ -27,7 +27,6 @@ Client loginClient(char *email, char *password, int *pos)
 
     for (int i = 0; i < clientsArraySize && !found; i++) 
     {
-        //printf("%s -> %s\n", email, carriersArray[i].fields[carrierEmail]);
         if(strcmp(email, clientsArray[i].fields[clientEmail]) == 0 && strcmp(password, clientsArray[i].fields[clientPassword]) == 0)
         {
             printf("Username found!\n");
@@ -42,7 +41,7 @@ Client loginClient(char *email, char *password, int *pos)
     return tmpClient;
 }
 
-int clientMenu(User *user, bool *running)
+int clientMenu(User *user)
 {
     int flag = loggedFlag;
     Client actualClient = user->clientUser;
@@ -66,7 +65,7 @@ int clientMenu(User *user, bool *running)
                 clientProfile(&actualClient);
                 break;
             case 6:
-                logoutClient(&flag, running);
+                logoutClient(&flag);
                 break;
             default:
                 printf("Invalid option\n");
@@ -77,7 +76,7 @@ int clientMenu(User *user, bool *running)
     return flag;
 }
 
-void logoutClient(int *flag, int *running)
+void logoutClient(int *flag)
 {
     int option;
     printf("1. Exit to login\n");
@@ -91,7 +90,6 @@ void logoutClient(int *flag, int *running)
                 break;
         case 2:
                 *flag = exitFlag;
-                *running = false;
                 break;
         default:
                 printf("Invalid option\n");
@@ -211,4 +209,9 @@ void modifyField(Client *actualClient, int field)
         }
     } while (!correct);
 
+}
+
+int searchClient(Client actualClient, Client *clientArray, const char *textToSearch)
+{
+    return 0;
 }
