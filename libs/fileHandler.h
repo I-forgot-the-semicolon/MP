@@ -25,19 +25,34 @@
 
 
 Client* getClients(int *clientsNumber);
-void getClientFromFile(char *input, int field, int maxFields, Client* clientArray, int clientNumber);
+void getClientFromFile(char *input, int field, int maxFields, Client *clientArray, int clientNumber);
 
 AdminProvider* getAdminsProviders(int *adminsProvidersNumber);
-void getAdminsProvidersFromFile(char *input, int field, int maxFields, AdminProvider* adminsProviderArray, int adminProviderNumber);
+void getAdminsProvidersFromFile(char *input, int field, int maxFields, AdminProvider *adminsProviderArray, int adminProviderNumber);
 
 Product* getProducts(int *productsNumber);
-void getProductFromFile(char *input, int field, int maxFields, Product* productArray, int productNumber);
+void getProductFromFile(char *input, int field, int maxFields, Product *productArray, int productNumber);
 
 Carrier* getCarriers(int *carriersNumber);
-void getCarrierFromFile(char *input, int field, int maxFields, Carrier* carrierArray, int carrierNumber);
+void getCarrierFromFile(char *input, int field, int maxFields, Carrier *carrierArray, int carrierNumber);
 
 Refund* getRefunds(int *refundsNumber);
-void getRefundFromFile(char *input, int field, int maxFields, Refund* refundArray, int refundNumber);
+void getRefundFromFile(char *input, int field, int maxFields, Refund *refundArray, int refundNumber);
+
+Order* getOrders(int *ordersNumber);
+void getOrdersFromFile(char *input, int field, int maxFields, Order *orderArray, int orderNumber);
+
+ProductOrder* getProductOrders(int *productOrdersNumber);
+void getProductOrdersFromFile(char *input, int field, int maxFields, ProductOrder *productOrderArray, int productOrderNumber);
+
+Product* getProducts(int *productsNumber);
+void getProductsFromFile(char *input, int field, int maxFields, Product *productArray, int productNumber);
+
+Category* getCategories(int *categoriesNumber);
+void getCategoriesFromFile(char *input, int field, int maxFields, Category *categoryArray, int categoryNumber);
+
+Discount* getDiscounts(int *discountsNumber);
+void getDiscountsFromFile(char *input, int field, int maxFields, Discount *discountArray, int discountNumber);
 
 
 #endif

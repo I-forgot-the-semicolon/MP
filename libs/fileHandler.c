@@ -115,7 +115,7 @@ Product* getProducts(int *productsNumber)
 {
     *productsNumber = 0;
     Product *tmpProducts = nullptr;
-    FILE *inputFile = fopen("adminprov.txt", "r");
+    FILE *inputFile = fopen("products.txt", "r");
     if(inputFile != nullptr)
     {
         tmpProducts = malloc(sizeof(Product));
@@ -132,6 +132,10 @@ Product* getProducts(int *productsNumber)
             }
         }
         fclose(inputFile);
+    }
+    else
+    {
+        printf("Error opening!\n");
     }
     return tmpProducts;
 }
@@ -290,3 +294,246 @@ void getRefundFromFile(char *input, int field, int maxFields, Refund* refundArra
 }
 #pragma endregion
 
+Order* getOrders(int *ordersNumber)
+{
+    *ordersNumber = 0;
+    Order *tmpOrders = nullptr;
+    FILE *inputFile = fopen("orders.txt", "r");
+    if(inputFile != nullptr)
+    {
+        tmpOrders = malloc(sizeof(Order));
+        if(tmpOrders != nullptr)
+        {
+            while(!feof(inputFile))
+            {
+                char *tmp = malloc(sizeof(char)*1024);
+                fgets(tmp, 1024, inputFile);
+                if(strlen(tmp) > 0)
+                {
+                    #ifdef DEBUG
+                    printf("Nueva linea!\n");
+                    #endif
+                    (*ordersNumber)++;
+                    #ifdef DEBUG
+                    printf("size: %d\n", *refundsNumber);
+                    #endif
+                    tmpOrders = realloc(tmpOrders, sizeof(Order)*(*ordersNumber));
+                    getOrdersFromFile(tmp, 0, 7, tmpOrders, *ordersNumber-1);
+                    free(tmp);
+                }
+            }
+        }  
+        fclose(inputFile); 
+    }
+    else
+    {
+        printf("Error opening!\n");
+    }
+    return tmpOrders;
+}
+
+void getOrdersFromFile(char *input, int field, int maxFields, Order* orderArray, int orderNumber)
+{
+    if(field >= maxFields)
+        return;
+    int pos = getFieldLength(input);
+    char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
+    for (int i = 0; i < pos; i++) 
+    {
+        tmpString[i] = input[i];
+    }
+    tmpString[pos] = '\x0';
+    orderArray[orderNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
+    strcpy(orderArray[orderNumber].fields[field], tmpString);
+    truncateString(input, pos + 1);
+    
+    #ifdef DEBUG
+    printf("Final field: %s\n", tmpString);
+    printf("Final string: %s\n", input);
+    #endif
+    field++;
+    getOrdersFromFile(input, field, maxFields, orderArray, orderNumber);
+}
+
+ProductOrder* getProductOrders(int *productOrdersNumber)
+{
+    *productOrdersNumber = 0;
+    ProductOrder *tmpProductOrders = nullptr;
+    FILE *inputFile = fopen("productorders.txt", "r");
+    if(inputFile != nullptr)
+    {
+        tmpProductOrders = malloc(sizeof(ProductOrder));
+        if(tmpProductOrders != nullptr)
+        {
+            while(!feof(inputFile))
+            {
+                char *tmp = malloc(sizeof(char)*1024);
+                fgets(tmp, 1024, inputFile);
+                if(strlen(tmp) > 0)
+                {
+                    #ifdef DEBUG
+                    printf("Nueva linea!\n");
+                    #endif
+                    (*productOrdersNumber)++;
+                    #ifdef DEBUG
+                    printf("size: %d\n", *refundsNumber);
+                    #endif
+                    tmpProductOrders = realloc(tmpProductOrders, sizeof(ProductOrder)*(*productOrdersNumber));
+                    getProductOrdersFromFile(tmp, 0, 9, tmpProductOrders, *productOrdersNumber-1);
+                    free(tmp);
+                }
+            }
+        }  
+        fclose(inputFile); 
+    }
+    else
+    {
+        printf("Error opening!\n");
+    }
+    return tmpProductOrders;
+}
+
+void getProductOrdersFromFile(char *input, int field, int maxFields, ProductOrder* productOrderArray, int productOrderNumber)
+{
+    if(field >= maxFields)
+        return;
+    int pos = getFieldLength(input);
+    char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
+    for (int i = 0; i < pos; i++) 
+    {
+        tmpString[i] = input[i];
+    }
+    tmpString[pos] = '\x0';
+    productOrderArray[productOrderNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
+    strcpy(productOrderArray[productOrderNumber].fields[field], tmpString);
+    truncateString(input, pos + 1);
+    
+    #ifdef DEBUG
+    printf("Final field: %s\n", tmpString);
+    printf("Final string: %s\n", input);
+    #endif
+    field++;
+    getProductOrdersFromFile(input, field, maxFields, productOrderArray, productOrderNumber);
+}
+
+Category* getCategories(int *categoriesNumber)
+{
+    *categoriesNumber = 0;
+    Category *tmpCategories = nullptr;
+    FILE *inputFile = fopen("categories.txt", "r");
+    if(inputFile != nullptr)
+    {
+        tmpCategories = malloc(sizeof(Category));
+        if(tmpCategories != nullptr)
+        {
+            while(!feof(inputFile))
+            {
+                char *tmp = malloc(sizeof(char)*1024);
+                fgets(tmp, 1024, inputFile);
+                if(strlen(tmp) > 0)
+                {
+                    #ifdef DEBUG
+                    printf("Nueva linea!\n");
+                    #endif
+                    (*categoriesNumber)++;
+                    #ifdef DEBUG
+                    printf("size: %d\n", *refundsNumber);
+                    #endif
+                    tmpCategories = realloc(tmpCategories, sizeof(Category)*(*categoriesNumber));
+                    getCategoriesFromFile(tmp, 0, 2, tmpCategories, *categoriesNumber-1);
+                    free(tmp);
+                }
+            }
+        }  
+        fclose(inputFile); 
+    }
+    else
+    {
+        printf("Error opening!\n");
+    }
+    return tmpCategories;
+}
+
+void getCategoriesFromFile(char *input, int field, int maxFields, Category *categoryArray, int categoryNumber)
+{
+    if(field >= maxFields)
+        return;
+    int pos = getFieldLength(input);
+    char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
+    for (int i = 0; i < pos; i++) 
+    {
+        tmpString[i] = input[i];
+    }
+    tmpString[pos] = '\x0';
+    categoryArray[categoryNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
+    strcpy(categoryArray[categoryNumber].fields[field], tmpString);
+    truncateString(input, pos + 1);
+    
+    #ifdef DEBUG
+    printf("Final field: %s\n", tmpString);
+    printf("Final string: %s\n", input);
+    #endif
+    field++;
+    getCategoriesFromFile(input, field, maxFields, categoryArray, categoryNumber);
+}
+
+Discount* getDiscounts(int *discountsNumber)
+{
+    *discountsNumber = 0;
+    Discount *tmpDiscounts = nullptr;
+    FILE *inputFile = fopen("discounts.txt", "r");
+    if(inputFile != nullptr)
+    {
+        tmpDiscounts = malloc(sizeof(Discount));
+        if(tmpDiscounts != nullptr)
+        {
+            while(!feof(inputFile))
+            {
+                char *tmp = malloc(sizeof(char)*1024);
+                fgets(tmp, 1024, inputFile);
+                if(strlen(tmp) > 0)
+                {
+                    #ifdef DEBUG
+                    printf("Nueva linea!\n");
+                    #endif
+                    (*discountsNumber)++;
+                    #ifdef DEBUG
+                    printf("size: %d\n", *refundsNumber);
+                    #endif
+                    tmpDiscounts = realloc(tmpDiscounts, sizeof(Discount)*(*discountsNumber));
+                    getDiscountsFromFile(tmp, 0, 6, tmpDiscounts, *discountsNumber-1);
+                    free(tmp);
+                }
+            }
+        }  
+        fclose(inputFile); 
+    }
+    else
+    {
+        printf("Error opening!\n");
+    }
+    return tmpDiscounts;
+}
+
+void getDiscountsFromFile(char *input, int field, int maxFields, Discount *discountArray, int discountNumber)
+{
+    if(field >= maxFields)
+        return;
+    int pos = getFieldLength(input);
+    char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
+    for (int i = 0; i < pos; i++) 
+    {
+        tmpString[i] = input[i];
+    }
+    tmpString[pos] = '\x0';
+    discountArray[discountNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
+    strcpy(discountArray[discountNumber].fields[field], tmpString);
+    truncateString(input, pos + 1);
+    
+    #ifdef DEBUG
+    printf("Final field: %s\n", tmpString);
+    printf("Final string: %s\n", input);
+    #endif
+    field++;
+    getDiscountsFromFile(input, field, maxFields, discountArray, discountNumber);
+}

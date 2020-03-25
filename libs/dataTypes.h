@@ -125,8 +125,8 @@ typedef struct
 } ProductOrder;
 
 enum ProductOrderFields {productOrderID, productOrderProductID, productOrderUnitNumber,
-                          productOrderDeliveryDate, productOrderOrderStatus, productOrderCarrierID,
-                          productOrderLockerCode, productOrderReturnDate};
+                         productOrderDeliveryDate, productOrderOrderStatus, productOrderCarrierID,
+                         productOrderLockerCode, productOrderReturnDate};
 
 
 typedef struct 
@@ -156,10 +156,10 @@ typedef struct
     Date caducityDate;
     bool Applied;
     char *fields[5];
-} DiscountsClient;
+} DiscountClient;
 
-enum DiscountsClientFields {discountsClientID, discountsClientDiscountID, discountsClientAssignDate, 
-                            discountsClientCaducityDate, discountsClientApplied};
+enum DiscountClientFields {discountClientID, discountClientDiscountID, discountClientAssignDate, 
+                            discountClientCaducityDate, discountClientApplied};
 
 typedef struct 
 {
