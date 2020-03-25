@@ -43,3 +43,98 @@ AdminProvider loginProvider(char *email, char *password, int *pos)
     free(AdminProviderArray);
     return tmpAdminprovider;
 }
+
+void adminProviderMenu(User *user, bool *running, AdminProvider actualAdminProvider)
+{
+    AdminProvider actualAdminProvider = user->adminProviderUser;
+
+    bool logged = true;
+
+    int optionmenu;
+    char awnser;
+    do
+    {   do
+        {
+            printf("Hello Provider.\n");
+            printf("Input the option that you need.\n");
+            printf("1.Profile option.\n");
+            printf("2.Product option.\n");
+            printf("3.Order options.\n");
+            printf("4. Logout");
+        } while (optionmenu<1 && optionmenu>4);
+
+        switch (optionmenu)
+        {
+        case 1:
+            profileMenu(actualAdminProvider);
+            break;
+        case 2:
+            //ProductMenu
+            break;
+        case 3:
+            //OrderMenu
+            break;
+        case 4:
+            //LogOutMenu
+            break;
+        default:
+            break;
+        }
+        printf("Do you want to do something else before leaving?\n");
+        clearBuffer();
+        scanf("%c",&awnser);
+    } while (awnser=='y');
+}
+
+void profileMenu(AdminProvider actualAdminProvider)
+{
+    char awnser;
+    int option;
+    do
+    {
+        do
+        {
+            printf("Please select an option.\n");
+            printf("1. Show your Information.\n");
+            printf("2.Modify your Information.\n");
+            printf("3. Exit the menu.\n");
+            
+            switch (option)
+            {
+            case 1:
+                ShowAdminProviderInfo(actualAdminProvider);
+                break;
+            case 2:
+                ModifyAdminProviderInfo(actualAdminProvider);
+                break;
+            case 3:
+                //MenuExiting
+                break;    
+            default:
+                break;
+            }
+
+            clearBuffer();
+            scanf("%i",&option);
+        } while (option<1&&option>3);
+        
+      clearBuffer();  
+    } while (awnser=='y');
+}
+
+void ShowAdminProviderInfo(AdminProvider actualAdminProvider)
+{
+    printf("Your info is:\n\n");
+    printf("#---------------------------\n");
+    printf("Your ID is %i.\n",actualAdminProvider.id);
+    printf("The company that the Aministrator/Provider works for: %s\n", actualAdminProvider.fields[adminProviderName]);
+    printf("Your Email is %s.\n",actualAdminProvider.fields[adminProviderEmail]);
+    printf("Your password is %s.\n",actualAdminProvider.fields[adminProviderPassword]);
+    printf("The type of user is %s.\n",actualAdminProvider.fields[adminProviderType]);
+    printf("#---------------------------\n");
+
+}
+void ModifyAdminProviderInfo(AdminProvider actualAdminProvider)
+{
+    
+}

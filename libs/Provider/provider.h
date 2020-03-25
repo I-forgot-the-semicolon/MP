@@ -24,5 +24,6 @@
 #include "../fileHandler.h"
 
 AdminProvider loginProvider(char *email, char *password, int *pos);
-
+void adminProviderMenu(User *user, bool *running, AdminProvider actualAdminProvider);
+void profileMenu(AdminProvider actualAdminProvider);
 #endif

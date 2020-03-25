@@ -45,10 +45,11 @@ Carrier loginCarrier(char *email, char *password, int *pos)
 }
 
 //David
-void CarrierMenu(User *user, bool *runing, Client actualClient)
+void CarrierMenu(User *user, bool *runing)
 {
     Carrier actualCarrier = user->carrierUser;
-    bool logged = true;
+    
+    int flag = loggedFlag;
 
     do
     {
@@ -67,7 +68,7 @@ void CarrierMenu(User *user, bool *runing, Client actualClient)
             ProfileMenu(actualCarrier);
             break;
             case 2:
-            DistributionMenu(actualCarrier,actualClient);
+            //DistributionMenu();
             break;
             case 3:
             //ReturnMenu(carrier);
@@ -75,7 +76,7 @@ void CarrierMenu(User *user, bool *runing, Client actualClient)
             default:
             break;
         }
-    } while (logged);
+    } while (flag == loggedFlag);
     
     
 }
@@ -94,7 +95,7 @@ void ProfileMenu(Carrier actualCarrier)
         {
             scanf("%i",&optionSelect);
             
-        } while (optionSelect>0||optionSelect<4);
+        } while (optionSelect<=0||optionSelect>=4);
 
         switch (optionSelect)
             {
@@ -133,8 +134,9 @@ void ModifyCarrierInfo(Carrier actualCarrier)
     printf("1. Email.\n");
     printf("2.The company.\n");
     printf("3.The city.\n");
-    scanf("%i",&optionSelect);
     clearBuffer();
+    scanf("%i",&optionSelect);
+    
     switch (optionSelect)
     {
         case 1:
@@ -172,7 +174,7 @@ void ModifyCarrierInfo(Carrier actualCarrier)
 
 }
 //David
-void DistributionMenu(Carrier actualCarrier, Client actualClient)
+void DistributionMenu(Carrier actualCarrier) //
 {
     int optionSelect;
     char awnser[1];
@@ -191,7 +193,7 @@ void DistributionMenu(Carrier actualCarrier, Client actualClient)
         switch (optionSelect)
         {
         case 1:
-            //ShowDistributionInfo(actualCarrier,actualClient);
+                ShowDistributionInfo();
             break;
         case 2:
             //ModifyDistributionInfo(actualCarrier, actualClient);
@@ -203,7 +205,6 @@ void DistributionMenu(Carrier actualCarrier, Client actualClient)
         }
         printf("Do you want something else before leaving?\n");
     } while (awnser[0]=='y');
-    
     
     
 
