@@ -42,11 +42,11 @@ Client loginClient(char *email, char *password, int *pos)
     return tmpClient;
 }
 
-void clientMenu(User *user, bool *running)
+int clientMenu(User *user, bool *running)
 {
+    int flag = loggedFlag;
     Client actualClient = user->clientUser;
     printf("Welcome user: %s\n", user->clientUser.fields[clientEmail]);
-    bool logged = true;
     do
     {
         int option;
@@ -66,14 +66,37 @@ void clientMenu(User *user, bool *running)
                 clientProfile(&actualClient);
                 break;
             case 6:
-                logged = false;
+                logoutClient(&flag, running);
                 break;
             default:
                 printf("Invalid option\n");
                 break;
         }
-    } while (logged);
-    
+    } while (flag == loggedFlag);
+
+    return flag;
+}
+
+void logoutClient(int *flag, int *running)
+{
+    int option;
+    printf("1. Exit to login\n");
+    printf("2. Exit program\n");
+    printf("Select an option: ");
+    scanf("%d", &option);
+    switch (option)
+    {
+        case 1:
+                *flag = loginFlag;
+                break;
+        case 2:
+                *flag = exitFlag;
+                *running = false;
+                break;
+        default:
+                printf("Invalid option\n");
+                break;
+    }
 }
 
 void clientProfile(Client *actualClient)

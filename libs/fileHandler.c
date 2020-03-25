@@ -143,13 +143,7 @@ void getProductFromFile(char *input, int field, int maxFields, Product* productA
 
     unsigned int pos = getFieldLength(input);
     char *tmpString = copyUntil(input, pos);
-    /*
-    char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
-    for (int i = 0; i < pos; i++) 
-    {
-        tmpString[i] = input[i];
-    }
-    tmpString[pos] = '\x0';*/
+
     productArray[productNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(productArray[productNumber].fields[field], tmpString);
     truncateString(input, pos + 1);
@@ -183,9 +177,13 @@ Carrier* getCarriers(int *carriersNumber)
                     fgets(tmp, 1024, inputFile);
                     if(strlen(tmp) > 0)
                     {
+                        #ifdef DEBUG
                         printf("Nueva linea!\n");
+                        #endif
                         (*carriersNumber)++;
+                        #ifdef DEBUG
                         printf("size: %d\n", *carriersNumber);
+                        #endif
                         tmpCarriers = realloc(tmpCarriers, sizeof(Carrier)*(*carriersNumber));
                         getCarrierFromFile(tmp, 0, 5, tmpCarriers, *carriersNumber-1);
                         free(tmp);
@@ -193,7 +191,7 @@ Carrier* getCarriers(int *carriersNumber)
                 }
                 else
                 {
-                    printf("Error reserving memory\n");
+                    printf("Error allocating memory\n");
                 }
                 
             }
@@ -245,9 +243,13 @@ Refund* getRefunds(int *refundsNumber)
                 fgets(tmp, 1024, inputFile);
                 if(strlen(tmp) > 0)
                 {
+                    #ifdef DEBUG
                     printf("Nueva linea!\n");
+                    #endif
                     (*refundsNumber)++;
+                    #ifdef DEBUG
                     printf("size: %d\n", *refundsNumber);
+                    #endif
                     tmpRefunds = realloc(tmpRefunds, sizeof(Refund)*(*refundsNumber));
                     getRefundFromFile(tmp, 0, 7, tmpRefunds, *refundsNumber-1);
                     free(tmp);

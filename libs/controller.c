@@ -19,37 +19,45 @@
 
 void flowController(bool* running)
 {
-    User *user = malloc(sizeof(User));
-    bool loginCorrect = false;
-    
+    int flag;
     do
     {
-        loginCorrect = login(user);
-        if(!loginCorrect)
-        {
-            char *answer = malloc(sizeof(char));
-            printf("Do you want to exit? y/n\n");
-            scanf("%s", answer);
-            if(*answer == 'y' || *answer == 'Y')
-            {
-                *running = false;
-            }       
-            free(answer);
-        }
-    } while (!loginCorrect && *running);
+        User *user = malloc(sizeof(User));
+        bool loginCorrect = false;
     
-    if(loginCorrect)    
-        redirectUser(user, running);
+        do
+        {
+            loginCorrect = login(user);
+            if(!loginCorrect)
+            {
+                char *answer = malloc(sizeof(char));
+                printf("Do you want to exit? y/n\n");
+                scanf("%s", answer);
+                if(*answer == 'y' || *answer == 'Y')
+                {
+                    *running = false;
+                }       
+                free(answer);
+            }
+        } while (!loginCorrect && *running);
+    
+        if(loginCorrect)    
+            flag = redirectUser(user, running);
 
-    free(user);
+        free(user);
+
+    } while(flag != exitFlag);
+    
+    
 }
 
-void redirectUser(User *user, bool *running)
+int redirectUser(User *user, bool *running)
 {
+    int flag;
     switch (user->userType)
     {
         case client:
-            clientMenu(user, running);
+            flag = clientMenu(user, running);
             break;
         case carrier:
             printf("Welcome carrier: %s\n", user->carrierUser.fields[carrierEmail]);
@@ -61,6 +69,7 @@ void redirectUser(User *user, bool *running)
         default:
             break;
     }
+    return flag;
 }
 
 bool login(User *userArray)
