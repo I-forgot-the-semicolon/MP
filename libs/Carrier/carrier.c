@@ -174,7 +174,7 @@ void ModifyCarrierInfo(Carrier actualCarrier)
 
 }
 //David
-void DistributionMenu(Carrier actualCarrier) //
+void DistributionMenu(Carrier actualCarrier, Client actualClient) //
 {
     int optionSelect;
     char awnser[1];
