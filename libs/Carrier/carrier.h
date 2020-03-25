@@ -22,10 +22,10 @@
 #include "../fileHandler.h"
 
 Carrier loginCarrier(char *email, char *password, int *pos);
-void CarrierMenu(User *user, bool *runing, Client actualClient);
+void CarrierMenu(User *user, bool *runing);
 void ProfileMenu(Carrier actualCarrier);
 void ShowCarrierInfo(Carrier actualCarrier);
 void ModifyCarrierInfo(Carrier actualCarrier);
-void DistributionMenu(Carrier actualCarrier, Client actualClient);
+void DistributionMenu(Carrier actualCarrier);
 
 #endif

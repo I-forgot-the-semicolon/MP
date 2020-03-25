@@ -136,5 +136,21 @@ void ShowAdminProviderInfo(AdminProvider actualAdminProvider)
 }
 void ModifyAdminProviderInfo(AdminProvider actualAdminProvider)
 {
+    int optionselect;
+    int awnser;
+
+    do
+    {
+        do
+        {
+            
+        } while (optionselect<0&&optionselect>6);
+        
+
+
+        printf("Do you want to do something else before leaving?(y/n)");
+        clearBuffer();
+        scanf("%c",&awnser);
+    } while (awnser=='y');
     
 }
