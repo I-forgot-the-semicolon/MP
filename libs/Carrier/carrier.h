@@ -26,6 +26,7 @@ void CarrierMenu(User *user, bool *runing);
 void ProfileMenu(Carrier actualCarrier);
 void ShowCarrierInfo(Carrier actualCarrier);
 void ModifyCarrierInfo(Carrier actualCarrier);
-void DistributionMenu(Carrier actualCarrier, Client actualClient);
+void DistributionMenu(Carrier actualCarrier);
+void ShowDistributionMenu(ProductOrder actualProductOrder);
 
 #endif

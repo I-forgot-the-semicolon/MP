@@ -174,7 +174,7 @@ void ModifyCarrierInfo(Carrier actualCarrier)
 
 }
 //David
-void DistributionMenu(Carrier actualCarrier, Client actualClient) //
+void DistributionMenu(Carrier actualCarrier) //
 {
     int optionSelect;
     char awnser[1];
@@ -193,7 +193,7 @@ void DistributionMenu(Carrier actualCarrier, Client actualClient) //
         switch (optionSelect)
         {
         case 1:
-                //ShowDistributionInfo();
+                ShowDistributionInfo();
             break;
         case 2:
             //ModifyDistributionInfo(actualCarrier, actualClient);
@@ -206,6 +206,18 @@ void DistributionMenu(Carrier actualCarrier, Client actualClient) //
         printf("Do you want something else before leaving?\n");
     } while (awnser[0]=='y');
     
-    
+}
 
+void ShowDistributionMenu(ProductOrder actualProductOrder)
+{
+    int i,orderAmount;
+    printf("You have %i orders.\n",orderAmount);//Completar el número de pedidos
+    for(i=0;i<orderAmount;i++)
+    {
+        printf("The Order ID is %i.\n",actualProductOrder.orderID);
+        printf("The Date of Delivery is %i\n",actualProductOrder.deliveryDate);
+        printf("The status is %s.\n",actualProductOrder.fields[productOrderOrderStatus]);
+        printf("The deliver ");
+    }
+    
 }
