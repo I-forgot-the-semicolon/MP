@@ -16,45 +16,43 @@
  */
 
 #include "controller.h"
+#include "Utils/utils.h"
 
-void flowController(bool* running)
+void flowController()
 {
     int flag;
+    int loginCorrect;
+    User *user = malloc(sizeof(User));
     do
     {
-        User *user = malloc(sizeof(User));
-        bool loginCorrect = false;
-    
-        do
+        loginCorrect = login(user);
+        if(loginCorrect == -1)
         {
-            loginCorrect = login(user);
-            if(!loginCorrect)
+            char answer;
+            printf("Do you want to exit? y/n\n");
+            clearBuffer();
+            scanf("%c", &answer);
+            if(answer == 'y' || answer == 'Y')
             {
-                char *answer = malloc(sizeof(char));
-                printf("Do you want to exit? y/n\n");
-                scanf("%s", answer);
-                if(*answer == 'y' || *answer == 'Y')
-                {
-                    *running = false;
-                }       
-                free(answer);
-            }
-        } while (!loginCorrect && *running);
-    
-        if(loginCorrect)    
-            flag = redirectUser(user, running);
-
-        free(user);
+                flag = exitFlag;
+            }       
+        }
+        else
+        {
+            flag = redirectUser(user);
+        }
     } while(flag != exitFlag);
+
+    free(user);
 }
 
-int redirectUser(User *user, bool *running)
+int redirectUser(User *user)
 {
     int flag;
     switch (user->userType)
     {
         case client:
-            flag = clientMenu(user, running);
+            flag = clientMenu(user);
             break;
         case carrier:
             printf("Welcome carrier: %s\n", user->carrierUser.fields[carrierEmail]);
@@ -69,7 +67,7 @@ int redirectUser(User *user, bool *running)
     return flag;
 }
 
-bool login(User *userArray)
+int login(User *userArray)
 {
     char buffer[1024];
     char *username;
@@ -127,5 +125,5 @@ bool login(User *userArray)
     
     free(username);
     free(password);
-    return pos != -1 ? true : false;
+    return pos;
 }

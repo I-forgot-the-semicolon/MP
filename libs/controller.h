@@ -21,8 +21,8 @@
 #include "Client/client.h"
 #include "Carrier/carrier.h"
 
-void flowController(bool* running);
-bool login(User *userArray);
-int redirectUser(User *userArray, bool *running);
+void flowController();
+int login(User *userArray);
+int redirectUser(User *userArray);
 
 #endif

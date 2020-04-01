@@ -174,7 +174,7 @@ void ModifyCarrierInfo(Carrier actualCarrier)
 
 }
 //David
-void DistributionMenu(Carrier actualCarrier) //
+void DistributionMenu(Carrier actualCarrier, Client actualClient) //
 {
     int optionSelect;
     char awnser[1];
@@ -193,7 +193,7 @@ void DistributionMenu(Carrier actualCarrier) //
         switch (optionSelect)
         {
         case 1:
-                ShowDistributionInfo();
+                //ShowDistributionInfo();
             break;
         case 2:
             //ModifyDistributionInfo(actualCarrier, actualClient);

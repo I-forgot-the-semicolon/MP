@@ -73,3 +73,4 @@ char *copyUntil(char *sString, int pos)
     tmpString[pos] = '\x0';
     return tmpString;
 }
+
