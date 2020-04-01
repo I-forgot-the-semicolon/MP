@@ -126,8 +126,8 @@ void ShowAdminProviderInfo(AdminProvider actualAdminProvider)
 {
     printf("Your info is:\n\n");
     printf("#---------------------------\n");
+    printf("Your Name is %s.\n",actualAdminProvider.fields[adminProviderName]);
     printf("Your ID is %i.\n",actualAdminProvider.id);
-    printf("The company that the Aministrator/Provider works for: %s\n", actualAdminProvider.fields[adminProviderName]);
     printf("Your Email is %s.\n",actualAdminProvider.fields[adminProviderEmail]);
     printf("Your password is %s.\n",actualAdminProvider.fields[adminProviderPassword]);
     printf("The type of user is %s.\n",actualAdminProvider.fields[adminProviderType]);
@@ -138,16 +138,55 @@ void ModifyAdminProviderInfo(AdminProvider actualAdminProvider)
 {
     int optionselect;
     int awnser;
-
     do
     {
+        printf("Select an option.\n(1)Modify your Name.\n(2)Modify your Email.\n(3)Modify your Password.\n(4)Exit.\n");
         do
         {
-            
-        } while (optionselect<0&&optionselect>6);
-        
-
-
+            clearBuffer();   
+            scanf("%i",&optionselect);
+            switch (optionselect)
+            {
+            case 1:
+                do
+                {
+                    printf("Input the new Name that you use.\n");
+                    clearBuffer();
+                    scanf("%s",&actualAdminProvider.fields[adminProviderName]);
+                    printf("Your NEW NAME is going to be: %s.\nIs it good?(y/n)\n",actualAdminProvider.fields[adminProviderName]);
+                    clearBuffer();
+                    scanf("%c",&awnser);
+                } while (awnser=='n');    
+                break;
+            case 2:
+                do
+                {
+                    printf("Input the NEW Email Address that you use.\n");
+                    clearBuffer();
+                    scanf("%s",&actualAdminProvider.fields[adminProviderEmail]);
+                    printf("Your NEW EMAIL ADDRESS  is going to be: %s.\nIs it good?(y/n)\n",actualAdminProvider.fields[adminProviderEmail]);
+                    clearBuffer();
+                    scanf("%c",&awnser);
+                } while (awnser=='n');    
+                break;
+            case 3:
+                do
+                {
+                    printf("Input the NEW PASSWORD that you use.\n");
+                    clearBuffer();
+                    scanf("%s",&actualAdminProvider.fields[adminProviderPassword]);
+                    printf("Your NEW PASSWORD is going to be: %s.\nIs it good?(y/n)\n",actualAdminProvider.fields[adminProviderPassword]);
+                    clearBuffer();
+                    scanf("%c",&awnser);
+                } while (awnser=='n');    
+                break;
+            case 4:
+                printf("Exiting...");
+                break;
+            default:
+                break;
+            }
+        } while (optionselect>0&&optionselect<5);
         printf("Do you want to do something else before leaving?(y/n)");
         clearBuffer();
         scanf("%c",&awnser);
