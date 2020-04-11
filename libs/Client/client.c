@@ -19,25 +19,32 @@
 
 Client loginClient(char *email, char *password, int *pos)
 {
-    Client tmpClient;
+    Client tmpClient = {0, 0, nullptr};
     bool found = false;
 
     int clientsArraySize;
     Client *clientsArray = getClients(&clientsArraySize);
 
-    for (int i = 0; i < clientsArraySize && !found; i++) 
+    if(clientsArray != nullptr)
     {
-        if(strcmp(email, clientsArray[i].fields[clientEmail]) == 0 && strcmp(password, clientsArray[i].fields[clientPassword]) == 0)
+        for (int i = 0; i < clientsArraySize && !found; i++)
         {
-            printf("Username found!\n");
-            printf("Password correct!\n");
-            tmpClient = clientsArray[i];
-            found = true;
-            *pos = i;     
+            if(strcmp(email, clientsArray[i].fields[clientEmail]) == 0 && strcmp(password, clientsArray[i].fields[clientPassword]) == 0)
+            {
+                printf("Username found!\n");
+                printf("Password correct!\n");
+                tmpClient = clientsArray[i];
+                found = true;
+                *pos = i;
+            }
         }
+        free(clientsArray);
     }
-
-    free(clientsArray);
+    else
+    {
+       printf("Error critico, clientsArray es nulo.\n");
+       exit(-2);
+    }
     return tmpClient;
 }
 
@@ -99,7 +106,6 @@ void logoutClient(int *flag)
 
 void clientProfile(Client *actualClient)
 {
-    int option;
     bool back = false;
     do
     {
@@ -130,7 +136,7 @@ void clientProfile(Client *actualClient)
 
 void viewProfile(Client actualClient)
 {
-    printf("#---------------------------\n");
+    printf("#-----------------------------------------------------\n");
     printf("# Name: %s\n", actualClient.fields[clientName]);
     printf("# Surname: %s\n", actualClient.fields[clientSurname]);
     printf("# Address: %s\n", actualClient.fields[clientAddress]);
@@ -139,7 +145,7 @@ void viewProfile(Client actualClient)
     printf("# Email: %s\n", actualClient.fields[clientEmail]);
     printf("# Password: %s\n", actualClient.fields[clientPassword]);
     printf("# Wallet: %s\n", actualClient.fields[clientWallet]);
-    printf("#---------------------------\n");
+    printf("#-----------------------------------------------------\n");
 }
 
 void modifyProfile(Client *actualClient)

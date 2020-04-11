@@ -30,7 +30,7 @@ AdminProvider loginProvider(char *email, char *password, int *pos)
   for (int i = 0; i < AdminProviderArraySize && !found; i++) 
   {
       //printf("%s -> %s\n", email, AdminProviderArray[i].fields[AdminProviderEmail]);
-        if(strcasecmp(email, AdminProviderArray[i].fields[adminProviderEmail]) == 0 && strcmp(password, AdminProviderArray[i].fields[adminProviderPassword]) == 0)
+        if(strcmp(email, AdminProviderArray[i].fields[adminProviderEmail]) == 0 && strcmp(password, AdminProviderArray[i].fields[adminProviderPassword]) == 0)
         {
             printf("Username found!\n");
             printf("Password correct!\n");
@@ -46,7 +46,7 @@ AdminProvider loginProvider(char *email, char *password, int *pos)
 
 void adminProviderMenu(User *user, bool *running, AdminProvider actualAdminProvider)
 {
-    AdminProvider actualAdminProvider = user->adminProviderUser;
+    //AdminProvider actualAdminProvider = user->adminProviderUser;
 
     bool logged = true;
 

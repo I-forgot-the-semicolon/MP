@@ -22,7 +22,7 @@ Client* getClients(int *clientsNumber)
 {
     *clientsNumber = 0;
     Client *tmpClients = nullptr;
-    FILE *inputFile = fopen("clientes.txt", "r");
+    FILE *inputFile = fopen("../databases/clientes.txt", "r");
     if(inputFile != nullptr)
     {
         tmpClients = malloc(sizeof(Client));
@@ -39,6 +39,11 @@ Client* getClients(int *clientsNumber)
             }
         }
         fclose(inputFile);
+    }
+    else
+    {
+        printf("Error opening client database\n");
+        exit(-1);
     }
     return tmpClients;
 }
@@ -70,7 +75,7 @@ AdminProvider* getAdminsProviders(int *adminsProvidersNumber)
 {
     *adminsProvidersNumber = 0;
     AdminProvider *tmpAdminsProviders = nullptr;
-    FILE *inputFile = fopen("adminprov.txt", "r");
+    FILE *inputFile = fopen("../databases/adminprov.txt", "r");
     if(inputFile != nullptr)
     {
         tmpAdminsProviders = malloc(sizeof(AdminProvider));
@@ -115,7 +120,7 @@ Product* getProducts(int *productsNumber)
 {
     *productsNumber = 0;
     Product *tmpProducts = nullptr;
-    FILE *inputFile = fopen("products.txt", "r");
+    FILE *inputFile = fopen("../databases/products.txt", "r");
     if(inputFile != nullptr)
     {
         tmpProducts = malloc(sizeof(Product));
@@ -167,7 +172,7 @@ Carrier* getCarriers(int *carriersNumber)
 {
     *carriersNumber = 0;
     Carrier *tmpCarriers = nullptr;
-    FILE *inputFile = fopen("carriers.txt", "r");
+    FILE *inputFile = fopen("../databases/carriers.txt", "r");
     if(inputFile != nullptr)
     {
         tmpCarriers = malloc(sizeof(Carrier));
@@ -235,7 +240,7 @@ Refund* getRefunds(int *refundsNumber)
 {
     *refundsNumber = 0;
     Refund *tmpRefunds = nullptr;
-    FILE *inputFile = fopen("refunds.txt", "r");
+    FILE *inputFile = fopen("../databases/refunds.txt", "r");
     if(inputFile != nullptr)
     {
         tmpRefunds = malloc(sizeof(Refund));
@@ -298,7 +303,7 @@ Order* getOrders(int *ordersNumber)
 {
     *ordersNumber = 0;
     Order *tmpOrders = nullptr;
-    FILE *inputFile = fopen("orders.txt", "r");
+    FILE *inputFile = fopen("../databases/orders.txt", "r");
     if(inputFile != nullptr)
     {
         tmpOrders = malloc(sizeof(Order));
@@ -359,7 +364,7 @@ ProductOrder* getProductOrders(int *productOrdersNumber)
 {
     *productOrdersNumber = 0;
     ProductOrder *tmpProductOrders = nullptr;
-    FILE *inputFile = fopen("productorders.txt", "r");
+    FILE *inputFile = fopen("../databases/productorders.txt", "r");
     if(inputFile != nullptr)
     {
         tmpProductOrders = malloc(sizeof(ProductOrder));
@@ -420,7 +425,7 @@ Category* getCategories(int *categoriesNumber)
 {
     *categoriesNumber = 0;
     Category *tmpCategories = nullptr;
-    FILE *inputFile = fopen("categories.txt", "r");
+    FILE *inputFile = fopen("../databases/categories.txt", "r");
     if(inputFile != nullptr)
     {
         tmpCategories = malloc(sizeof(Category));
@@ -481,7 +486,7 @@ Discount* getDiscounts(int *discountsNumber)
 {
     *discountsNumber = 0;
     Discount *tmpDiscounts = nullptr;
-    FILE *inputFile = fopen("discounts.txt", "r");
+    FILE *inputFile = fopen("../databases/discounts.txt", "r");
     if(inputFile != nullptr)
     {
         tmpDiscounts = malloc(sizeof(Discount));

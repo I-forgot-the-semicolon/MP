@@ -21,7 +21,7 @@
 
 Carrier loginCarrier(char *email, char *password, int *pos) 
 {
-  Carrier tmpCarrier;
+  Carrier tmpCarrier = {0, nullptr};
   bool found = false;
 
   int carriersArraySize;
@@ -29,8 +29,7 @@ Carrier loginCarrier(char *email, char *password, int *pos)
 
   for (int i = 0; i < carriersArraySize && !found; i++) 
   {
-      //printf("%s -> %s\n", email, carriersArray[i].fields[carrierEmail]);
-        if(strcasecmp(email, carriersArray[i].fields[carrierEmail]) == 0 && strcmp(password, carriersArray[i].fields[carrierPassword]) == 0)
+        if(strcmp(email, carriersArray[i].fields[carrierEmail]) == 0 && strcmp(password, carriersArray[i].fields[carrierPassword]) == 0)
         {
             printf("Username found!\n");
             printf("Password correct!\n");
@@ -193,7 +192,7 @@ void DistributionMenu(Carrier actualCarrier) //
         switch (optionSelect)
         {
         case 1:
-                ShowDistributionInfo();
+                //ShowDistributionInfo();
             break;
         case 2:
             //ModifyDistributionInfo(actualCarrier, actualClient);

@@ -33,7 +33,7 @@ typedef struct
 
 enum userType {client, carrier, admin, provider};
 
-enum flags {loginFlag, saveFlag, exitFlag, loggedFlag};
+enum flags {loginFlag, saveFlag, exitFlag, loggedFlag, NOP};
 
 //Custom structs
 

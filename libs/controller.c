@@ -20,7 +20,7 @@
 
 void flowController()
 {
-    int flag;
+    int flag = NOP;
     int loginCorrect;
     User *user = malloc(sizeof(User));
     do
@@ -75,12 +75,12 @@ int login(User *userArray)
 
     printf("Username: ");
     scanf("%s", buffer);
-    username = malloc(sizeof(char)*strlen(buffer));
+    username = malloc(sizeof(char)*(strlen(buffer)+1));
     strcpy(username, buffer);
 
     printf("Password: ");
     scanf("%s", buffer);
-    password = malloc(sizeof(char)*strlen(buffer));
+    password = malloc(sizeof(char)*(strlen(buffer)+1));
     strcpy(password, buffer);
 
     int pos = -1;
@@ -122,7 +122,7 @@ int login(User *userArray)
     {
         printf("Invalid email or password\n");
     }
-    
+
     free(username);
     free(password);
     return pos;
