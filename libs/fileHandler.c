@@ -101,21 +101,21 @@ void saveClient(Client actualClient)
         free(fileHolder[actualClient.id-1]);
         fileHolder[actualClient.id-1] = finalString;
 
-        //FILE *outputFile = fopen("../databases/clientes.txt", "w+");
-        //if(outputFile != nullptr)
-        //{
+        FILE *outputFile = fopen("../databases/clientes.txt", "w+");
+        if(outputFile != nullptr)
+        {
             for(int i = 0; i < clientsNumber; i++)
             {
-                //fputs(fileHolder[i], outputFile);
+                fputs(fileHolder[i], outputFile);
                 printf("%d: %s", i, fileHolder[i]);
             }
-            //fclose(outputFile);
-        //}
-        //else
-        //{
-            //printf("Error critico al guardar los datos!\n");
-            //exit(-2);
-        //}
+            fclose(outputFile);
+        }
+        else
+        {
+            printf("Error critico al guardar los datos!\n");
+            exit(-2);
+        }
 
         for(int i = 0; i < clientsNumber; i++)
         {
