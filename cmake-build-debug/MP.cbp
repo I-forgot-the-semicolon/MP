@@ -4,147 +4,145 @@
 	<Project>
 		<Option title="MP"/>
 		<Option makefile_is_custom="1"/>
-		<Option compiler="msvc8"/>
+		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/cmake-build-debug"/>
+				<Option working_dir="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 all"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="MP">
-				<Option output="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/cmake-build-debug/MP.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="msvc8"/>
-				<Compiler>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs"/>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Admin"/>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Carrier"/>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Client"/>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Provider"/>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Utils"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 MP"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="MP/fast">
-				<Option output="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/cmake-build-debug/MP.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="msvc8"/>
-				<Compiler>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs"/>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Admin"/>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Carrier"/>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Client"/>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Provider"/>
-					<Add directory="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Utils"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 MP/fast"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/cmake-build-debug"/>
+				<Option working_dir="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\warl0\Desktop\Escritorio\Coding\C\MP\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MP">
+				<Option output="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/MP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 MP"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MP/fast">
+				<Option output="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/MP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 MP/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Admin/admin.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin/admin.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Admin/admin.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin/admin.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Carrier/carrier.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Carrier/carrier.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Client/client.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Client/client.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Provider/provider.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/provider.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Provider/provider.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/provider.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Utils/utils.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/Utils/utils.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/controller.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/controller.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/dataTypes.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/fileHandler.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/libs/fileHandler.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/main.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/main.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/warl0/Desktop/Escritorio/Coding/C/MP/CMakeLists.txt">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

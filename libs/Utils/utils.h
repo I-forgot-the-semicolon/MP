@@ -19,10 +19,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "dataTypes.h"
+
+//#define DEBUG
 
 void clearBuffer();
-int getFieldLength(char *input);
-void truncateString(char *input, int startPos);
-char *copyUntil(char *sString, int pos);
+unsigned int getFieldLength(char *input);
+void truncateString(char *input, unsigned int startPos);
+char *copyUntil(const char *sString, unsigned int pos);
+char *concatenate(char *a, char *b);
+void concatenateChar(char *a, char b);
 
 #endif

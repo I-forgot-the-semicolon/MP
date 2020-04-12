@@ -26,6 +26,7 @@
 
 Client* getClients(int *clientsNumber);
 void getClientFromFile(char *input, int field, int maxFields, Client *clientArray, int clientNumber);
+void saveClient(Client actualClient);
 
 AdminProvider* getAdminsProviders(int *adminsProvidersNumber);
 void getAdminsProvidersFromFile(char *input, int field, int maxFields, AdminProvider *adminsProviderArray, int adminProviderNumber);

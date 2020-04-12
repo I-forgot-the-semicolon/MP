@@ -22,7 +22,7 @@ Client loginClient(char *email, char *password, int *pos)
     Client tmpClient = {0, 0, nullptr};
     bool found = false;
 
-    int clientsArraySize;
+    int clientsArraySize = 0;
     Client *clientsArray = getClients(&clientsArraySize);
 
     if(clientsArray != nullptr)
@@ -34,6 +34,7 @@ Client loginClient(char *email, char *password, int *pos)
                 printf("Username found!\n");
                 printf("Password correct!\n");
                 tmpClient = clientsArray[i];
+                printf("With id: %d\n", tmpClient.id);
                 found = true;
                 *pos = i;
             }
@@ -56,13 +57,13 @@ int clientMenu(User *user)
     do
     {
         int option;
+        printf("Your id is: %d \n", actualClient.id);
         printf("1. Profile\n");
         printf("2. Products\n");
         printf("3. Discounts\n");
         printf("4. Orders\n");
         printf("5. Returns\n");
         printf("6. Logout\n");
-
         printf("Select an option: ");
         scanf("%d", &option);
 
@@ -125,6 +126,7 @@ void clientProfile(Client *actualClient)
                 modifyProfile(actualClient);
                 break;
             case 3:
+                saveClient(*actualClient);
                 back = true;
                 break;
             default:

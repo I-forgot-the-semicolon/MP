@@ -34,7 +34,13 @@ Client* getClients(int *clientsNumber)
             {
                 (*clientsNumber)++;
                 tmpClients = realloc(tmpClients, sizeof(Client)*(*clientsNumber));
-                getClientFromFile(tmp, 0, 9, tmpClients, *clientsNumber-1);
+                printf("Client number: %d\n", *clientsNumber);
+                if(*clientsNumber > 1)
+                    tmpClients[*clientsNumber].id = *clientsNumber;
+                else
+                    tmpClients->id = *clientsNumber;
+
+                getClientFromFile(tmp, 0, ClientFieldNumber, tmpClients, *clientsNumber-1);
                 free(tmp);
             }
         }
@@ -56,20 +62,67 @@ void getClientFromFile(char *input, int field, int maxFields, Client* clientArra
 {
     if(field >= maxFields)
         return;
+
     unsigned int pos = getFieldLength(input);
     char *tmpString = copyUntil(input, pos);
+
     clientArray[clientNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(clientArray[clientNumber].fields[field], tmpString);
     truncateString(input, pos + 1);
-    
+
     #ifdef DEBUG
-    printf("Final field: %s\n", tmpString);
+    printf("Field(%d): %s\n", field, tmpString);
     printf("Final string: %s\n", input);
     #endif
     field++;
     getClientFromFile(input, field, maxFields, clientArray, clientNumber);
 }
 
+void saveClient(Client actualClient)
+{
+    FILE *outputFile = fopen("../databases/clientes.txt", "r+");
+    if(outputFile != nullptr)
+    {
+        char buffer[1024];
+        for(int i = 0; i < actualClient.id; i++)
+        {
+            printf("Moving thru file\n");
+            fgets(buffer, 1024, outputFile);
+        }
+
+        char *finalString = nullptr;
+        int field = 0;
+        int totalFields = ClientFieldNumber + ClientFieldNumber-1;
+        for(int i = 0; i < totalFields; i++)
+        {
+            printf("i: %d\n", i);
+            if(i % 2 == 0)
+            {
+                finalString = concatenate(finalString, actualClient.fields[field]);
+                field++;
+            }
+            else
+            {
+                concatenateChar(finalString, '/');
+            }
+        }
+
+        printf("Actual: %s\n", finalString);
+        for(int i = 0; i < strlen(finalString); i++)
+        {
+            fputc(finalString[i], outputFile);
+        }
+        //fputs(finalString, outputFile);
+
+        free(finalString);
+        fclose(outputFile);
+    }
+    else
+    {
+        printf("Error critico al guardar los datos!\n");
+        exit(-1);
+    }
+}
 
 AdminProvider* getAdminsProviders(int *adminsProvidersNumber)
 {
@@ -285,7 +338,7 @@ void getRefundFromFile(char *input, int field, int maxFields, Refund* refundArra
     {
         tmpString[i] = input[i];
     }
-    tmpString[pos] = '\x0';
+    tmpString[pos] = '\x00';
     refundArray[refundNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(refundArray[refundNumber].fields[field], tmpString);
     truncateString(input, pos + 1);
@@ -319,9 +372,6 @@ Order* getOrders(int *ordersNumber)
                     printf("Nueva linea!\n");
                     #endif
                     (*ordersNumber)++;
-                    #ifdef DEBUG
-                    printf("size: %d\n", *refundsNumber);
-                    #endif
                     tmpOrders = realloc(tmpOrders, sizeof(Order)*(*ordersNumber));
                     getOrdersFromFile(tmp, 0, 7, tmpOrders, *ordersNumber-1);
                     free(tmp);
@@ -380,9 +430,7 @@ ProductOrder* getProductOrders(int *productOrdersNumber)
                     printf("Nueva linea!\n");
                     #endif
                     (*productOrdersNumber)++;
-                    #ifdef DEBUG
-                    printf("size: %d\n", *refundsNumber);
-                    #endif
+
                     tmpProductOrders = realloc(tmpProductOrders, sizeof(ProductOrder)*(*productOrdersNumber));
                     getProductOrdersFromFile(tmp, 0, 9, tmpProductOrders, *productOrdersNumber-1);
                     free(tmp);
@@ -441,9 +489,7 @@ Category* getCategories(int *categoriesNumber)
                     printf("Nueva linea!\n");
                     #endif
                     (*categoriesNumber)++;
-                    #ifdef DEBUG
-                    printf("size: %d\n", *refundsNumber);
-                    #endif
+
                     tmpCategories = realloc(tmpCategories, sizeof(Category)*(*categoriesNumber));
                     getCategoriesFromFile(tmp, 0, 2, tmpCategories, *categoriesNumber-1);
                     free(tmp);
@@ -502,9 +548,6 @@ Discount* getDiscounts(int *discountsNumber)
                     printf("Nueva linea!\n");
                     #endif
                     (*discountsNumber)++;
-                    #ifdef DEBUG
-                    printf("size: %d\n", *refundsNumber);
-                    #endif
                     tmpDiscounts = realloc(tmpDiscounts, sizeof(Discount)*(*discountsNumber));
                     getDiscountsFromFile(tmp, 0, 6, tmpDiscounts, *discountsNumber-1);
                     free(tmp);

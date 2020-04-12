@@ -52,6 +52,7 @@ typedef struct
     float wallet;
     char *fields[9];
 } Client;
+#define ClientFieldNumber 9
 
 enum ClientFields {clientID, clientName, clientSurname, clientAddress, 
                    clientCity, clientProvince, clientEmail, clientPassword, clientWallet};
@@ -61,6 +62,7 @@ typedef struct
     int id;
     char *fields[5];
 } Carrier;
+#define CarrierFieldNumber 5
 
 enum CarrierFields {carrierID, carrierEmail, carrierPassword, carrierCompany, carrierCity};
 
@@ -74,6 +76,7 @@ typedef struct
     Date expirationDate;
     char *fields[7];
 } Refund;
+#define RefundFieldNumber 7
 
 enum RefundFields {refundOrderId, refundProductId, refundDate, 
                     refundReason, refundState, refundAcceptDate, refundExpirationDate};
@@ -83,6 +86,7 @@ typedef struct
     int id;
     char *fields[5];
 } AdminProvider;
+#define AdminProviderFieldNumber 5
 
 enum AdminProviderFields {adminProviderId, adminProviderName, adminProviderEmail, 
                             adminProviderPassword, adminProviderType};
@@ -97,7 +101,7 @@ typedef struct
     float price;
     char *fields[7];
 } Product;
-
+#define ProductFieldNumber 7
 
 typedef struct 
 {
@@ -107,6 +111,7 @@ typedef struct
     Date orderDate;
     char *fields[7];
 } Order;
+#define OrderFieldNumber 7
 
 enum OrderFields {orderID, orderDate, orderClientID, orderDeliveryPlace, orderLockerCode,
                   orderGiftDiscount, orderPromotionalCode};
@@ -123,6 +128,7 @@ typedef struct
     Date returnDate;
     char *fields[8];
 } ProductOrder;
+#define ProductOrderFieldNumber 8
 
 enum ProductOrderFields {productOrderID, productOrderProductID, productOrderUnitNumber,
                          productOrderDeliveryDate, productOrderOrderStatus, productOrderCarrierID,
@@ -134,7 +140,7 @@ typedef struct
     int categoryID;
     char *fields[2];
 } Category;
-
+#define CategoryFieldNumber 2
 enum CategoryFields {categoryID, categoryDescription};
 
 
@@ -144,6 +150,7 @@ typedef struct
     int discountMoney;
     char *fields[6];
 } Discount;
+#define DiscountFieldNumber 6
 
 enum DiscountFields {discountID, discountDescription, discountType, discountStatus,
                      discountMoney, discountApply};
@@ -157,6 +164,7 @@ typedef struct
     bool Applied;
     char *fields[5];
 } DiscountClient;
+#define DiscountClientFieldNumber 5
 
 enum DiscountClientFields {discountClientID, discountClientDiscountID, discountClientAssignDate, 
                             discountClientCaducityDate, discountClientApplied};
@@ -168,6 +176,7 @@ typedef struct
     int busySpace;
     char *fields[6];
 } Locker;
+#define LockerFieldNumber 6
 
 enum LockerFields {lockerID, lockerCity, lockerProvice, lockerPosition, lockerTotalSpace,
                    lockerBusySpace};
@@ -181,9 +190,11 @@ typedef struct
     Date caducityDate;
     char *fields[6];
 } LockerSpace;
+#define LockerSpaceFieldNumber 6
 
 enum LockerSpaceFields {lockerSpaceLockerID, lockerSpaceID, lockerSpaceCode, lockerSpaceStatus, 
                         lockerSpaceBusyDate, lockerSpaceCaducityDate};
+
 //------------------
 typedef struct
 {
