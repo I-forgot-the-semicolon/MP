@@ -36,7 +36,7 @@ Client* getClients(int *clientsNumber)
                 tmpClients = realloc(tmpClients, sizeof(Client)*(*clientsNumber));
                 printf("Client number: %d\n", *clientsNumber);
                 if(*clientsNumber > 1)
-                    tmpClients[*clientsNumber].id = *clientsNumber;
+                    tmpClients[*clientsNumber-1].id = *clientsNumber;
                 else
                     tmpClients->id = *clientsNumber;
 
@@ -80,42 +80,48 @@ void getClientFromFile(char *input, int field, int maxFields, Client* clientArra
 
 void saveClient(Client actualClient)
 {
-    FILE *outputFile = fopen("../databases/clientes.txt", "r+");
-    if(outputFile != nullptr)
+    FILE *inputFile = fopen("../databases/clientes.txt", "r");
+    if(inputFile != nullptr )
     {
-        char buffer[1024];
-        for(int i = 0; i < actualClient.id; i++)
+        int clientsNumber;
+        Client* tmpClients = getClients(&clientsNumber);
+        free(tmpClients);
+        char **fileHolder = malloc(sizeof(char)*clientsNumber);
+        for(int i = 0; i < clientsNumber; i++)
         {
-            printf("Moving thru file\n");
-            fgets(buffer, 1024, outputFile);
+            fileHolder[i] = malloc(sizeof(char)*1024);
+            fgets(fileHolder[i], 1024, inputFile);
+            printf("%d: %s", i, fileHolder[i]);
         }
+        fclose(inputFile);
 
-        char *finalString = nullptr;
-        int field = 0;
-        int totalFields = ClientFieldNumber + ClientFieldNumber-1;
-        for(int i = 0; i < totalFields; i++)
-        {
-            printf("i: %d\n", i);
-            if(i % 2 == 0)
+        char *finalString = toFileStringClient(actualClient);
+
+        printf("Actual id: %d\n", actualClient.id);
+        free(fileHolder[actualClient.id-1]);
+        fileHolder[actualClient.id-1] = finalString;
+
+        //FILE *outputFile = fopen("../databases/clientes.txt", "w+");
+        //if(outputFile != nullptr)
+        //{
+            for(int i = 0; i < clientsNumber; i++)
             {
-                finalString = concatenate(finalString, actualClient.fields[field]);
-                field++;
+                //fputs(fileHolder[i], outputFile);
+                printf("%d: %s", i, fileHolder[i]);
             }
-            else
-            {
-                concatenateChar(finalString, '/');
-            }
-        }
+            //fclose(outputFile);
+        //}
+        //else
+        //{
+            //printf("Error critico al guardar los datos!\n");
+            //exit(-2);
+        //}
 
-        printf("Actual: %s\n", finalString);
-        for(int i = 0; i < strlen(finalString); i++)
+        for(int i = 0; i < clientsNumber; i++)
         {
-            fputc(finalString[i], outputFile);
+            free(fileHolder[i]);
         }
-        //fputs(finalString, outputFile);
-
-        free(finalString);
-        fclose(outputFile);
+        free(fileHolder);
     }
     else
     {

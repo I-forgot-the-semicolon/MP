@@ -23,47 +23,25 @@ void clearBuffer()
 
 char *concatenate(char *a, char *b)
 {
-    unsigned int aSize;
-    unsigned int finalSize;
+    unsigned int aSize = strlen(a);
     unsigned int bSize = strlen(b);
+    unsigned int finalSize = aSize+bSize;
 
-    if(a == nullptr)
-    {
-        aSize = 0;
-        finalSize = bSize;
-
-        printf("Size of b: %d\n", bSize);
-        printf("Total size: %d\n", finalSize);
-
-        printf("Pointer is null, allocating new memory\n");
-        a = malloc(sizeof(char)*(finalSize+1));
-    }
-    else
-    {
-        aSize = strlen(a);
-        finalSize = aSize+bSize;
-
-        printf("Lets concatenate: %s + %s\n", a, b);
-        printf("Size of a: %d\n", aSize);
-        printf("Size of b: %d\n", bSize);
-        printf("Total size: %d\n", finalSize);
-
-        a = realloc(a, sizeof(char)*(finalSize+1));
-    }
+    a = realloc(a, sizeof(char)*(finalSize+1));
 
     int bCounter = 0;
     for(unsigned int i = aSize; i < finalSize; i++)
     {
         a[i] = b[bCounter];
         bCounter++;
-        //printf("Actual string: %s\n", a);
     }
     a[finalSize] = '\0';
-    printf("Final string: %s\n", a);
+
+    //printf("Final string: %s\n", a);
     return a;
 }
 
-void concatenateChar(char *a, char b)
+char *concatenateChar(char *a, char b)
 {
     unsigned int aSize = strlen(a);
     unsigned int finalSize = aSize+1;
@@ -71,7 +49,32 @@ void concatenateChar(char *a, char b)
 
     a[finalSize-1] = b;
     a[finalSize] = '\0';
+    return a;
+}
 
+char *toFileStringClient(Client client)
+{
+    char *tmp = malloc(sizeof(char)*1);
+    tmp[0] = '\x00';
+
+    int field = 0;
+    int totalFields = ClientFieldNumber + ClientFieldNumber-1;
+    for(int i = 0; i < totalFields; i++)
+    {
+        printf("i: %d\n", i);
+        if(i % 2 == 0)
+        {
+            tmp = concatenate(tmp, client.fields[field]);
+            field++;
+        }
+        else
+        {
+            tmp = concatenateChar(tmp, '/');
+        }
+        printf("-> %s\n", tmp);
+    }
+    tmp = concatenateChar(tmp, '\n');
+    return tmp;
 }
 
 unsigned int getFieldLength(char *input)
@@ -93,7 +96,7 @@ unsigned int getFieldLength(char *input)
 
 void truncateString(char *input, unsigned int startPos)
 {
-    int finalLength = (int)strlen(input) - startPos;
+    int finalLength = strlen(input) - startPos;
     if (finalLength > 0) 
     {
         #ifdef DEBUG

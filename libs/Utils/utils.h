@@ -28,6 +28,7 @@ unsigned int getFieldLength(char *input);
 void truncateString(char *input, unsigned int startPos);
 char *copyUntil(const char *sString, unsigned int pos);
 char *concatenate(char *a, char *b);
-void concatenateChar(char *a, char b);
+char *concatenateChar(char *a, char b);
 
+char *toFileStringClient(Client client);
 #endif
