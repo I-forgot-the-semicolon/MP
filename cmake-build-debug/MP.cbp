@@ -118,6 +118,12 @@
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/provider.h">
 			<Option target="MP"/>
 		</Unit>
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.c">
+			<Option target="MP"/>
+		</Unit>
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h">
+			<Option target="MP"/>
+		</Unit>
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.c">
 			<Option target="MP"/>
 		</Unit>

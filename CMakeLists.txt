@@ -26,4 +26,6 @@ add_executable(MP
         libs/controller.h
         libs/dataTypes.h
         libs/fileHandler.c
-        libs/fileHandler.h)
+        libs/fileHandler.h
+        libs/Utils/debug.c
+        libs/Utils/debug.h)

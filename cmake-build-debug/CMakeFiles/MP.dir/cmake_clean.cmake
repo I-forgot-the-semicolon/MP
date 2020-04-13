@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/MP.dir/libs/Carrier/carrier.c.o"
   "CMakeFiles/MP.dir/libs/Client/client.c.o"
   "CMakeFiles/MP.dir/libs/Provider/provider.c.o"
+  "CMakeFiles/MP.dir/libs/Utils/debug.c.o"
   "CMakeFiles/MP.dir/libs/Utils/utils.c.o"
   "CMakeFiles/MP.dir/libs/controller.c.o"
   "CMakeFiles/MP.dir/libs/fileHandler.c.o"

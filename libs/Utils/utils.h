@@ -19,7 +19,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "dataTypes.h"
+#include "../dataTypes.h"
+#include "debug.h"
 
 //#define DEBUG
 
@@ -30,5 +31,10 @@ char *copyUntil(const char *sString, unsigned int pos);
 char *concatenate(char *a, char *b);
 char *concatenateChar(char *a, char b);
 
+bool askCorrect();
+char *askForField(char *msg, char *dest, bool confirm);
+
 char *toFileStringClient(Client client);
+char *getNextID(Client lastClient);
+
 #endif

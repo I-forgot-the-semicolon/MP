@@ -19,21 +19,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include "libs/controller.h"
+#include "libs/Utils/debug.h"
 
 int main()
 {
+    memoryDebug.pos = 0;
+    memoryDebug.sizeIndex = malloc(sizeof(size_t));
 
     flowController();
-    
-    /*int orderNumber;
-    Discount* orders = getDiscounts(&orderNumber);
-    printf("Order number: %d\n", orderNumber);
-    for(int i = 0; i < orderNumber; i++)
-    {
-        for(int j = 0; j < 6; j++)
-            printf("-> %s\n", orders[i].fields[j]);
-        printf("\n\n");
-    }*/
+
+    free(memoryDebug.sizeIndex);
     return 0;
 }
 

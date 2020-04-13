@@ -24,5 +24,6 @@
 void flowController();
 int login(User *userArray);
 int redirectUser(User *userArray);
+void askForExit(int *flag);
 
 #endif

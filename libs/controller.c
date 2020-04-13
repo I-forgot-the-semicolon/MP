@@ -17,38 +17,66 @@
 
 #include "controller.h"
 #include "Utils/utils.h"
+#include "Utils/debug.h"
 
 void flowController()
 {
     int flag = NOP;
-    int loginCorrect;
-    User *user = malloc(sizeof(User));
+    int loginFlag;
+    //User *user = malloc(sizeof(User));
+    User *user = allocate(sizeof(User), "User");
+
     do
     {
-        loginCorrect = login(user);
-        if(loginCorrect == -1)
+        loginFlag = login(user);
+        if(loginFlag == wrongUsernameFlag)
         {
             char answer;
-            printf("Do you want to exit? y/n\n");
+            printf("Do you want to create a new account? y/n\n");
             clearBuffer();
             scanf("%c", &answer);
             if(answer == 'y' || answer == 'Y')
             {
-                flag = exitFlag;
-            }       
+                flag = signUpNewClient();
+            }
+            else
+            {
+                askForExit(&flag);
+            }
         }
         else
         {
-            flag = redirectUser(user);
+            if(loginFlag == wrongPasswordFlag)
+            {
+                printf("Wrong password\n");
+                askForExit(&flag);
+            }
+            else
+            {
+                flag = redirectUser(user);
+            }
         }
     } while(flag != exitFlag);
 
-    free(user);
+    //free(user);
+    deallocate(user, "User");
+}
+
+void askForExit(int *flag)
+{
+    char answer;
+    printf("Do you want to exit? y/n\n");
+    clearBuffer();
+    scanf("%c", &answer);
+    if(answer == 'y' || answer == 'Y')
+    {
+        *flag = exitFlag;
+    }
 }
 
 int redirectUser(User *user)
 {
-    int flag;
+    int flag = NOP;
     switch (user->userType)
     {
         case client:
@@ -69,25 +97,17 @@ int redirectUser(User *user)
 
 int login(User *userArray)
 {
-    char buffer[1024];
-    char *username;
-    char *password;
+    char *username = nullptr;
+    char *password = nullptr;
 
-    printf("Username: ");
-    scanf("%s", buffer);
-    username = malloc(sizeof(char)*(strlen(buffer)+1));
-    strcpy(username, buffer);
-
-    printf("Password: ");
-    scanf("%s", buffer);
-    password = malloc(sizeof(char)*(strlen(buffer)+1));
-    strcpy(password, buffer);
+    username = askForField("Username", username, false);
+    password = askForField("Password", password, false);
 
     int pos = -1;
     int mode = client;
 
     printf("Searching...\n");
-    while(pos == -1 && mode < 4)
+    while(pos < 0 && mode < 4)
     {
         switch (mode)
         {
@@ -97,8 +117,8 @@ int login(User *userArray)
                 userArray->userType = client;
                 break;
             case carrier:
-                printf("Searching in carrier\n");
-                userArray->carrierUser = loginCarrier(username, password, &pos);
+                //printf("Searching in carrier\n");
+                //userArray->carrierUser = loginCarrier(username, password, &pos);
                 userArray->userType = carrier;
                 break;
             case admin:
@@ -114,7 +134,7 @@ int login(User *userArray)
         mode++;
     }
     
-    if(pos != -1)
+    if(pos >= 0)
     {
         printf("Login correct, welcome %s\n", username);
     }
@@ -123,7 +143,11 @@ int login(User *userArray)
         printf("Invalid email or password\n");
     }
 
-    free(username);
-    free(password);
+    //free(username);
+    //free(password);
+    deallocate(username, "Username");
+    deallocate(password, "Password");
+
+    printf("Returning %d\n", pos);
     return pos;
 }

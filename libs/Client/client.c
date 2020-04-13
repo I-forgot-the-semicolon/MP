@@ -29,17 +29,32 @@ Client loginClient(char *email, char *password, int *pos)
     {
         for (int i = 0; i < clientsArraySize && !found; i++)
         {
-            if(strcmp(email, clientsArray[i].fields[clientEmail]) == 0 && strcmp(password, clientsArray[i].fields[clientPassword]) == 0)
+            if(strcmp(email, clientsArray[i].fields[clientEmail]) == 0)
             {
                 printf("Username found!\n");
-                printf("Password correct!\n");
-                tmpClient = clientsArray[i];
-                printf("With id: %d\n", tmpClient.id);
                 found = true;
-                *pos = i;
+                *pos = wrongPasswordFlag;
+                if(strcmp(password, clientsArray[i].fields[clientPassword]) == 0)
+                {
+                    printf("Password correct!\n");
+                    printf("With id: %d\n", tmpClient.id);
+                    tmpClient = clientsArray[i];
+                    *pos = i;
+                }
+            }
+            else
+            {
+                *pos = wrongUsernameFlag;
             }
         }
-        free(clientsArray);
+
+        for(int i = 0; i < clientsArraySize; i++)
+        {
+            for(int j = 0; j < 9; j++)
+                deallocate(clientsArray[i].fields[j], "Field from client array...");
+        }
+        deallocate(clientsArray, "Clients Array");
+        //free(clientsArray);
     }
     else
     {
@@ -47,6 +62,45 @@ Client loginClient(char *email, char *password, int *pos)
        exit(-2);
     }
     return tmpClient;
+}
+
+int signUpNewClient()
+{
+    int flag = NOP;
+    Client newClient = {0, 0, nullptr};
+
+    int clientsNumber;
+    Client* tmpClientArray = getClients(&clientsNumber);
+    newClient.fields[clientID] = malloc(sizeof(char)*6);
+    newClient.fields[clientID] = getNextID(tmpClientArray[clientsNumber-1]);
+    free(tmpClientArray);
+
+    newClient.fields[clientName] = askForField("Name", newClient.fields[clientName], true);
+    printf("Name-> %s\n", newClient.fields[clientName]);
+    newClient.fields[clientSurname] = askForField("Last Name", newClient.fields[clientSurname], true);
+    newClient.fields[clientAddress] = askForField("Address", newClient.fields[clientAddress], true);
+    newClient.fields[clientCity] = askForField("City", newClient.fields[clientCity], true);
+    newClient.fields[clientProvince] = askForField("Province", newClient.fields[clientProvince], true);
+    newClient.fields[clientEmail] = askForField("Email", newClient.fields[clientEmail], true);
+    newClient.fields[clientPassword] = askForField("Password", newClient.fields[clientPassword], true);
+    newClient.fields[clientWallet] = malloc(sizeof(char)*5);
+    strcpy(newClient.fields[clientWallet], "0");
+
+    flag = saveNewClient(newClient);
+
+    for(int i = 0; i < 9; i++)
+    {
+        free(newClient.fields[i]);
+    }
+
+    if(flag == okFlag)
+        printf("Cuenta creada correctamente!\n");
+    return flag;
+}
+
+int newClient()
+{
+    return 0;
 }
 
 int clientMenu(User *user)

@@ -25,24 +25,34 @@ Client* getClients(int *clientsNumber)
     FILE *inputFile = fopen("../databases/clientes.txt", "r");
     if(inputFile != nullptr)
     {
-        tmpClients = malloc(sizeof(Client));
+        //tmpClients = malloc(sizeof(Client));
+        tmpClients = allocate(sizeof(Client), "Tmp clients Array");
+
         while(!feof(inputFile))
         {
-            char *tmp = malloc(sizeof(char)*1024);
+            //char *tmp = malloc(sizeof(char)*1024);
+            char *tmp = allocate(sizeof(char)*1024, "tmp string");
             fgets(tmp, 1024, inputFile);
             if(strlen(tmp) > 0)
             {
                 (*clientsNumber)++;
-                tmpClients = realloc(tmpClients, sizeof(Client)*(*clientsNumber));
                 printf("Client number: %d\n", *clientsNumber);
+                //tmpClients = realloc(tmpClients, sizeof(Client)*(*clientsNumber));
+
                 if(*clientsNumber > 1)
+                {
+                    tmpClients = reallocate(tmpClients, sizeof(Client)*(*clientsNumber), "Tmp clients array");
                     tmpClients[*clientsNumber-1].id = *clientsNumber;
+                }
                 else
+                {
                     tmpClients->id = *clientsNumber;
+                }
 
                 getClientFromFile(tmp, 0, ClientFieldNumber, tmpClients, *clientsNumber-1);
-                free(tmp);
             }
+            //free(tmp);
+            deallocate(tmp, "tmp string");
         }
         fclose(inputFile);
     }
@@ -66,7 +76,8 @@ void getClientFromFile(char *input, int field, int maxFields, Client* clientArra
     unsigned int pos = getFieldLength(input);
     char *tmpString = copyUntil(input, pos);
 
-    clientArray[clientNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
+    //clientArray[clientNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
+    clientArray[clientNumber].fields[field] = allocate(sizeof(char)*strlen(tmpString), "Field from client array");
     strcpy(clientArray[clientNumber].fields[field], tmpString);
     truncateString(input, pos + 1);
 
@@ -130,6 +141,23 @@ void saveClient(Client actualClient)
     }
 }
 
+int saveNewClient(Client actualClient)
+{
+    FILE *outputFile = fopen("../databases/clientes.txt", "a");
+    if(outputFile != nullptr)
+    {
+        char *finalString = toFileStringClient(actualClient);
+        fputs(finalString, outputFile);
+        fclose(outputFile);
+        return okFlag;
+    }
+    else
+    {
+        printf("Error critico al guardar los datos!\n");
+        return exitFlag;
+    }
+}
+
 AdminProvider* getAdminsProviders(int *adminsProvidersNumber)
 {
     *adminsProvidersNumber = 0;
@@ -146,7 +174,7 @@ AdminProvider* getAdminsProviders(int *adminsProvidersNumber)
             {
                 (*adminsProvidersNumber)++;
                 tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
-                getAdminsProvidersFromFile(tmp, 0, 5, tmpAdminsProviders, *adminsProvidersNumber-1);
+                getAdminsProvidersFromFile(tmp, 0, AdminProviderFieldNumber, tmpAdminsProviders, *adminsProvidersNumber-1);
                 free(tmp);
             }
         }
@@ -191,9 +219,9 @@ Product* getProducts(int *productsNumber)
             {
                 (*productsNumber)++;
                 tmpProducts = realloc(tmpProducts, sizeof(Product)*(*productsNumber));
-                getProductFromFile(tmp, 0, 7, tmpProducts, *productsNumber-1);
-                free(tmp);
+                getProductFromFile(tmp, 0, ProductFieldNumber, tmpProducts, *productsNumber-1);
             }
+            free(tmp);
         }
         fclose(inputFile);
     }
@@ -253,9 +281,9 @@ Carrier* getCarriers(int *carriersNumber)
                         printf("size: %d\n", *carriersNumber);
                         #endif
                         tmpCarriers = realloc(tmpCarriers, sizeof(Carrier)*(*carriersNumber));
-                        getCarrierFromFile(tmp, 0, 5, tmpCarriers, *carriersNumber-1);
-                        free(tmp);
+                        getCarrierFromFile(tmp, 0, CarrierFieldNumber, tmpCarriers, *carriersNumber-1);
                     }
+                    free(tmp);
                 }
                 else
                 {
@@ -319,9 +347,9 @@ Refund* getRefunds(int *refundsNumber)
                     printf("size: %d\n", *refundsNumber);
                     #endif
                     tmpRefunds = realloc(tmpRefunds, sizeof(Refund)*(*refundsNumber));
-                    getRefundFromFile(tmp, 0, 7, tmpRefunds, *refundsNumber-1);
-                    free(tmp);
+                    getRefundFromFile(tmp, 0, RefundFieldNumber, tmpRefunds, *refundsNumber-1);
                 }
+                free(tmp);
             }
         }  
         fclose(inputFile); 
@@ -338,7 +366,7 @@ void getRefundFromFile(char *input, int field, int maxFields, Refund* refundArra
 {
     if(field >= maxFields)
         return;
-    int pos = getFieldLength(input);
+    unsigned int pos = getFieldLength(input);
     char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
     for (int i = 0; i < pos; i++) 
     {
@@ -379,9 +407,9 @@ Order* getOrders(int *ordersNumber)
                     #endif
                     (*ordersNumber)++;
                     tmpOrders = realloc(tmpOrders, sizeof(Order)*(*ordersNumber));
-                    getOrdersFromFile(tmp, 0, 7, tmpOrders, *ordersNumber-1);
-                    free(tmp);
+                    getOrdersFromFile(tmp, 0, OrderFieldNumber, tmpOrders, *ordersNumber-1);
                 }
+                free(tmp);
             }
         }  
         fclose(inputFile); 
@@ -397,13 +425,13 @@ void getOrdersFromFile(char *input, int field, int maxFields, Order* orderArray,
 {
     if(field >= maxFields)
         return;
-    int pos = getFieldLength(input);
+    unsigned int pos = getFieldLength(input);
     char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
     for (int i = 0; i < pos; i++) 
     {
         tmpString[i] = input[i];
     }
-    tmpString[pos] = '\x0';
+    tmpString[pos] = '\x00';
     orderArray[orderNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(orderArray[orderNumber].fields[field], tmpString);
     truncateString(input, pos + 1);
@@ -438,9 +466,10 @@ ProductOrder* getProductOrders(int *productOrdersNumber)
                     (*productOrdersNumber)++;
 
                     tmpProductOrders = realloc(tmpProductOrders, sizeof(ProductOrder)*(*productOrdersNumber));
+                    //8
                     getProductOrdersFromFile(tmp, 0, 9, tmpProductOrders, *productOrdersNumber-1);
-                    free(tmp);
                 }
+                free(tmp);
             }
         }  
         fclose(inputFile); 
@@ -456,13 +485,13 @@ void getProductOrdersFromFile(char *input, int field, int maxFields, ProductOrde
 {
     if(field >= maxFields)
         return;
-    int pos = getFieldLength(input);
+    unsigned int pos = getFieldLength(input);
     char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
     for (int i = 0; i < pos; i++) 
     {
         tmpString[i] = input[i];
     }
-    tmpString[pos] = '\x0';
+    tmpString[pos] = '\x00';
     productOrderArray[productOrderNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(productOrderArray[productOrderNumber].fields[field], tmpString);
     truncateString(input, pos + 1);
@@ -497,9 +526,9 @@ Category* getCategories(int *categoriesNumber)
                     (*categoriesNumber)++;
 
                     tmpCategories = realloc(tmpCategories, sizeof(Category)*(*categoriesNumber));
-                    getCategoriesFromFile(tmp, 0, 2, tmpCategories, *categoriesNumber-1);
-                    free(tmp);
+                    getCategoriesFromFile(tmp, 0, CategoryFieldNumber, tmpCategories, *categoriesNumber-1);
                 }
+                free(tmp);
             }
         }  
         fclose(inputFile); 
@@ -515,13 +544,13 @@ void getCategoriesFromFile(char *input, int field, int maxFields, Category *cate
 {
     if(field >= maxFields)
         return;
-    int pos = getFieldLength(input);
+    unsigned int pos = getFieldLength(input);
     char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
     for (int i = 0; i < pos; i++) 
     {
         tmpString[i] = input[i];
     }
-    tmpString[pos] = '\x0';
+    tmpString[pos] = '\x00';
     categoryArray[categoryNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(categoryArray[categoryNumber].fields[field], tmpString);
     truncateString(input, pos + 1);
@@ -555,9 +584,9 @@ Discount* getDiscounts(int *discountsNumber)
                     #endif
                     (*discountsNumber)++;
                     tmpDiscounts = realloc(tmpDiscounts, sizeof(Discount)*(*discountsNumber));
-                    getDiscountsFromFile(tmp, 0, 6, tmpDiscounts, *discountsNumber-1);
-                    free(tmp);
+                    getDiscountsFromFile(tmp, 0, DiscountFieldNumber, tmpDiscounts, *discountsNumber-1);
                 }
+                free(tmp);
             }
         }  
         fclose(inputFile); 
@@ -573,13 +602,13 @@ void getDiscountsFromFile(char *input, int field, int maxFields, Discount *disco
 {
     if(field >= maxFields)
         return;
-    int pos = getFieldLength(input);
+    unsigned int pos = getFieldLength(input);
     char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
     for (int i = 0; i < pos; i++) 
     {
         tmpString[i] = input[i];
     }
-    tmpString[pos] = '\x0';
+    tmpString[pos] = '\x00';
     discountArray[discountNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(discountArray[discountNumber].fields[field], tmpString);
     truncateString(input, pos + 1);

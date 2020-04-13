@@ -23,6 +23,8 @@
 #include "../fileHandler.h"
 
 Client loginClient(char *email, char *password, int *pos);
+int signUpNewClient();
+
 int clientMenu(User *user);
 void clientProfile(Client *actualClient);
 void viewProfile(Client actualClient);

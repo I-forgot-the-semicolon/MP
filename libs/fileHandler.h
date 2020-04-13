@@ -22,11 +22,12 @@
 #include <string.h>
 #include "Utils/utils.h"
 #include "dataTypes.h"
-
+#include "debug.h"
 
 Client* getClients(int *clientsNumber);
 void getClientFromFile(char *input, int field, int maxFields, Client *clientArray, int clientNumber);
 void saveClient(Client actualClient);
+int saveNewClient(Client actualClient);
 
 AdminProvider* getAdminsProviders(int *adminsProvidersNumber);
 void getAdminsProvidersFromFile(char *input, int field, int maxFields, AdminProvider *adminsProviderArray, int adminProviderNumber);

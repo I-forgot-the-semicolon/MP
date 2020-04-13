@@ -21,6 +21,76 @@ void clearBuffer()
     while ((getchar()) != '\n'); 
 }
 
+char *getNextID(Client lastClient)
+{
+    char *finalString = malloc(sizeof(char)*6);
+    for(int i = 0; i < 6; i++)
+        finalString[i] = '0';
+
+    printf("Last id: %d\n", lastClient.id);
+
+    unsigned int pos = strlen(finalString)-1;
+    int tmpID = lastClient.id+1;
+    while(tmpID > 0)
+    {
+        finalString[pos] = tmpID % 10 + '0';
+        tmpID /= 10;
+        pos--;
+    }
+    printf("Final id: %s\n", finalString);
+    return finalString;
+}
+
+bool askCorrect()
+{
+    char answer;
+    printf("Is that correct? y/n\n");
+    clearBuffer();
+    scanf("%c", &answer);
+    if(answer == 'y' || answer == 'Y')
+    {
+        return true;
+    }
+    return false;
+}
+
+char *askForField(char *msg, char *dest, bool confirm)
+{
+    char buffer[1024];
+
+    if(confirm)
+    {
+        bool correct = false;
+        do
+        {
+            printf("%s: ", msg);
+            clearBuffer();
+            scanf("%[^\n]", buffer);
+            //dest = malloc(sizeof(char)*(strlen(buffer)+1));
+            dest = allocate(sizeof(char)*(strlen(buffer)+1), "Field dest");
+            if(askCorrect())
+            {
+                strcpy(dest, buffer);
+                correct = true;
+            }
+            else
+            {
+                free(dest);
+            }
+        } while(!correct);
+    }
+    else
+    {
+        printf("%s: ", msg);
+        scanf("%s", buffer);
+        //dest = malloc(sizeof(char)*(strlen(buffer)+1));
+        dest = allocate(sizeof(char)*(strlen(buffer)+1), "Field dest");
+        strcpy(dest, buffer);
+    }
+
+    return dest;
+}
+
 char *concatenate(char *a, char *b)
 {
     unsigned int aSize = strlen(a);
