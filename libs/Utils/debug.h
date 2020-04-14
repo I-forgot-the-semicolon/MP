@@ -19,5 +19,5 @@ Memory memoryDebug;
 void *allocate(size_t size, char *tag);
 void *reallocate(void *pointer, size_t size, char *tag);
 void deallocate(void *pointer, char *tag);
-
+void showMemory();
 #endif

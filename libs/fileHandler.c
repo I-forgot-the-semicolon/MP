@@ -89,28 +89,53 @@ void getClientFromFile(char *input, int field, int maxFields, Client* clientArra
     getClientFromFile(input, field, maxFields, clientArray, clientNumber);
 }
 
+int getLastIndex(char *path)
+{
+    int index = 0;
+    FILE *inputFile = fopen(path, "r");
+    if(inputFile != nullptr)
+    {
+        while(!feof(inputFile))
+        {
+            char *buffer = allocate(sizeof(char)*1024, "tmp string");
+            fgets(buffer, 1024, inputFile);
+            if(strlen(buffer) > 0)
+            {
+                index++;
+            }
+            deallocate(buffer, "Buffer index");
+        }
+    }
+    else
+    {
+        printf("Error opening client database\n");
+        exit(-1);
+    }
+    return index;
+}
+
 void saveClient(Client actualClient)
 {
+    int clientsNumber = getLastIndex("../databases/clientes.txt");
+    printf("Index: %d\n", clientsNumber);
     FILE *inputFile = fopen("../databases/clientes.txt", "r");
-    if(inputFile != nullptr )
+    if(inputFile != nullptr)
     {
-        int clientsNumber;
-        Client* tmpClients = getClients(&clientsNumber);
-        free(tmpClients);
-        char **fileHolder = malloc(sizeof(char)*clientsNumber);
-        for(int i = 0; i < clientsNumber; i++)
+        //char **fileHolder = malloc(sizeof(char*)*clientsNumber);
+        char **fileHolder = allocate(sizeof(char*)*(clientsNumber), "fileholder [x][-]");
+        for (int i = 0; i < clientsNumber; i++)
         {
-            fileHolder[i] = malloc(sizeof(char)*1024);
+            //fileHolder[i] = malloc(sizeof(char) * 1024);
+            fileHolder[i] = allocate(sizeof(char) * 1024, "fileholder [x][x]");
             fgets(fileHolder[i], 1024, inputFile);
             printf("%d: %s", i, fileHolder[i]);
         }
-        fclose(inputFile);
-
-        char *finalString = toFileStringClient(actualClient);
 
         printf("Actual id: %d\n", actualClient.id);
-        free(fileHolder[actualClient.id-1]);
-        fileHolder[actualClient.id-1] = finalString;
+        char *finalString = toFileStringClient(actualClient);
+        strcpy(fileHolder[actualClient.id - 1], finalString);
+        deallocate(finalString, "Final path string");
+
 
         FILE *outputFile = fopen("../databases/clientes.txt", "w+");
         if(outputFile != nullptr)
@@ -130,14 +155,32 @@ void saveClient(Client actualClient)
 
         for(int i = 0; i < clientsNumber; i++)
         {
-            free(fileHolder[i]);
+            //free(fileHolder[i]);
+            deallocate(fileHolder[i], "fileholder[x][x]");
         }
-        free(fileHolder);
+        //free(fileHolder);
+        deallocate(fileHolder, "Fileholder[x][-]");
+    }
+    else
+    {
+        printf("Error opening client database\n");
+        exit(-1);
+    }
+}
+
+int saveNewLine(char *path, char *string)
+{
+    FILE *outputFile = fopen(path, "a");
+    if(outputFile != nullptr)
+    {
+        fputs(string, outputFile);
+        fclose(outputFile);
+        return okFlag;
     }
     else
     {
         printf("Error critico al guardar los datos!\n");
-        exit(-1);
+        return exitFlag;
     }
 }
 
@@ -148,6 +191,7 @@ int saveNewClient(Client actualClient)
     {
         char *finalString = toFileStringClient(actualClient);
         fputs(finalString, outputFile);
+        deallocate(finalString, "Final string new client");
         fclose(outputFile);
         return okFlag;
     }

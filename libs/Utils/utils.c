@@ -21,16 +21,52 @@ void clearBuffer()
     while ((getchar()) != '\n'); 
 }
 
-char *getNextID(Client lastClient)
+void cleanUpUser(User *user)
 {
-    char *finalString = malloc(sizeof(char)*6);
+    switch (user->userType)
+    {
+        case client:
+            for(int i = 0; i < 9; i++)
+            {
+                deallocate(user->clientUser.fields[i], "exit user client cleanup");
+            }
+            break;
+        case carrier:
+            break;
+        case admin:
+            break;
+        case provider:
+            break;
+        default:
+            break;
+    }
+    deallocate(user, "User");
+}
+
+
+
+void copyClient(Client *dest, Client src)
+{
+    dest->id = src.id;
+    dest->wallet = src.wallet;
+    for(int i = 0; i < 9; i++)
+    {
+        dest->fields[i] = allocate(sizeof(char)*(strlen(src.fields[i])+1), "field in client login");
+        strcpy(dest->fields[i], src.fields[i]);
+    }
+}
+
+char *getNextID(int lastID)
+{
+    //char *finalString = malloc(sizeof(char)*6);
+    char *finalString = allocate(sizeof(char)*6, "Next ID final string");
     for(int i = 0; i < 6; i++)
         finalString[i] = '0';
 
-    printf("Last id: %d\n", lastClient.id);
+    printf("Last id: %d\n", lastID);
 
     unsigned int pos = strlen(finalString)-1;
-    int tmpID = lastClient.id+1;
+    int tmpID = lastID+1;
     while(tmpID > 0)
     {
         finalString[pos] = tmpID % 10 + '0';
@@ -67,7 +103,7 @@ char *askForField(char *msg, char *dest, bool confirm)
             clearBuffer();
             scanf("%[^\n]", buffer);
             //dest = malloc(sizeof(char)*(strlen(buffer)+1));
-            dest = allocate(sizeof(char)*(strlen(buffer)+1), "Field dest");
+            dest = allocate(sizeof(char)*(strlen(buffer)+1), "Field dest ask for field");
             if(askCorrect())
             {
                 strcpy(dest, buffer);
@@ -75,7 +111,8 @@ char *askForField(char *msg, char *dest, bool confirm)
             }
             else
             {
-                free(dest);
+                //free(dest);
+                deallocate(dest, "Field dest ask for field");
             }
         } while(!correct);
     }
@@ -97,7 +134,8 @@ char *concatenate(char *a, char *b)
     unsigned int bSize = strlen(b);
     unsigned int finalSize = aSize+bSize;
 
-    a = realloc(a, sizeof(char)*(finalSize+1));
+    //a = realloc(a, sizeof(char)*(finalSize+1));
+      a = reallocate(a, sizeof(char)*(finalSize+1), "Concatenate a");
 
     int bCounter = 0;
     for(unsigned int i = aSize; i < finalSize; i++)
@@ -115,7 +153,8 @@ char *concatenateChar(char *a, char b)
 {
     unsigned int aSize = strlen(a);
     unsigned int finalSize = aSize+1;
-    a = realloc(a, sizeof(char)*(finalSize+1));
+    //a = realloc(a, sizeof(char)*(finalSize+1));
+     a = reallocate(a, sizeof(char)*(finalSize+1), "Concatenate char 'a'");
 
     a[finalSize-1] = b;
     a[finalSize] = '\0';
@@ -124,7 +163,8 @@ char *concatenateChar(char *a, char b)
 
 char *toFileStringClient(Client client)
 {
-    char *tmp = malloc(sizeof(char)*1);
+    //char *tmp = malloc(sizeof(char)*1);
+    char *tmp = allocate(sizeof(char), "Tmp to file string client");
     tmp[0] = '\x00';
 
     int field = 0;

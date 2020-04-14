@@ -35,6 +35,8 @@ bool askCorrect();
 char *askForField(char *msg, char *dest, bool confirm);
 
 char *toFileStringClient(Client client);
-char *getNextID(Client lastClient);
+char *getNextID(int lastID);
 
+void cleanUpUser(User *user);
+void copyClient(Client *dest, Client src);
 #endif

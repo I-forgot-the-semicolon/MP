@@ -38,7 +38,8 @@ Client loginClient(char *email, char *password, int *pos)
                 {
                     printf("Password correct!\n");
                     printf("With id: %d\n", tmpClient.id);
-                    tmpClient = clientsArray[i];
+                    copyClient(&tmpClient, clientsArray[i]);
+                    //tmpClient = clientsArray[i];
                     *pos = i;
                 }
             }
@@ -66,41 +67,33 @@ Client loginClient(char *email, char *password, int *pos)
 
 int signUpNewClient()
 {
-    int flag = NOP;
+    int index = getLastIndex("../databases/clientes.txt");
+
     Client newClient = {0, 0, nullptr};
-
-    int clientsNumber;
-    Client* tmpClientArray = getClients(&clientsNumber);
-    newClient.fields[clientID] = malloc(sizeof(char)*6);
-    newClient.fields[clientID] = getNextID(tmpClientArray[clientsNumber-1]);
-    free(tmpClientArray);
-
+    newClient.fields[clientID] = getNextID(index);
     newClient.fields[clientName] = askForField("Name", newClient.fields[clientName], true);
-    printf("Name-> %s\n", newClient.fields[clientName]);
     newClient.fields[clientSurname] = askForField("Last Name", newClient.fields[clientSurname], true);
     newClient.fields[clientAddress] = askForField("Address", newClient.fields[clientAddress], true);
     newClient.fields[clientCity] = askForField("City", newClient.fields[clientCity], true);
     newClient.fields[clientProvince] = askForField("Province", newClient.fields[clientProvince], true);
     newClient.fields[clientEmail] = askForField("Email", newClient.fields[clientEmail], true);
     newClient.fields[clientPassword] = askForField("Password", newClient.fields[clientPassword], true);
-    newClient.fields[clientWallet] = malloc(sizeof(char)*5);
+    newClient.fields[clientWallet] = allocate(sizeof(char)*5, "New client wallet");
     strcpy(newClient.fields[clientWallet], "0");
 
-    flag = saveNewClient(newClient);
+    char *finalString = toFileStringClient(newClient);
+    int flag = saveNewLine("../databases/clientes.txt", finalString);
+
+    deallocate(finalString, "Final String new client");
 
     for(int i = 0; i < 9; i++)
     {
-        free(newClient.fields[i]);
+        deallocate(newClient.fields[i], "New client field");
     }
 
     if(flag == okFlag)
         printf("Cuenta creada correctamente!\n");
     return flag;
-}
-
-int newClient()
-{
-    return 0;
 }
 
 int clientMenu(User *user)
@@ -143,6 +136,7 @@ void logoutClient(int *flag)
     int option;
     printf("1. Exit to login\n");
     printf("2. Exit program\n");
+    printf("3. Back\n");
     printf("Select an option: ");
     scanf("%d", &option);
     switch (option)
@@ -153,6 +147,8 @@ void logoutClient(int *flag)
         case 2:
                 *flag = exitFlag;
                 break;
+        case 3:
+            break;
         default:
                 printf("Invalid option\n");
                 break;

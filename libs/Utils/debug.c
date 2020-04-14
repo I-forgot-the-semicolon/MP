@@ -44,3 +44,10 @@ void deallocate(void *pointer, char *tag)
 
     free(pointer);
 }
+
+void showMemory()
+{
+    printf("----------------------------------------------------\n");
+    printf("Total allocated bytes: %lu\n", memoryDebug.allocatedMemory);
+    printf("Items allocated: %d\n", memoryDebug.pos);
+}

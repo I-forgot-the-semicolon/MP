@@ -23,11 +23,11 @@ void flowController()
 {
     int flag = NOP;
     int loginFlag;
-    //User *user = malloc(sizeof(User));
-    User *user = allocate(sizeof(User), "User");
-
     do
     {
+        //User *user = malloc(sizeof(User));
+        User *user = allocate(sizeof(User), "User");
+
         loginFlag = login(user);
         if(loginFlag == wrongUsernameFlag)
         {
@@ -56,10 +56,9 @@ void flowController()
                 flag = redirectUser(user);
             }
         }
+        cleanUpUser(user);
     } while(flag != exitFlag);
 
-    //free(user);
-    deallocate(user, "User");
 }
 
 void askForExit(int *flag)
