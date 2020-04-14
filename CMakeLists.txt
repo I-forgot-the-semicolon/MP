@@ -7,7 +7,7 @@ include_directories(libs)
 include_directories(libs/Admin)
 include_directories(libs/Carrier)
 include_directories(libs/Client)
-include_directories(libs/Provider)
+include_directories(libs/AdminProvider)
 include_directories(libs/Utils)
 
 add_executable(MP
@@ -18,8 +18,8 @@ add_executable(MP
         libs/Carrier/carrier.h
         libs/Client/client.c
         libs/Client/client.h
-        libs/Provider/adminProvider.c
-        libs/Provider/adminProvider.h
+        libs/AdminProvider/adminProvider.c
+        libs/AdminProvider/adminProvider.h
         libs/Utils/utils.c
         libs/Utils/utils.h
         libs/controller.c

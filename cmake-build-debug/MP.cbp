@@ -38,7 +38,7 @@
 					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin"/>
 					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier"/>
 					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client"/>
-					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider"/>
 					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
@@ -66,7 +66,7 @@
 					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin"/>
 					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier"/>
 					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client"/>
-					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider"/>
 					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
@@ -100,6 +100,12 @@
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin/admin.h">
 			<Option target="MP"/>
 		</Unit>
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.c">
+			<Option target="MP"/>
+		</Unit>
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.h">
+			<Option target="MP"/>
+		</Unit>
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.c">
 			<Option target="MP"/>
 		</Unit>
@@ -110,12 +116,6 @@
 			<Option target="MP"/>
 		</Unit>
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h">
-			<Option target="MP"/>
-		</Unit>
-		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/adminProvider.c">
-			<Option target="MP"/>
-		</Unit>
-		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/adminProvider.h">
 			<Option target="MP"/>
 		</Unit>
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.c">

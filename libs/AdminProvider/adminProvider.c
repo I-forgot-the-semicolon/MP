@@ -36,12 +36,6 @@ AdminProvider loginAdminProvider(char *email, char *password, int *pos)
                 printf("Username found!\n");
                 printf("Password correct!\n");
                 copyAdminProvider(&tmpAdminProvider, adminProviderArray[i]);
-                printf("With id: %d\n", tmpAdminProvider.id);
-                printf("Type: boof %s eeeee\n", tmpAdminProvider.fields[adminProviderType]);
-                printf("Field length: %d\n", strlen(tmpAdminProvider.fields[adminProviderType]));
-                for(int j = 0; j < strlen(tmpAdminProvider.fields[adminProviderType]); j++)
-                    printf("char[%d]: %c\n", j, tmpAdminProvider.fields[adminProviderType][j]);
-
                 *pos = i;
             }
         }

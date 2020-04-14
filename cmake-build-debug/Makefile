@@ -150,6 +150,33 @@ libs/Admin/admin.c.s:
 	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Admin/admin.c.s
 .PHONY : libs/Admin/admin.c.s
 
+libs/AdminProvider/adminProvider.o: libs/AdminProvider/adminProvider.c.o
+
+.PHONY : libs/AdminProvider/adminProvider.o
+
+# target to build an object file
+libs/AdminProvider/adminProvider.c.o:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o
+.PHONY : libs/AdminProvider/adminProvider.c.o
+
+libs/AdminProvider/adminProvider.i: libs/AdminProvider/adminProvider.c.i
+
+.PHONY : libs/AdminProvider/adminProvider.i
+
+# target to preprocess a source file
+libs/AdminProvider/adminProvider.c.i:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.i
+.PHONY : libs/AdminProvider/adminProvider.c.i
+
+libs/AdminProvider/adminProvider.s: libs/AdminProvider/adminProvider.c.s
+
+.PHONY : libs/AdminProvider/adminProvider.s
+
+# target to generate assembly for a file
+libs/AdminProvider/adminProvider.c.s:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.s
+.PHONY : libs/AdminProvider/adminProvider.c.s
+
 libs/Carrier/carrier.o: libs/Carrier/carrier.c.o
 
 .PHONY : libs/Carrier/carrier.o
@@ -203,33 +230,6 @@ libs/Client/client.s: libs/Client/client.c.s
 libs/Client/client.c.s:
 	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Client/client.c.s
 .PHONY : libs/Client/client.c.s
-
-libs/Provider/adminProvider.o: libs/Provider/adminProvider.c.o
-
-.PHONY : libs/Provider/adminProvider.o
-
-# target to build an object file
-libs/Provider/adminProvider.c.o:
-	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Provider/adminProvider.c.o
-.PHONY : libs/Provider/adminProvider.c.o
-
-libs/Provider/adminProvider.i: libs/Provider/adminProvider.c.i
-
-.PHONY : libs/Provider/adminProvider.i
-
-# target to preprocess a source file
-libs/Provider/adminProvider.c.i:
-	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Provider/adminProvider.c.i
-.PHONY : libs/Provider/adminProvider.c.i
-
-libs/Provider/adminProvider.s: libs/Provider/adminProvider.c.s
-
-.PHONY : libs/Provider/adminProvider.s
-
-# target to generate assembly for a file
-libs/Provider/adminProvider.c.s:
-	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Provider/adminProvider.c.s
-.PHONY : libs/Provider/adminProvider.c.s
 
 libs/Utils/debug.o: libs/Utils/debug.c.o
 
@@ -378,15 +378,15 @@ help:
 	@echo "... libs/Admin/admin.o"
 	@echo "... libs/Admin/admin.i"
 	@echo "... libs/Admin/admin.s"
+	@echo "... libs/AdminProvider/adminProvider.o"
+	@echo "... libs/AdminProvider/adminProvider.i"
+	@echo "... libs/AdminProvider/adminProvider.s"
 	@echo "... libs/Carrier/carrier.o"
 	@echo "... libs/Carrier/carrier.i"
 	@echo "... libs/Carrier/carrier.s"
 	@echo "... libs/Client/client.o"
 	@echo "... libs/Client/client.i"
 	@echo "... libs/Client/client.s"
-	@echo "... libs/Provider/adminProvider.o"
-	@echo "... libs/Provider/adminProvider.i"
-	@echo "... libs/Provider/adminProvider.s"
 	@echo "... libs/Utils/debug.o"
 	@echo "... libs/Utils/debug.i"
 	@echo "... libs/Utils/debug.s"
