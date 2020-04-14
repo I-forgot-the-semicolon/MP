@@ -76,9 +76,9 @@ void getClientFromFile(char *input, int field, int maxFields, Client* clientArra
     unsigned int pos = getFieldLength(input);
     char *tmpString = copyUntil(input, pos);
 
-    //clientArray[clientNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
-    clientArray[clientNumber].fields[field] = allocate(sizeof(char)*strlen(tmpString), "Field from client array");
+    clientArray[clientNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(clientArray[clientNumber].fields[field], tmpString);
+    free(tmpString);
     truncateString(input, pos + 1);
 
     #ifdef DEBUG
@@ -184,23 +184,6 @@ int saveNewLine(char *path, char *string)
     }
 }
 
-int saveNewClient(Client actualClient)
-{
-    FILE *outputFile = fopen("../databases/clientes.txt", "a");
-    if(outputFile != nullptr)
-    {
-        char *finalString = toFileStringClient(actualClient);
-        fputs(finalString, outputFile);
-        deallocate(finalString, "Final string new client");
-        fclose(outputFile);
-        return okFlag;
-    }
-    else
-    {
-        printf("Error critico al guardar los datos!\n");
-        return exitFlag;
-    }
-}
 
 AdminProvider* getAdminsProviders(int *adminsProvidersNumber)
 {
@@ -236,6 +219,7 @@ void getAdminsProvidersFromFile(char *input, int field, int maxFields, AdminProv
     char *tmpString = copyUntil(input, pos);
     adminsProviderArray[adminProviderNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(adminsProviderArray[adminProviderNumber].fields[field], tmpString);
+    free(tmpString);
     truncateString(input, pos + 1);
     
     #ifdef DEBUG
@@ -286,6 +270,7 @@ void getProductFromFile(char *input, int field, int maxFields, Product* productA
 
     productArray[productNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(productArray[productNumber].fields[field], tmpString);
+    free(tmpString);
     truncateString(input, pos + 1);
     
     #ifdef DEBUG
@@ -356,6 +341,7 @@ void getCarrierFromFile(char *input, int field, int maxFields, Carrier* carrierA
     char *tmpString = copyUntil(input, pos);
     carrierArray[carrierNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(carrierArray[carrierNumber].fields[field], tmpString);
+    free(tmpString);
     truncateString(input, pos + 1);
     
     #ifdef DEBUG
@@ -419,6 +405,7 @@ void getRefundFromFile(char *input, int field, int maxFields, Refund* refundArra
     tmpString[pos] = '\x00';
     refundArray[refundNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(refundArray[refundNumber].fields[field], tmpString);
+    free(tmpString);
     truncateString(input, pos + 1);
     
     #ifdef DEBUG
@@ -478,6 +465,7 @@ void getOrdersFromFile(char *input, int field, int maxFields, Order* orderArray,
     tmpString[pos] = '\x00';
     orderArray[orderNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(orderArray[orderNumber].fields[field], tmpString);
+    free(tmpString);
     truncateString(input, pos + 1);
     
     #ifdef DEBUG
@@ -538,6 +526,7 @@ void getProductOrdersFromFile(char *input, int field, int maxFields, ProductOrde
     tmpString[pos] = '\x00';
     productOrderArray[productOrderNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(productOrderArray[productOrderNumber].fields[field], tmpString);
+    free(tmpString);
     truncateString(input, pos + 1);
     
     #ifdef DEBUG
@@ -597,6 +586,7 @@ void getCategoriesFromFile(char *input, int field, int maxFields, Category *cate
     tmpString[pos] = '\x00';
     categoryArray[categoryNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(categoryArray[categoryNumber].fields[field], tmpString);
+    free(tmpString);
     truncateString(input, pos + 1);
     
     #ifdef DEBUG
@@ -655,6 +645,7 @@ void getDiscountsFromFile(char *input, int field, int maxFields, Discount *disco
     tmpString[pos] = '\x00';
     discountArray[discountNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(discountArray[discountNumber].fields[field], tmpString);
+    free(tmpString);
     truncateString(input, pos + 1);
     
     #ifdef DEBUG

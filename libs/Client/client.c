@@ -247,7 +247,6 @@ void modifyField(Client *actualClient, int field)
     do
     {
         char buffer[1024];
-        char answer;
 
         printf("The actual value is: %s\n", actualClient->fields[field]);
         printf("Type the new value: ");
@@ -255,14 +254,11 @@ void modifyField(Client *actualClient, int field)
         scanf("%[^\n]", buffer);
 
         printf("The new value is: %s\n", buffer);
-        printf("Is that correct? y/n: ");
-        clearBuffer();
-        scanf("%c", &answer);
-
-        if(answer == 'y')
+        if(askCorrect())
         {
             unsigned long newSize = strlen(buffer);
-            actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
+            //actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
+            actualClient->fields[field] = reallocate(actualClient->fields[field], sizeof(char)*newSize, "Actual client modified field");
             strcpy(actualClient->fields[field], buffer);
             correct = true;
         }

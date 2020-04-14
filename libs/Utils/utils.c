@@ -212,7 +212,8 @@ void truncateString(char *input, unsigned int startPos)
         #ifdef DEBUG
         printf("final length: %d\n", finalLength);
         #endif
-        char *tmp = malloc(sizeof(char) * finalLength + sizeof(char));
+        //char *tmp = malloc(sizeof(char) * finalLength + sizeof(char));
+        char *tmp = allocate(sizeof(char) * finalLength + sizeof(char), "tmp truncate string");
         unsigned int pos = startPos;
         for (int i = 0; i < finalLength; i++) 
         {
@@ -221,18 +222,21 @@ void truncateString(char *input, unsigned int startPos)
         }
         tmp[finalLength] = '\x00';
 
-        input = realloc(input, sizeof(char) * finalLength + sizeof(char));
-        for (int i = 0; i < finalLength + 1; i++) 
+        //input = realloc(input, sizeof(char) * finalLength + sizeof(char));
+        input = reallocate(input, sizeof(char) * finalLength + sizeof(char), "Input truncate");
+        for (int i = 0; i < finalLength + 1; i++)
         {
             input[i] = tmp[i];
         }
+        deallocate(tmp, "tmp truncate string");
     }
 }
 
 char *copyUntil(const char *sString, unsigned int pos)
 {
-    char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
-    for (int i = 0; i < pos; i++) 
+    //char *tmpString = malloc(sizeof(char) * pos + sizeof(char));
+    char *tmpString = allocate(sizeof(char) * pos + sizeof(char), "Copy until tmp string");
+    for (int i = 0; i < pos; i++)
     {
         tmpString[i] = sString[i];
     }

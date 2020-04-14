@@ -58,7 +58,7 @@ void flowController()
         }
         cleanUpUser(user);
     } while(flag != exitFlag);
-
+    showMemory();
 }
 
 void askForExit(int *flag)
