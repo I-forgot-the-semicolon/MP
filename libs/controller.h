@@ -20,9 +20,10 @@
 #include "fileHandler.h"
 #include "Client/client.h"
 #include "Carrier/carrier.h"
+#include "Provider/adminProvider.h"
 
 void flowController();
-int login(User *userArray);
+int login(User *user);
 int redirectUser(User *userArray);
 void askForExit(int *flag);
 

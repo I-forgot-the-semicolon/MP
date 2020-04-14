@@ -31,10 +31,10 @@ typedef struct
     int year;
 } Date;
 
-enum userType {client, carrier, admin, provider};
+enum userType {client = 3, carrier = 2, admin = 0, provider = 1, none = 4};
 
 enum flags {loginFlag, saveFlag, exitFlag, loggedFlag, NOP, okFlag, errorFlag};
-enum loginFlags {wrongPasswordFlag = -2, wrongUsernameFlag = -1};
+enum loginFlags {wrongLogin = -1};
 
 //Custom structs
 

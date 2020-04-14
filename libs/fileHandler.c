@@ -33,23 +33,35 @@ Client* getClients(int *clientsNumber)
             //char *tmp = malloc(sizeof(char)*1024);
             char *tmp = allocate(sizeof(char)*1024, "tmp string");
             fgets(tmp, 1024, inputFile);
-            if(strlen(tmp) > 0)
+            unsigned int lineLength = strlen(tmp);
+            if(lineLength > 0)
             {
-                (*clientsNumber)++;
-                printf("Client number: %d\n", *clientsNumber);
-                //tmpClients = realloc(tmpClients, sizeof(Client)*(*clientsNumber));
-
-                if(*clientsNumber > 1)
+                bool validLine = false;
+                for(int i = 0; i < lineLength; i++)
                 {
-                    tmpClients = reallocate(tmpClients, sizeof(Client)*(*clientsNumber), "Tmp clients array");
-                    tmpClients[*clientsNumber-1].id = *clientsNumber;
-                }
-                else
-                {
-                    tmpClients->id = *clientsNumber;
+                    if(!iscntrl(tmp[i]))
+                        validLine = true;
                 }
 
-                getClientFromFile(tmp, 0, ClientFieldNumber, tmpClients, *clientsNumber-1);
+                if(validLine)
+                {
+                    (*clientsNumber)++;
+                    printf("Client number: %d\n", *clientsNumber);
+                    //tmpClients = realloc(tmpClients, sizeof(Client)*(*clientsNumber));
+
+                    if (*clientsNumber > 1)
+                    {
+                        tmpClients = reallocate(tmpClients, sizeof(Client) * (*clientsNumber), "Tmp clients array");
+                        tmpClients[*clientsNumber - 1].id = *clientsNumber;
+                    } else
+                    {
+                        tmpClients->id = *clientsNumber;
+                    }
+
+                    sanitize(tmp);
+
+                    getClientFromFile(tmp, 0, ClientFieldNumber, tmpClients, *clientsNumber - 1);
+                }
             }
             //free(tmp);
             deallocate(tmp, "tmp string");
@@ -192,20 +204,57 @@ AdminProvider* getAdminsProviders(int *adminsProvidersNumber)
     FILE *inputFile = fopen("../databases/adminprov.txt", "r");
     if(inputFile != nullptr)
     {
-        tmpAdminsProviders = malloc(sizeof(AdminProvider));
+        //tmpAdminsProviders = malloc(sizeof(AdminProvider));
+        tmpAdminsProviders = allocate(sizeof(AdminProvider), "Tmp AdminProvider Array");
+
         while(!feof(inputFile))
         {
-            char *tmp = malloc(sizeof(char)*1024);
+            //char *tmp = malloc(sizeof(char)*1024);
+            char *tmp = allocate(sizeof(char)*1024, "tmp string");
             fgets(tmp, 1024, inputFile);
-            if(strlen(tmp) > 0)
+            unsigned int lineLength = strlen(tmp);
+            if(lineLength > 0)
             {
-                (*adminsProvidersNumber)++;
-                tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
-                getAdminsProvidersFromFile(tmp, 0, AdminProviderFieldNumber, tmpAdminsProviders, *adminsProvidersNumber-1);
-                free(tmp);
+                bool validLine = false;
+                for(int i = 0; i < lineLength; i++)
+                {
+                    if(!iscntrl(tmp[i]))
+                        validLine = true;
+                }
+
+                if(validLine)
+                {
+                    (*adminsProvidersNumber)++;
+                    printf("Admin/provider number: %d\n", *adminsProvidersNumber);
+                    //tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
+
+                    if(*adminsProvidersNumber > 1)
+                    {
+                        tmpAdminsProviders = reallocate(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber), "Tmp Admin providers array");
+                        tmpAdminsProviders[*adminsProvidersNumber-1].id = *adminsProvidersNumber;
+                    }
+                    else
+                    {
+                        tmpAdminsProviders->id = *adminsProvidersNumber;
+                    }
+
+                    sanitize(tmp);
+                    printf("Tmp: %s\n", tmp);
+
+                    getAdminsProvidersFromFile(tmp, 0, AdminProviderFieldNumber, tmpAdminsProviders, *adminsProvidersNumber-1);
+                }
+
             }
+
+            //free(tmp);
+            deallocate(tmp, "tmp string");
         }
         fclose(inputFile);
+    }
+    else
+    {
+        printf("Error opening client database\n");
+        exit(-1);
     }
     return tmpAdminsProviders;
 }
@@ -219,9 +268,11 @@ void getAdminsProvidersFromFile(char *input, int field, int maxFields, AdminProv
     char *tmpString = copyUntil(input, pos);
     adminsProviderArray[adminProviderNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(adminsProviderArray[adminProviderNumber].fields[field], tmpString);
+    printf("Final field: %s\n", tmpString);
     free(tmpString);
     truncateString(input, pos + 1);
-    
+
+    printf("Final string: %s\n", input);
     #ifdef DEBUG
     printf("Final field: %s\n", tmpString);
     printf("Final string: %s\n", input);

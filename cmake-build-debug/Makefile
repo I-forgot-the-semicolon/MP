@@ -204,32 +204,32 @@ libs/Client/client.c.s:
 	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Client/client.c.s
 .PHONY : libs/Client/client.c.s
 
-libs/Provider/provider.o: libs/Provider/provider.c.o
+libs/Provider/adminProvider.o: libs/Provider/adminProvider.c.o
 
-.PHONY : libs/Provider/provider.o
+.PHONY : libs/Provider/adminProvider.o
 
 # target to build an object file
-libs/Provider/provider.c.o:
-	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Provider/provider.c.o
-.PHONY : libs/Provider/provider.c.o
+libs/Provider/adminProvider.c.o:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Provider/adminProvider.c.o
+.PHONY : libs/Provider/adminProvider.c.o
 
-libs/Provider/provider.i: libs/Provider/provider.c.i
+libs/Provider/adminProvider.i: libs/Provider/adminProvider.c.i
 
-.PHONY : libs/Provider/provider.i
+.PHONY : libs/Provider/adminProvider.i
 
 # target to preprocess a source file
-libs/Provider/provider.c.i:
-	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Provider/provider.c.i
-.PHONY : libs/Provider/provider.c.i
+libs/Provider/adminProvider.c.i:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Provider/adminProvider.c.i
+.PHONY : libs/Provider/adminProvider.c.i
 
-libs/Provider/provider.s: libs/Provider/provider.c.s
+libs/Provider/adminProvider.s: libs/Provider/adminProvider.c.s
 
-.PHONY : libs/Provider/provider.s
+.PHONY : libs/Provider/adminProvider.s
 
 # target to generate assembly for a file
-libs/Provider/provider.c.s:
-	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Provider/provider.c.s
-.PHONY : libs/Provider/provider.c.s
+libs/Provider/adminProvider.c.s:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Provider/adminProvider.c.s
+.PHONY : libs/Provider/adminProvider.c.s
 
 libs/Utils/debug.o: libs/Utils/debug.c.o
 
@@ -384,9 +384,9 @@ help:
 	@echo "... libs/Client/client.o"
 	@echo "... libs/Client/client.i"
 	@echo "... libs/Client/client.s"
-	@echo "... libs/Provider/provider.o"
-	@echo "... libs/Provider/provider.i"
-	@echo "... libs/Provider/provider.s"
+	@echo "... libs/Provider/adminProvider.o"
+	@echo "... libs/Provider/adminProvider.i"
+	@echo "... libs/Provider/adminProvider.s"
 	@echo "... libs/Utils/debug.o"
 	@echo "... libs/Utils/debug.i"
 	@echo "... libs/Utils/debug.s"

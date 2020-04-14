@@ -23,8 +23,8 @@
 #include<string.h>
 #include "../fileHandler.h"
 
-AdminProvider loginProvider(char *email, char *password, int *pos);
-void adminProviderMenu(User *user, bool *running, AdminProvider actualAdminProvider);
+AdminProvider loginAdminProvider(char *email, char *password, int *pos);
+void adminMenu(User *user, bool *running, AdminProvider actualAdminProvider);
 void profileMenu(AdminProvider actualAdminProvider);
 void ShowAdminProviderInfo(AdminProvider actualAdminProvider);
 void ModifyAdminProviderInfo(AdminProvider actualAdminProvider);

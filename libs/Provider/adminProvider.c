@@ -16,37 +16,53 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "adminProvider.h"
 
-#include "provider.h"
-//HECHO POR DAVID
-AdminProvider loginProvider(char *email, char *password, int *pos)
+AdminProvider loginAdminProvider(char *email, char *password, int *pos)
 {
-  AdminProvider tmpAdminprovider;
+  AdminProvider tmpAdminProvider = {0, nullptr};
   bool found = false;
 
-  int AdminProviderArraySize;
-  AdminProvider *AdminProviderArray = getAdminsProviders(&AdminProviderArraySize);
+  int adminProviderArraySize = 0;
+  AdminProvider *adminProviderArray = getAdminsProviders(&adminProviderArraySize);
 
-  for (int i = 0; i < AdminProviderArraySize && !found; i++) 
-  {
-      //printf("%s -> %s\n", email, AdminProviderArray[i].fields[AdminProviderEmail]);
-        if(strcmp(email, AdminProviderArray[i].fields[adminProviderEmail]) == 0 && strcmp(password, AdminProviderArray[i].fields[adminProviderPassword]) == 0)
+    if(adminProviderArray != nullptr)
+    {
+        for (int i = 0; i < adminProviderArraySize && !found; i++)
         {
-            printf("Username found!\n");
-            printf("Password correct!\n");
-            tmpAdminprovider = AdminProviderArray[i];
-            found = true;
-            *pos = i;     
-        }
-    }
+            if(strcmp(email, adminProviderArray[i].fields[adminProviderEmail]) == 0 && strcmp(password, adminProviderArray[i].fields[adminProviderPassword]) == 0)
+            {
+                found = true;
+                printf("Username found!\n");
+                printf("Password correct!\n");
+                copyAdminProvider(&tmpAdminProvider, adminProviderArray[i]);
+                printf("With id: %d\n", tmpAdminProvider.id);
+                printf("Type: boof %s eeeee\n", tmpAdminProvider.fields[adminProviderType]);
+                printf("Field length: %d\n", strlen(tmpAdminProvider.fields[adminProviderType]));
+                for(int j = 0; j < strlen(tmpAdminProvider.fields[adminProviderType]); j++)
+                    printf("char[%d]: %c\n", j, tmpAdminProvider.fields[adminProviderType][j]);
 
-    free(AdminProviderArray);
-    return tmpAdminprovider;
+                *pos = i;
+            }
+        }
+        for(int i = 0; i < adminProviderArraySize; i++)
+        {
+            for(int j = 0; j < AdminProviderFieldNumber; j++)
+                deallocate(adminProviderArray[i].fields[j], "Field from admin provider array...");
+        }
+        deallocate(adminProviderArray, "admin provider Array");
+        //free(adminProviderArray);
+    }
+    else
+    {
+        printf("Error critico, clientsArray es nulo.\n");
+        exit(-2);
+    }
+    return tmpAdminProvider;
 }
 
-void adminProviderMenu(User *user, bool *running, AdminProvider actualAdminProvider)
+void adminMenu(User *user, bool *running, AdminProvider actualAdminProvider)
 {
-    //AdminProvider actualAdminProvider = user->adminProviderUser;
 
     bool logged = true;
 

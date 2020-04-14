@@ -29,29 +29,24 @@ Client loginClient(char *email, char *password, int *pos)
     {
         for (int i = 0; i < clientsArraySize && !found; i++)
         {
-            if(strcmp(email, clientsArray[i].fields[clientEmail]) == 0)
+            if(strcmp(email, clientsArray[i].fields[clientEmail]) == 0 && strcmp(password, clientsArray[i].fields[clientPassword]) == 0)
             {
-                printf("Username found!\n");
                 found = true;
-                *pos = wrongPasswordFlag;
-                if(strcmp(password, clientsArray[i].fields[clientPassword]) == 0)
-                {
-                    printf("Password correct!\n");
-                    printf("With id: %d\n", tmpClient.id);
-                    copyClient(&tmpClient, clientsArray[i]);
-                    //tmpClient = clientsArray[i];
-                    *pos = i;
-                }
+                printf("Username found!\n");
+                printf("Password correct!\n");
+                copyClient(&tmpClient, clientsArray[i]);
+                printf("With id: %d\n", tmpClient.id);
+                *pos = i;
             }
-            else
+            /*else
             {
-                *pos = wrongUsernameFlag;
-            }
+                *pos = wrongLogin;
+            }*/
         }
 
         for(int i = 0; i < clientsArraySize; i++)
         {
-            for(int j = 0; j < 9; j++)
+            for(int j = 0; j < ClientFieldNumber; j++)
                 deallocate(clientsArray[i].fields[j], "Field from client array...");
         }
         deallocate(clientsArray, "Clients Array");

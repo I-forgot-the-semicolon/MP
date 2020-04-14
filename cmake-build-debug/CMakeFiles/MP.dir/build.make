@@ -109,18 +109,18 @@ CMakeFiles/MP.dir/libs/Client/client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MP.dir/libs/Client/client.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.c -o CMakeFiles/MP.dir/libs/Client/client.c.s
 
-CMakeFiles/MP.dir/libs/Provider/provider.c.o: CMakeFiles/MP.dir/flags.make
-CMakeFiles/MP.dir/libs/Provider/provider.c.o: ../libs/Provider/provider.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/MP.dir/libs/Provider/provider.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Provider/provider.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/provider.c
+CMakeFiles/MP.dir/libs/Provider/adminProvider.c.o: CMakeFiles/MP.dir/flags.make
+CMakeFiles/MP.dir/libs/Provider/adminProvider.c.o: ../libs/Provider/adminProvider.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/MP.dir/libs/Provider/adminProvider.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Provider/adminProvider.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/adminProvider.c
 
-CMakeFiles/MP.dir/libs/Provider/provider.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MP.dir/libs/Provider/provider.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/provider.c > CMakeFiles/MP.dir/libs/Provider/provider.c.i
+CMakeFiles/MP.dir/libs/Provider/adminProvider.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MP.dir/libs/Provider/adminProvider.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/adminProvider.c > CMakeFiles/MP.dir/libs/Provider/adminProvider.c.i
 
-CMakeFiles/MP.dir/libs/Provider/provider.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MP.dir/libs/Provider/provider.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/provider.c -o CMakeFiles/MP.dir/libs/Provider/provider.c.s
+CMakeFiles/MP.dir/libs/Provider/adminProvider.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MP.dir/libs/Provider/adminProvider.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/adminProvider.c -o CMakeFiles/MP.dir/libs/Provider/adminProvider.c.s
 
 CMakeFiles/MP.dir/libs/Utils/utils.c.o: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/Utils/utils.c.o: ../libs/Utils/utils.c
@@ -180,7 +180,7 @@ MP_OBJECTS = \
 "CMakeFiles/MP.dir/libs/Admin/admin.c.o" \
 "CMakeFiles/MP.dir/libs/Carrier/carrier.c.o" \
 "CMakeFiles/MP.dir/libs/Client/client.c.o" \
-"CMakeFiles/MP.dir/libs/Provider/provider.c.o" \
+"CMakeFiles/MP.dir/libs/Provider/adminProvider.c.o" \
 "CMakeFiles/MP.dir/libs/Utils/utils.c.o" \
 "CMakeFiles/MP.dir/libs/controller.c.o" \
 "CMakeFiles/MP.dir/libs/fileHandler.c.o" \
@@ -193,7 +193,7 @@ MP: CMakeFiles/MP.dir/main.c.o
 MP: CMakeFiles/MP.dir/libs/Admin/admin.c.o
 MP: CMakeFiles/MP.dir/libs/Carrier/carrier.c.o
 MP: CMakeFiles/MP.dir/libs/Client/client.c.o
-MP: CMakeFiles/MP.dir/libs/Provider/provider.c.o
+MP: CMakeFiles/MP.dir/libs/Provider/adminProvider.c.o
 MP: CMakeFiles/MP.dir/libs/Utils/utils.c.o
 MP: CMakeFiles/MP.dir/libs/controller.c.o
 MP: CMakeFiles/MP.dir/libs/fileHandler.c.o

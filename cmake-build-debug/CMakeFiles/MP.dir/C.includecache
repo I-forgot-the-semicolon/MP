@@ -6,21 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.h
-string.h
--
-../fileHandler.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
-
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h
-string.h
--
-../Utils/utils.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
-../fileHandler.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
-
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
+../libs/Utils/debug.h
 stdio.h
 -
 stdlib.h
@@ -38,26 +24,16 @@ string.h
 debug.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
 
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.c
-controller.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.h
-Utils/utils.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
-Utils/debug.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
 
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.c
 fileHandler.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
-Client/client.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h
-Carrier/carrier.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.h
-
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
 
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
 string.h
+-
+ctype.h
 -
 Utils/utils.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h

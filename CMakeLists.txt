@@ -18,8 +18,8 @@ add_executable(MP
         libs/Carrier/carrier.h
         libs/Client/client.c
         libs/Client/client.h
-        libs/Provider/provider.c
-        libs/Provider/provider.h
+        libs/Provider/adminProvider.c
+        libs/Provider/adminProvider.h
         libs/Utils/utils.c
         libs/Utils/utils.h
         libs/controller.c

@@ -30,6 +30,7 @@ void truncateString(char *input, unsigned int startPos);
 char *copyUntil(const char *sString, unsigned int pos);
 char *concatenate(char *a, char *b);
 char *concatenateChar(char *a, char b);
+void sanitize(char *string);
 
 bool askCorrect();
 char *askForField(char *msg, char *dest, bool confirm);
@@ -39,4 +40,5 @@ char *getNextID(int lastID);
 
 void cleanUpUser(User *user);
 void copyClient(Client *dest, Client src);
+void copyAdminProvider(AdminProvider *dest, AdminProvider src);
 #endif

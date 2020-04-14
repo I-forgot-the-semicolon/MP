@@ -26,16 +26,20 @@ void cleanUpUser(User *user)
     switch (user->userType)
     {
         case client:
-            for(int i = 0; i < 9; i++)
+            printf("Client!\n");
+            for(int i = 0; i < ClientFieldNumber; i++)
             {
                 deallocate(user->clientUser.fields[i], "exit user client cleanup");
             }
             break;
         case carrier:
+            printf("Carrier!\n");
             break;
         case admin:
+            printf("Admin!\n");
             break;
         case provider:
+            printf("Provider!\n");
             break;
         default:
             break;
@@ -49,9 +53,19 @@ void copyClient(Client *dest, Client src)
 {
     dest->id = src.id;
     dest->wallet = src.wallet;
-    for(int i = 0; i < 9; i++)
+    for(int i = 0; i < ClientFieldNumber; i++)
     {
         dest->fields[i] = allocate(sizeof(char)*(strlen(src.fields[i])+1), "field in client login");
+        strcpy(dest->fields[i], src.fields[i]);
+    }
+}
+
+void copyAdminProvider(AdminProvider *dest, AdminProvider src)
+{
+    dest->id = src.id;
+    for(int i = 0; i < AdminProviderFieldNumber; i++)
+    {
+        dest->fields[i] = allocate(sizeof(char) * (strlen(src.fields[i]) + 1), "field in admin provider login");
         strcpy(dest->fields[i], src.fields[i]);
     }
 }
@@ -204,6 +218,28 @@ unsigned int getFieldLength(char *input)
     return pos;
 }
 
+void sanitize(char *string)
+{
+    printf("Sanitazing...\n");
+    bool hasToSanitize = false;
+    unsigned int stringLength = strlen(string);
+    int pos = 0;
+    for(int i = 0; i < stringLength; i++)
+    {
+        if(string[i] == '\n' || string[i] == '\r')
+        {
+            hasToSanitize = true;
+            pos = i;
+        }
+    }
+
+    if(hasToSanitize)
+    {
+        string = reallocate(string, sizeof(char)*pos, "sanitize string...");
+        string[pos] = '\x00';
+        sanitize(string);
+    }
+}
 void truncateString(char *input, unsigned int startPos)
 {
     int finalLength = strlen(input) - startPos;

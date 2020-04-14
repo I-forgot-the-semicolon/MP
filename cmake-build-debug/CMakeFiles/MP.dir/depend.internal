@@ -17,10 +17,10 @@ CMakeFiles/MP.dir/libs/Client/client.c.o
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
-CMakeFiles/MP.dir/libs/Provider/provider.c.o
+CMakeFiles/MP.dir/libs/Provider/adminProvider.c.o
  ../libs/Utils/debug.h
- /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/provider.c
- /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/provider.h
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/adminProvider.c
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/adminProvider.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
@@ -35,6 +35,7 @@ CMakeFiles/MP.dir/libs/Utils/utils.c.o
 CMakeFiles/MP.dir/libs/controller.c.o
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/adminProvider.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.c
@@ -51,6 +52,7 @@ CMakeFiles/MP.dir/main.c.o
  ../libs/Utils/debug.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/adminProvider.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.h

@@ -29,7 +29,8 @@ void flowController()
         User *user = allocate(sizeof(User), "User");
 
         loginFlag = login(user);
-        if(loginFlag == wrongUsernameFlag)
+
+        if(loginFlag == wrongLogin)
         {
             char answer;
             printf("Do you want to create a new account? y/n\n");
@@ -39,22 +40,11 @@ void flowController()
             {
                 flag = signUpNewClient();
             }
-            else
-            {
-                askForExit(&flag);
-            }
+            askForExit(&flag);
         }
         else
         {
-            if(loginFlag == wrongPasswordFlag)
-            {
-                printf("Wrong password\n");
-                askForExit(&flag);
-            }
-            else
-            {
-                flag = redirectUser(user);
-            }
+            flag = redirectUser(user);
         }
         cleanUpUser(user);
     } while(flag != exitFlag);
@@ -85,8 +75,10 @@ int redirectUser(User *user)
             printf("Welcome carrier: %s\n", user->carrierUser.fields[carrierEmail]);
             break;
         case admin:
+            printf("Welcome admin: %s\n", user->adminProviderUser.fields[carrierEmail]);
             break;
         case provider:
+            printf("Welcome provider: %s\n", user->adminProviderUser.fields[carrierEmail]);
             break;
         default:
             break;
@@ -94,7 +86,7 @@ int redirectUser(User *user)
     return flag;
 }
 
-int login(User *userArray)
+int login(User *user)
 {
     char *username = nullptr;
     char *password = nullptr;
@@ -102,8 +94,8 @@ int login(User *userArray)
     username = askForField("Username", username, false);
     password = askForField("Password", password, false);
 
-    int pos = -1;
-    int mode = client;
+    int pos = wrongLogin;
+    int mode = 0;
 
     printf("Searching...\n");
     while(pos < 0 && mode < 4)
@@ -112,24 +104,25 @@ int login(User *userArray)
         {
             case client:
                 printf("Searching in client\n");
-                userArray->clientUser = loginClient(username, password, &pos);
-                userArray->userType = client;
+                user->clientUser = loginClient(username, password, &pos);
+                user->userType = client;
                 break;
             case carrier:
                 //printf("Searching in carrier\n");
                 //userArray->carrierUser = loginCarrier(username, password, &pos);
-                userArray->userType = carrier;
+                user->userType = carrier;
                 break;
             case admin:
-                userArray->userType = admin;
-                break;
             case provider:
-                userArray->userType = provider;
+                user->adminProviderUser = loginAdminProvider(username, password, &pos);
+                if(user->adminProviderUser.fields[adminProviderType] != nullptr)
+                {
+                    user->userType = (strcmp(user->adminProviderUser.fields[adminProviderType], "admin") == 0) ? admin : provider;
+                }
                 break;
             default:
                 break;
         }
-        printf("Searching: %d\n", mode);
         mode++;
     }
     
@@ -139,6 +132,7 @@ int login(User *userArray)
     }
     else
     {
+        user->userType = none;
         printf("Invalid email or password\n");
     }
 

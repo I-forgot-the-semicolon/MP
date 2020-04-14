@@ -112,10 +112,10 @@
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/provider.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/adminProvider.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/provider.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Provider/adminProvider.h">
 			<Option target="MP"/>
 		</Unit>
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.c">
