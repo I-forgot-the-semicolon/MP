@@ -1,25 +1,25 @@
     //HECHO POR DAVID
-/* 
+/*
  * This file is part of the ESIZON distribution.
  * Copyright (c) 2020 Ruben Cordero Ramos.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "carrier.h"
 
 
-Carrier loginCarrier(char *email, char *password, int *pos) 
+Carrier loginCarrier(char *email, char *password, int *pos)
 {
   Carrier tmpCarrier = {0, nullptr};
   bool found = false;
@@ -58,180 +58,256 @@ Carrier loginCarrier(char *email, char *password, int *pos)
     return tmpCarrier;
 }
 
-//David
-void CarrierMenu(User *user, bool *runing)
+int carrierMenu(User *user)
 {
-    Carrier actualCarrier = user->carrierUser;
-    
     int flag = loggedFlag;
-
+    Carrier actualCarrier = user->actualCarrier;
+    printf("Welcome user: %s\n", user->clientUser.fields[clientEmail]);
     do
-    {
-        int OptionSelect;
-        printf("Hi, %s\n", actualCarrier.fields[carrierEmail]);
-        printf("1.Profile Options.\n");
-        printf("2.Distribution Options.\n");
-        printf("3.Return Options.\n");
-        printf("4.Logout.\n");
-        printf("Select an option.\n");
-        scanf("%i",&OptionSelect);
-
-        switch (OptionSelect)
         {
-            case 1:
-            ProfileMenu(actualCarrier);
-            break;
-            case 2:
-            //DistributionMenu();
-            break;
-            case 3:
-            //ReturnMenu(carrier);
-            break;    
-            default:
-            break;
-        }
-    } while (flag == loggedFlag);
-    
-    
-}
-//David
-void ProfileMenu(Carrier actualCarrier)
-{
-    char awnser[1];
-    int optionSelect;
-    printf("Select which option you need.\n");
-    printf("1. Show Profile Info.\n");
-    printf("2.Modify Profile Info.\n");
-    printf("3. Leave Menu.\n");
-    do
-    {  
-        do
-        {
-            scanf("%i",&optionSelect);
-            
-        } while (optionSelect<=0||optionSelect>=4);
+            int option;
+            printf("Your id is: %d \n", actualCarrier.id);
+            printf("1. Profile\n");
+            printf("2. Deliver\n");
+            printf("3. Returns\n");
+            printf("4. Logout\n");
+            printf("Select an option: ");
+            scanf("%d", &option);
 
-        switch (optionSelect)
+            switch (option)
             {
-            case 1:
-               ShowCarrierInfo(actualCarrier);
-                break;
-            case 2:
-                ModifyCarrierInfo(actualCarrier);
-            default:
-                break;
+                case 1:
+                    carrierProfile(&actualCarrier);
+                    break;
+                case 2:
+                    deliverMenu(&actualCarrier);
+                    break;
+                case 3:
+                    returnMenu(&actualCarrier);
+                    break;
+                case 4:
+                    logoutCarrier(&flag);
+                    break;
+                default:
+                    printf("Invalid option\n");
+                    break;
             }
+        } while (flag == loggedFlag);
 
-            printf("Do you want to do something else befoer leaving?\n");
-            scanf("%s", awnser);
-
-    } while (awnser[0]!='y');
-}
-//David
-void ShowCarrierInfo(Carrier actualCarrier)
-{
-
-    printf("Your info is:\n\n");
-    printf("#---------------------------\n");
-    printf("Email: %s", actualCarrier.fields[carrierEmail]);
-    printf("The company that the Carriers work for: %s\n", actualCarrier.fields[carrierCompany]);
-    printf("The city of the business that work for:%s\n", actualCarrier.fields[carrierCity]);    
-    printf("#---------------------------\n");
+    return flag;
 }
 
-//  DAVID
-void ModifyCarrierInfo(Carrier actualCarrier)
+void logoutCarrier(int *flag)
 {
-    int optionSelect;
-    char anwser;
-    printf("Please select the field that you want to modify.\n");
-    printf("1. Email.\n");
-    printf("2.The company.\n");
-    printf("3.The city.\n");
-    clearBuffer();
-    scanf("%i",&optionSelect);
-    
-    switch (optionSelect)
+    int option;
+    printf("1. Exit to login\n");
+    printf("2. Exit program\n");
+    printf("3. Back\n");
+    printf("Select an option: ");
+    scanf("%d", &option);
+    switch (option)
     {
         case 1:
-        do
-        {
-            printf("Modifying Email.\n");
-            printf("Add your new Email account.\n");
-            scanf("%c",&anwser);
-        } while (anwser !='y');
-        break;
-        case 2:
-        do
-        {
-            printf("Modifying The Company.\n");
-            printf("Modify the name of the company.\n");
-            scanf("%s",actualCarrier.fields[carrierCompany]);
-            printf("Is that correct?(y/n).\n");
-            scanf("%c", &anwser);
-        } while (anwser !='y');
-
-        break;
-        case 3:
-        do
-        {
-            printf("Modifying The City.\n");
-            printf("Change the name of the City.\n");
-            scanf("%s",actualCarrier.fields[carrierEmail]);
-            printf("Is that correct?(y/n).\n");
-            scanf("%c",&anwser);
-        } while (anwser !='y');
-        break;
-        default:
-        break;
-    }
-
-}
-//David
-void DistributionMenu(Carrier actualCarrier) //
-{
-    int optionSelect;
-    char awnser[1];
-    printf("Select the one of the following options.\n");
-    printf("1. To show order information.\n");
-    printf("2. To modify order information.\n");
-    printf("3. To leave the menu.\n");
-
-    do
-    {
-        do
-        {
-            scanf("%i",&optionSelect);
-        } while (optionSelect>0||optionSelect<4);
-
-        switch (optionSelect)
-        {
-        case 1:
-                //ShowDistributionInfo();
+            *flag = loginFlag;
             break;
         case 2:
-            //ModifyDistributionInfo(actualCarrier, actualClient);
+            *flag = exitFlag;
             break;
         case 3:
             break;
         default:
+            printf("Invalid option\n");
             break;
         }
-        printf("Do you want something else before leaving?\n");
-    } while (awnser[0]=='y');
-    
 }
 
-void ShowDistributionMenu(ProductOrder actualProductOrder)
+void carrierProfile(Client *actualCarrier)
 {
-    int i,orderAmount;
-    printf("You have %i orders.\n",orderAmount);//Completar el número de pedidos
-    for(i=0;i<orderAmount;i++)
+    bool back = false;
+    do
     {
-        printf("The Order ID is %i.\n",actualProductOrder.orderID);
-        printf("The Date of Delivery is %i\n",actualProductOrder.deliveryDate);
-        printf("The status is %s.\n",actualProductOrder.fields[productOrderOrderStatus]);
-        printf("The deliver ");
+        int option;
+        printf("1. View profile\n");
+        printf("2. Modify profile\n");
+        printf("3. Back\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                viewProfile(actualCarrier);
+                break;
+            case 2:
+                modifyProfile(actualCarrier);
+                break;
+            case 3:
+                saveClient(*actualCarrier);
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+
+void viewProfile(Carrier *actualCarrier)
+{
+    printf("#-----------------------------------------------------\n");
+    printf("# ID: %s\n", actualCarrier->id);
+    printf("# Company: %s\n",actualCarrier->fields[carrierCompany]);
+    printf("# City: %s\n", actualCarrier->fields[carrierCity]);
+    printf("# Email: %s\n", actualCarrier->fields[carrierEmail]);
+    printf("# Password: %s\n", actualCarrier->fields[carrierPassword]);
+    printf("#-----------------------------------------------------\n");
+}
+
+void modifyProfile(Carrier *actualCarrier)
+{
+    int option;
+    bool back = false;
+    do
+    {
+        printf("1. ID\n");
+        printf("2. Company\n");
+        printf("3. City\n");
+        printf("4. Email\n");
+        printf("5. Password\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                modifyField(actualCarrier,option);
+                break;
+                case 9:
+                    back = true;
+                    break;
+                default:
+                    printf("Invalid option\n");
+                    break;
+        }
+        } while(!back);
+}
+
+void modifyField(Carrier *actualCarrier, int field)
+{
+    bool correct = false;
+    do
+    {
+        char buffer[1024];
+
+        printf("The actual value is: %s\n", actualCarrier->fields[field]);
+        printf("Type the new value: ");
+        clearBuffer();
+        scanf("%[^\n]", buffer);
+
+        printf("The new value is: %s\n", buffer);
+        if(askCorrect())
+        {
+            unsigned long newSize = strlen(buffer);
+            //actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
+            actualCarrier->fields[field] = reallocate(actualCarrier->fields[field], sizeof(char)*newSize, "Actual carrier modified field");
+            strcpy(actualCarrier->fields[field], buffer);
+            correct = true;
+        }
+    } while (!correct);
+
+}
+
+int searchCarrier(Carrier actualCarrier, Carrier *carrierArray, const char *textToSearch)
+{
+    return 0;
+
+}
+void deliverMenu(ProductOrder *actualProductOrder, Locker *actualLocker, Order *actualOrder)
+{
+    int option;
+    bool back = false;
+
+    printf("Select an option\n");
+    printf("1.View Deliver Info\n");
+    printf("2. Modify Deliver Info\n");
+    printf("3. Modify Locker Info\n");
+    printf("4.Exit\n");
+
+    scanf("%i",&option);
+    switch (option)
+    {
+        case 1:
+            viewDeliver(actualProductOrder, actualOrder);
+            break;
+        case 2:
+            modifyDeliver(actualProductOrder, actualOrder);
+            break;
+        case 3:
+            modifyLockerInfo(actualProductOrder, actualLocker);
+            break;
+        case 4:
+            back = true;
+            break;
+        default:
+            printf("Invalid option.\n");
+            break;
     }
-    
+
+}
+
+void viewDeliver(ProductOrder *actualProductOrder, Order *actualOrder)
+{
+    printf("#-----------------------------------------------------\n");
+    printf("# OrderID: %i\n", actualProductOrder->fields[orderID]);
+    printf("# ProductID: %i\n",actualProductOrder->fields[productOrderID]);
+    printf("# Unit Number: %i\n",actualProductOrder->fields[productOrderUnitNumber]);
+    printf("# Locker Code: %i\n", actualProductOrder->fields[orderLockerCode]);
+    printf("# Deliver Date: %i\n", actualProductOrder->deliveryDate);
+    printf("# Deliver Place: %s\n", actualOrder->fields[orderDeliveryPlace]);
+    printf("#-----------------------------------------------------\n");
+
+}
+void modifyDeliver (ProductOrder *actualProductOrder, Order *actualOrder)
+{
+    int option;
+    bool back = false;
+    do
+    {
+        printf("1. OrderID\n");
+        printf("2. ProductID\n");
+        printf("3. Unit Number\n");
+        printf("4. Locker Code\n");
+        printf("5. Deliver Date\n");
+        printf("6. Deliver Place\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                modifyField(actualProductOrder,option);
+                break;
+            case 5:
+            case 6:
+                modifyField(actualOrder,option);
+                break;
+            case 9:
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+void modifyLockerInfo(ProductOrder *actualProductOrder, Locker *actualLocker)
+{
+
 }

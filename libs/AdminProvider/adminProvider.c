@@ -121,6 +121,7 @@ void profileMenu(AdminProvider actualAdminProvider)
                 //MenuExiting
                 break;    
             default:
+                printf("Invalid operation.\n");
                 break;
             }
 

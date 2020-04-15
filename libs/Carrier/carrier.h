@@ -23,10 +23,17 @@
 
 Carrier loginCarrier(char *email, char *password, int *pos);
 void CarrierMenu(User *user, bool *runing);
-void ProfileMenu(Carrier actualCarrier);
-void ShowCarrierInfo(Carrier actualCarrier);
-void ModifyCarrierInfo(Carrier actualCarrier);
-void DistributionMenu(Carrier actualCarrier);
+void carrierProfile(Carrier *actualCarrier);
+void logoutCarrier(int *flag);
+void viewProfile(Carrier *actualCarrier);
+void modifyProfile(Carrier *actualCarrier);
+void modifyField(Carrier *actualCarrier, int field);
+int searchCarrier(Carrier actualCarrier, Carrier *carrierArray, const char *textToSearch);
+void deliverMenu(ProductOrder *actualProductOrder, Locker *actualLocker, Order *actualOrder);
+void viewDeliver(ProductOrder *actualProductOrder, Order *actualOrder);
+void modifyDeliver (ProductOrder *actualProductOrder, Order *actualOrder);
+void modifyLockerInfo(ProductOrder *actualProductOrder, Locker *actualLocker);
+void returnMenu();
 void ShowDistributionMenu(ProductOrder actualProductOrder);
 
 #endif
