@@ -62,13 +62,13 @@ int signUpNewClient()
 
     Client newClient = {0, 0, nullptr};
     newClient.fields[clientID] = getNextID(index, 6);
-    newClient.fields[clientName] = askForField("Name", newClient.fields[clientName], true);
-    newClient.fields[clientSurname] = askForField("Last Name", newClient.fields[clientSurname], true);
-    newClient.fields[clientAddress] = askForField("Address", newClient.fields[clientAddress], true);
-    newClient.fields[clientCity] = askForField("City", newClient.fields[clientCity], true);
-    newClient.fields[clientProvince] = askForField("Province", newClient.fields[clientProvince], true);
-    newClient.fields[clientEmail] = askForField("Email", newClient.fields[clientEmail], true);
-    newClient.fields[clientPassword] = askForField("Password", newClient.fields[clientPassword], true);
+    newClient.fields[clientName] = askForField("Name", true);
+    newClient.fields[clientSurname] = askForField("Last Name", true);
+    newClient.fields[clientAddress] = askForField("Address", true);
+    newClient.fields[clientCity] = askForField("City", true);
+    newClient.fields[clientProvince] = askForField("Province", true);
+    newClient.fields[clientEmail] = askForField("Email", true);
+    newClient.fields[clientPassword] = askForField("Password", true);
     newClient.fields[clientWallet] = allocate(sizeof(char)*5, "New client wallet");
     strcpy(newClient.fields[clientWallet], "0");
 
@@ -109,6 +109,9 @@ int clientMenu(User *user)
         {
             case 1:
                 clientProfile(&actualClient);
+                break;
+            case 2:
+                clientProducts(&actualClient);
                 break;
             case 6:
                 logoutClient(&flag);
@@ -252,27 +255,22 @@ void clientProducts(Client *actualClient)
     do
     {
         int option;
-        printf("1. View profile\n");
-        printf("2. Modify profile\n");
+        printf("1. Search by name\n");
+        printf("2. Search by category\n");
         printf("3. Back\n");
 
         printf("Select an option: ");
+        clearBuffer();
         scanf("%d", &option);
         switch (option)
         {
             case 1:
-                viewProfile(*actualClient);
+                searchProductByName();
                 break;
             case 2:
                 modifyProfile(actualClient, &clientModified);
                 break;
             case 3:
-                if(clientModified)
-                {
-                    printf("Saving...\n");
-                    saveClient(*actualClient);
-                    clientModified = false;
-                }
                 back = true;
                 break;
             default:
@@ -280,6 +278,42 @@ void clientProducts(Client *actualClient)
                 break;
         }
     } while(!back);
+}
+
+void searchProductByName()
+{
+    bool found = false;
+
+    int productsNumber, actualCounter = 1;
+    Product *products = getProducts(&productsNumber);
+
+    char *productName = askForField("Product name", false);
+    char *lowCaseProductName = toLowerCase(productName);
+    deallocate(productName, "Product name");
+
+    for(int i = 0; i < productsNumber; i++)
+    {
+        char *tmpLowCaseDescription = toLowerCase(products[i].fields[productDescription]);
+        //printf("Comparing %s with %s\n", lowCaseProductName, tmpLowCaseDescription);
+        if(strstr(tmpLowCaseDescription, lowCaseProductName) != nullptr)
+        {
+            printf("[%d] %s\n", actualCounter, products[i].fields[productDescription]);
+            actualCounter++;
+            found = true;
+        }
+        deallocate(tmpLowCaseDescription, "tmp low case description");
+    }
+    if(!found)
+        printf("Nothing found!\n");
+
+    for(int i = 0; i < productsNumber; i++)
+    {
+        for(int j = 0; j < ProductFieldNumber; j++)
+            deallocate(products[i].fields[j], "Field from product array...");
+    }
+
+    deallocate(products, "Products Array");
+    deallocate(lowCaseProductName, "Product name");
 }
 
 void modifyField(Client *actualClient, int field, bool *clientModified)

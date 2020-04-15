@@ -28,6 +28,10 @@ int signUpNewClient();
 int clientMenu(User *user);
 void clientProfile(Client *actualClient);
 void clientProducts(Client *actualClient);
+
+void searchProductByName();
+void searchProductByCategory();
+
 void viewProfile(Client actualClient);
 void modifyProfile(Client *actualClient, bool *clientModified);
 void modifyField(Client *actualClient, int field, bool *clientModified);

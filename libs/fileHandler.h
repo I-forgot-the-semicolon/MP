@@ -34,7 +34,7 @@ void saveClient(Client actualClient);
 AdminProvider* getAdminsProviders(int *adminsProvidersNumber);
 void getAdminsProvidersFromFile(char *input, int field, int maxFields, AdminProvider *adminsProviderArray, int adminProviderNumber);
 
-Product* getProducts(int *productsNumber);
+Product* getProducts(int *products);
 void getProductFromFile(char *input, int field, int maxFields, Product *productArray, int productNumber);
 
 Carrier* getCarriers(int *carriersNumber);
@@ -49,7 +49,7 @@ void getOrdersFromFile(char *input, int field, int maxFields, Order *orderArray,
 ProductOrder* getProductOrders(int *productOrdersNumber);
 void getProductOrdersFromFile(char *input, int field, int maxFields, ProductOrder *productOrderArray, int productOrderNumber);
 
-Product* getProducts(int *productsNumber);
+Product* getProducts(int *products);
 void getProductsFromFile(char *input, int field, int maxFields, Product *productArray, int productNumber);
 
 Category* getCategories(int *categoriesNumber);

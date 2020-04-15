@@ -21,6 +21,22 @@ void clearBuffer()
     while ((getchar()) != '\n'); 
 }
 
+char *toLowerCase(char *str)
+{
+    unsigned int length = strlen(str);
+    char *tmpString = allocate(sizeof(char)*(length+1), "tmp String to low case");
+    tmpString[length] = '\x00';
+
+    for(int i = 0; i < length; i++)
+    {
+        if(str[i] >= 65 && str[i] <= 90)
+            tmpString[i] = str[i]+32;
+        else
+            tmpString[i] = str[i];
+    }
+    return tmpString;
+}
+
 void cleanUpUser(User *user)
 {
     switch (user->userType)
@@ -131,9 +147,10 @@ bool askCorrect()
     return false;
 }
 
-char *askForField(char *msg, char *dest, bool confirm)
+char *askForField(char *msg, bool confirm)
 {
     char buffer[1024];
+    char *dest = nullptr;
 
     if(confirm)
     {

@@ -261,31 +261,52 @@ void getAdminsProvidersFromFile(char *input, int field, int maxFields, AdminProv
 }
 
 //Products
-Product* getProducts(int *productsNumber)
+Product* getProducts(int *products)
 {
-    *productsNumber = 0;
+    *products = 0;
     Product *tmpProducts = nullptr;
     FILE *inputFile = fopen("../databases/products.txt", "r");
     if(inputFile != nullptr)
     {
-        tmpProducts = malloc(sizeof(Product));
+        //tmpProducts = malloc(sizeof(Product));
+        tmpProducts = allocate(sizeof(Product), "Tmp product Array");
+
         while(!feof(inputFile))
         {
-            char *tmp = malloc(sizeof(char)*1024);
+            //char *tmp = malloc(sizeof(char)*1024);
+            char *tmp = allocate(sizeof(char)*1024, "tmp string");
             fgets(tmp, 1024, inputFile);
-            if(strlen(tmp) > 0)
+            if(isValidLine(tmp) && !feof(inputFile))
             {
-                (*productsNumber)++;
-                tmpProducts = realloc(tmpProducts, sizeof(Product)*(*productsNumber));
-                getProductFromFile(tmp, 0, ProductFieldNumber, tmpProducts, *productsNumber-1);
+                (*products)++;
+                printf("Product number: %d\n", *products);
+                //tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
+
+                if(*products > 1)
+                {
+                    tmpProducts = reallocate(tmpProducts, sizeof(Product) * (*products), "Tmp Products array");
+                    tmpProducts[*products - 1].productId = *products;
+                }
+                else
+                {
+                    tmpProducts->productId = *products;
+                }
+
+                sanitize(tmp);
+                printf("Tmp: %s\n", tmp);
+
+                getProductFromFile(tmp, 0, ProductFieldNumber, tmpProducts, *products - 1);
             }
-            free(tmp);
+
+            //free(tmp);
+            deallocate(tmp, "tmp string");
         }
         fclose(inputFile);
     }
     else
     {
-        printf("Error opening!\n");
+        printf("Error opening client database\n");
+        exit(-1);
     }
     return tmpProducts;
 }

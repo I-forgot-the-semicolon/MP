@@ -26,6 +26,7 @@
 //#define DEBUG
 
 void clearBuffer();
+char *toLowerCase(char *str);
 unsigned int getFieldLength(char *input);
 void truncateString(char *input, unsigned int startPos);
 char *copyUntil(const char *sString, unsigned int pos);
@@ -35,7 +36,7 @@ bool isValidLine(char *tmp);
 void sanitize(char *string);
 
 bool askCorrect();
-char *askForField(char *msg, char *dest, bool confirm);
+char *askForField(char *msg, bool confirm);
 void askForExit(int *flag);
 
 char *toFileStringClient(Client client);
