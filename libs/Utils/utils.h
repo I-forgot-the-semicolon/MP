@@ -36,9 +36,10 @@ bool askCorrect();
 char *askForField(char *msg, char *dest, bool confirm);
 
 char *toFileStringClient(Client client);
-char *getNextID(int lastID);
+char *getNextID(int lastID, unsigned int length);
 
 void cleanUpUser(User *user);
 void copyClient(Client *dest, Client src);
 void copyAdminProvider(AdminProvider *dest, AdminProvider src);
+void copyCarrier(Carrier *dest, Carrier src);
 #endif

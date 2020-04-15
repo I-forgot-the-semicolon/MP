@@ -65,7 +65,7 @@ int signUpNewClient()
     int index = getLastIndex("../databases/clientes.txt");
 
     Client newClient = {0, 0, nullptr};
-    newClient.fields[clientID] = getNextID(index);
+    newClient.fields[clientID] = getNextID(index, 6);
     newClient.fields[clientName] = askForField("Name", newClient.fields[clientName], true);
     newClient.fields[clientSurname] = askForField("Last Name", newClient.fields[clientSurname], true);
     newClient.fields[clientAddress] = askForField("Address", newClient.fields[clientAddress], true);

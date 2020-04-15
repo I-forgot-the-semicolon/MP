@@ -24,22 +24,37 @@ Carrier loginCarrier(char *email, char *password, int *pos)
   Carrier tmpCarrier = {0, nullptr};
   bool found = false;
 
-  int carriersArraySize;
+  int carriersArraySize = 0;
   Carrier *carriersArray = getCarriers(&carriersArraySize);
 
-  for (int i = 0; i < carriersArraySize && !found; i++) 
-  {
-        if(strcmp(email, carriersArray[i].fields[carrierEmail]) == 0 && strcmp(password, carriersArray[i].fields[carrierPassword]) == 0)
+    if(carriersArray != nullptr)
+    {
+        for (int i = 0; i < carriersArraySize && !found; i++)
         {
-            printf("Username found!\n");
-            printf("Password correct!\n");
-            tmpCarrier = carriersArray[i];
-            found = true;
-            *pos = i;     
+            if(strcmp(email, carriersArray[i].fields[carrierEmail]) == 0 && strcmp(password, carriersArray[i].fields[carrierPassword]) == 0)
+            {
+                found = true;
+                printf("Username found!\n");
+                printf("Password correct!\n");
+                copyCarrier(&tmpCarrier, carriersArray[i]);
+                printf("With id: %d\n", tmpCarrier.id);
+                *pos = i;
+            }
         }
-    }
 
-    free(carriersArray);
+        for(int i = 0; i < carriersArraySize; i++)
+        {
+            for(int j = 0; j < CarrierFieldNumber; j++)
+                deallocate(carriersArray[i].fields[j], "Field from client array...");
+        }
+        deallocate(carriersArray, "Clients Array");
+        //free(clientsArray);
+    }
+    else
+    {
+        printf("Error critico, carrier Array es nulo.\n");
+        exit(-2);
+    }
     return tmpCarrier;
 }
 

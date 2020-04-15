@@ -34,7 +34,7 @@ Client* getClients(int *clientsNumber)
             char *tmp = allocate(sizeof(char)*1024, "tmp string");
             fgets(tmp, 1024, inputFile);
             unsigned int lineLength = strlen(tmp);
-            if(lineLength > 0)
+            if(lineLength > 0 && !feof(inputFile))
             {
                 bool validLine = false;
                 for(int i = 0; i < lineLength; i++)
@@ -213,7 +213,7 @@ AdminProvider* getAdminsProviders(int *adminsProvidersNumber)
             char *tmp = allocate(sizeof(char)*1024, "tmp string");
             fgets(tmp, 1024, inputFile);
             unsigned int lineLength = strlen(tmp);
-            if(lineLength > 0)
+            if(lineLength > 0 && !feof(inputFile))
             {
                 bool validLine = false;
                 for(int i = 0; i < lineLength; i++)
@@ -268,11 +268,11 @@ void getAdminsProvidersFromFile(char *input, int field, int maxFields, AdminProv
     char *tmpString = copyUntil(input, pos);
     adminsProviderArray[adminProviderNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
     strcpy(adminsProviderArray[adminProviderNumber].fields[field], tmpString);
-    printf("Final field: %s\n", tmpString);
+    //printf("Final field: %s\n", tmpString);
     free(tmpString);
     truncateString(input, pos + 1);
 
-    printf("Final string: %s\n", input);
+    //printf("Final string: %s\n", input);
     #ifdef DEBUG
     printf("Final field: %s\n", tmpString);
     printf("Final string: %s\n", input);
@@ -340,46 +340,62 @@ Carrier* getCarriers(int *carriersNumber)
     *carriersNumber = 0;
     Carrier *tmpCarriers = nullptr;
     FILE *inputFile = fopen("../databases/carriers.txt", "r");
+
     if(inputFile != nullptr)
     {
-        tmpCarriers = malloc(sizeof(Carrier));
-        if(tmpCarriers != nullptr)
+        //tmpAdminsProviders = malloc(sizeof(AdminProvider));
+        tmpCarriers = allocate(sizeof(Carrier), "Tmp Carriers Array");
+
+        while(!feof(inputFile))
         {
-            while(!feof(inputFile))
+            //char *tmp = malloc(sizeof(char)*1024);
+            char *tmp = allocate(sizeof(char)*1024, "tmp string");
+            fgets(tmp, 1024, inputFile);
+            unsigned int lineLength = strlen(tmp);
+            if(lineLength > 0 && !feof(inputFile))
             {
-                char *tmp = malloc(sizeof(char)*1024);
-                if(tmp != nullptr)
+                bool validLine = false;
+                for(int i = 0; i < lineLength; i++)
                 {
-                    fgets(tmp, 1024, inputFile);
-                    if(strlen(tmp) > 0)
+                    if(!iscntrl(tmp[i]))
+                        validLine = true;
+                }
+
+                if(validLine)
+                {
+                    (*carriersNumber)++;
+                    printf("Admin/provider number: %d\n", *carriersNumber);
+                    //tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
+
+                    if(*carriersNumber > 1)
                     {
-                        #ifdef DEBUG
-                        printf("Nueva linea!\n");
-                        #endif
-                        (*carriersNumber)++;
-                        #ifdef DEBUG
-                        printf("size: %d\n", *carriersNumber);
-                        #endif
-                        tmpCarriers = realloc(tmpCarriers, sizeof(Carrier)*(*carriersNumber));
-                        getCarrierFromFile(tmp, 0, CarrierFieldNumber, tmpCarriers, *carriersNumber-1);
+                        tmpCarriers = reallocate(tmpCarriers, sizeof(AdminProvider)*(*carriersNumber), "Tmp carriers array");
+                        tmpCarriers[*carriersNumber-1].id = *carriersNumber;
                     }
-                    free(tmp);
+                    else
+                    {
+                        tmpCarriers->id = *carriersNumber;
+                    }
+
+                    sanitize(tmp);
+                    printf("Tmp: %s\n", tmp);
+
+                    getCarrierFromFile(tmp, 0, CarrierFieldNumber, tmpCarriers, *carriersNumber-1);
                 }
-                else
-                {
-                    printf("Error allocating memory\n");
-                }
-                
+
             }
-            fclose(inputFile);
+
+            //free(tmp);
+            deallocate(tmp, "tmp string");
         }
-        
+        fclose(inputFile);
     }
     else
     {
-        printf("Error opening!\n");
+        printf("Error opening carriers database\n");
+        exit(-1);
     }
-    
+
     return tmpCarriers;
 }
 

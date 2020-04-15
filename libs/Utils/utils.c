@@ -34,19 +34,24 @@ void cleanUpUser(User *user)
             break;
         case carrier:
             printf("Carrier!\n");
+            for(int i = 0; i < CarrierFieldNumber; i++)
+            {
+                deallocate(user->carrierUser.fields[i], "exit user carrier cleanup");
+            }
             break;
         case admin:
-            printf("Admin!\n");
-            break;
         case provider:
-            printf("Provider!\n");
+            printf("Admin/Provider!\n");
+            for(int i = 0; i < AdminProviderFieldNumber; i++)
+            {
+                deallocate(user->adminProviderUser.fields[i], "exit user adminprovider cleanup");
+            }
             break;
         default:
             break;
     }
     deallocate(user, "User");
 }
-
 
 
 void copyClient(Client *dest, Client src)
@@ -70,25 +75,35 @@ void copyAdminProvider(AdminProvider *dest, AdminProvider src)
     }
 }
 
-char *getNextID(int lastID)
+void copyCarrier(Carrier *dest, Carrier src)
+{
+    dest->id = src.id;
+    for(int i = 0; i < CarrierFieldNumber; i++)
+    {
+        dest->fields[i] = allocate(sizeof(char) * (strlen(src.fields[i]) + 1), "field in carrier login");
+        strcpy(dest->fields[i], src.fields[i]);
+    }
+}
+
+char *getNextID(int lastID, unsigned int length)
 {
     //char *finalString = malloc(sizeof(char)*6);
-    char *finalString = allocate(sizeof(char)*6, "Next ID final string");
-    for(int i = 0; i < 6; i++)
-        finalString[i] = '0';
+    char *tmp = allocate(sizeof(char) * length, "Next ID final string");
+    for(int i = 0; i < length; i++)
+        tmp[i] = '0';
 
     printf("Last id: %d\n", lastID);
 
-    unsigned int pos = strlen(finalString)-1;
+    unsigned int pos = strlen(tmp) - 1;
     int tmpID = lastID+1;
     while(tmpID > 0)
     {
-        finalString[pos] = tmpID % 10 + '0';
+        tmp[pos] = tmpID % 10 + '0';
         tmpID /= 10;
         pos--;
     }
-    printf("Final id: %s\n", finalString);
-    return finalString;
+    printf("Final id: %s\n", tmp);
+    return tmp;
 }
 
 bool askCorrect()

@@ -108,8 +108,7 @@ int login(User *user)
                 user->userType = client;
                 break;
             case carrier:
-                //printf("Searching in carrier\n");
-                //userArray->carrierUser = loginCarrier(username, password, &pos);
+                user->carrierUser = loginCarrier(username, password, &pos);
                 user->userType = carrier;
                 break;
             case admin:
