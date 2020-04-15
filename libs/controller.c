@@ -51,18 +51,6 @@ void flowController()
     showMemory();
 }
 
-void askForExit(int *flag)
-{
-    char answer;
-    printf("Do you want to exit? y/n\n");
-    clearBuffer();
-    scanf("%c", &answer);
-    if(answer == 'y' || answer == 'Y')
-    {
-        *flag = exitFlag;
-    }
-}
-
 int redirectUser(User *user)
 {
     int flag = NOP;

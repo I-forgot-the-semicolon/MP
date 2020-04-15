@@ -36,6 +36,7 @@ void sanitize(char *string);
 
 bool askCorrect();
 char *askForField(char *msg, char *dest, bool confirm);
+void askForExit(int *flag);
 
 char *toFileStringClient(Client client);
 char *getNextID(int lastID, unsigned int length);

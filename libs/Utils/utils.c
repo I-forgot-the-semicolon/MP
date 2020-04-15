@@ -169,6 +169,18 @@ char *askForField(char *msg, char *dest, bool confirm)
     return dest;
 }
 
+void askForExit(int *flag)
+{
+    char answer;
+    printf("Do you want to exit? y/n\n");
+    clearBuffer();
+    scanf("%c", &answer);
+    if(answer == 'y' || answer == 'Y')
+    {
+        *flag = exitFlag;
+    }
+}
+
 char *concatenate(char *a, char *b)
 {
     unsigned int aSize = strlen(a);
