@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "../dataTypes.h"
 #include "debug.h"
 
@@ -30,6 +31,7 @@ void truncateString(char *input, unsigned int startPos);
 char *copyUntil(const char *sString, unsigned int pos);
 char *concatenate(char *a, char *b);
 char *concatenateChar(char *a, char b);
+bool isValidLine(char *tmp);
 void sanitize(char *string);
 
 bool askCorrect();

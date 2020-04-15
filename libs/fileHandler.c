@@ -33,35 +33,25 @@ Client* getClients(int *clientsNumber)
             //char *tmp = malloc(sizeof(char)*1024);
             char *tmp = allocate(sizeof(char)*1024, "tmp string");
             fgets(tmp, 1024, inputFile);
-            unsigned int lineLength = strlen(tmp);
-            if(lineLength > 0 && !feof(inputFile))
+
+            if(isValidLine(tmp) && !feof(inputFile))
             {
-                bool validLine = false;
-                for(int i = 0; i < lineLength; i++)
+                (*clientsNumber)++;
+                printf("Client number: %d\n", *clientsNumber);
+                //tmpClients = realloc(tmpClients, sizeof(Client)*(*clientsNumber));
+
+                if (*clientsNumber > 1)
                 {
-                    if(!iscntrl(tmp[i]))
-                        validLine = true;
+                    tmpClients = reallocate(tmpClients, sizeof(Client) * (*clientsNumber), "Tmp clients array");
+                    tmpClients[*clientsNumber - 1].id = *clientsNumber;
+                } else
+                {
+                    tmpClients->id = *clientsNumber;
                 }
 
-                if(validLine)
-                {
-                    (*clientsNumber)++;
-                    printf("Client number: %d\n", *clientsNumber);
-                    //tmpClients = realloc(tmpClients, sizeof(Client)*(*clientsNumber));
+                sanitize(tmp);
 
-                    if (*clientsNumber > 1)
-                    {
-                        tmpClients = reallocate(tmpClients, sizeof(Client) * (*clientsNumber), "Tmp clients array");
-                        tmpClients[*clientsNumber - 1].id = *clientsNumber;
-                    } else
-                    {
-                        tmpClients->id = *clientsNumber;
-                    }
-
-                    sanitize(tmp);
-
-                    getClientFromFile(tmp, 0, ClientFieldNumber, tmpClients, *clientsNumber - 1);
-                }
+                getClientFromFile(tmp, 0, ClientFieldNumber, tmpClients, *clientsNumber - 1);
             }
             //free(tmp);
             deallocate(tmp, "tmp string");
@@ -213,37 +203,26 @@ AdminProvider* getAdminsProviders(int *adminsProvidersNumber)
             char *tmp = allocate(sizeof(char)*1024, "tmp string");
             fgets(tmp, 1024, inputFile);
             unsigned int lineLength = strlen(tmp);
-            if(lineLength > 0 && !feof(inputFile))
+            if(isValidLine(tmp) && !feof(inputFile))
             {
-                bool validLine = false;
-                for(int i = 0; i < lineLength; i++)
+                (*adminsProvidersNumber)++;
+                printf("Admin/provider number: %d\n", *adminsProvidersNumber);
+                //tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
+
+                if(*adminsProvidersNumber > 1)
                 {
-                    if(!iscntrl(tmp[i]))
-                        validLine = true;
+                    tmpAdminsProviders = reallocate(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber), "Tmp Admin providers array");
+                    tmpAdminsProviders[*adminsProvidersNumber-1].id = *adminsProvidersNumber;
+                }
+                else
+                {
+                    tmpAdminsProviders->id = *adminsProvidersNumber;
                 }
 
-                if(validLine)
-                {
-                    (*adminsProvidersNumber)++;
-                    printf("Admin/provider number: %d\n", *adminsProvidersNumber);
-                    //tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
+                sanitize(tmp);
+                printf("Tmp: %s\n", tmp);
 
-                    if(*adminsProvidersNumber > 1)
-                    {
-                        tmpAdminsProviders = reallocate(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber), "Tmp Admin providers array");
-                        tmpAdminsProviders[*adminsProvidersNumber-1].id = *adminsProvidersNumber;
-                    }
-                    else
-                    {
-                        tmpAdminsProviders->id = *adminsProvidersNumber;
-                    }
-
-                    sanitize(tmp);
-                    printf("Tmp: %s\n", tmp);
-
-                    getAdminsProvidersFromFile(tmp, 0, AdminProviderFieldNumber, tmpAdminsProviders, *adminsProvidersNumber-1);
-                }
-
+                getAdminsProvidersFromFile(tmp, 0, AdminProviderFieldNumber, tmpAdminsProviders, *adminsProvidersNumber-1);
             }
 
             //free(tmp);
@@ -352,37 +331,26 @@ Carrier* getCarriers(int *carriersNumber)
             char *tmp = allocate(sizeof(char)*1024, "tmp string");
             fgets(tmp, 1024, inputFile);
             unsigned int lineLength = strlen(tmp);
-            if(lineLength > 0 && !feof(inputFile))
+            if(isValidLine(tmp) && !feof(inputFile))
             {
-                bool validLine = false;
-                for(int i = 0; i < lineLength; i++)
+                (*carriersNumber)++;
+                printf("Admin/provider number: %d\n", *carriersNumber);
+                //tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
+
+                if(*carriersNumber > 1)
                 {
-                    if(!iscntrl(tmp[i]))
-                        validLine = true;
+                    tmpCarriers = reallocate(tmpCarriers, sizeof(AdminProvider)*(*carriersNumber), "Tmp carriers array");
+                    tmpCarriers[*carriersNumber-1].id = *carriersNumber;
+                }
+                else
+                {
+                    tmpCarriers->id = *carriersNumber;
                 }
 
-                if(validLine)
-                {
-                    (*carriersNumber)++;
-                    printf("Admin/provider number: %d\n", *carriersNumber);
-                    //tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
+                sanitize(tmp);
+                printf("Tmp: %s\n", tmp);
 
-                    if(*carriersNumber > 1)
-                    {
-                        tmpCarriers = reallocate(tmpCarriers, sizeof(AdminProvider)*(*carriersNumber), "Tmp carriers array");
-                        tmpCarriers[*carriersNumber-1].id = *carriersNumber;
-                    }
-                    else
-                    {
-                        tmpCarriers->id = *carriersNumber;
-                    }
-
-                    sanitize(tmp);
-                    printf("Tmp: %s\n", tmp);
-
-                    getCarrierFromFile(tmp, 0, CarrierFieldNumber, tmpCarriers, *carriersNumber-1);
-                }
-
+                getCarrierFromFile(tmp, 0, CarrierFieldNumber, tmpCarriers, *carriersNumber-1);
             }
 
             //free(tmp);

@@ -6,17 +6,35 @@
 
 #IncludeRegexTransform: 
 
+../libs/Utils/debug.h
+stdio.h
+-
+stdlib.h
+-
+
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.c
+adminProvider.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.h
+
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.h
 string.h
 -
 ../fileHandler.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
 
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.c
+carrier.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.h
+
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.h
 string.h
 -
 ../fileHandler.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
+
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.c
+client.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h
 
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h
 string.h
@@ -26,11 +44,19 @@ string.h
 ../fileHandler.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
 
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.c
+debug.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
+
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
 stdio.h
 -
 stdlib.h
 -
+
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.c
+utils.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
 
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
 stdio.h
@@ -38,6 +64,8 @@ stdio.h
 stdlib.h
 -
 string.h
+-
+ctype.h
 -
 ../dataTypes.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
@@ -64,10 +92,12 @@ AdminProvider/adminProvider.h
 
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
 
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.c
+fileHandler.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
+
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
 string.h
--
-ctype.h
 -
 Utils/utils.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
@@ -75,4 +105,16 @@ dataTypes.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
 debug.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/debug.h
+
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/main.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+libs/controller.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.h
+libs/Utils/debug.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
 

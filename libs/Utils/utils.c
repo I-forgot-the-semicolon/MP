@@ -85,6 +85,18 @@ void copyCarrier(Carrier *dest, Carrier src)
     }
 }
 
+bool isValidLine(char *tmp)
+{
+    bool validLine = false;
+    unsigned int lineLength = strlen(tmp);
+    for(int i = 0; i < lineLength; i++)
+    {
+        if(!iscntrl(tmp[i]))
+            validLine = true;
+    }
+    return validLine && lineLength > 0;
+}
+
 char *getNextID(int lastID, unsigned int length)
 {
     //char *finalString = malloc(sizeof(char)*6);

@@ -20,7 +20,6 @@
 //#define DEBUG
 
 #include <string.h>
-#include <ctype.h>
 #include "Utils/utils.h"
 #include "dataTypes.h"
 #include "debug.h"
