@@ -38,10 +38,6 @@ Client loginClient(char *email, char *password, int *pos)
                 printf("With id: %d\n", tmpClient.id);
                 *pos = i;
             }
-            /*else
-            {
-                *pos = wrongLogin;
-            }*/
         }
 
         for(int i = 0; i < clientsArraySize; i++)
@@ -128,31 +124,40 @@ int clientMenu(User *user)
 
 void logoutClient(int *flag)
 {
-    int option;
-    printf("1. Exit to login\n");
-    printf("2. Exit program\n");
-    printf("3. Back\n");
-    printf("Select an option: ");
-    scanf("%d", &option);
-    switch (option)
+    bool validOption = false;
+    do
     {
-        case 1:
+        int option;
+        printf("1. Exit to login\n");
+        printf("2. Exit program\n");
+        printf("3. Back\n");
+        printf("Select an option: ");
+        clearBuffer();
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                validOption = true;
                 *flag = loginFlag;
                 break;
-        case 2:
+            case 2:
+                validOption = true;
                 *flag = exitFlag;
                 break;
-        case 3:
-            break;
-        default:
+            case 3:
+                validOption = true;
+                break;
+            default:
                 printf("Invalid option\n");
                 break;
-    }
+        }
+    } while (!validOption);
 }
 
 void clientProfile(Client *actualClient)
 {
     bool back = false;
+    bool clientModified = false;
     do
     {
         int option;
@@ -168,10 +173,15 @@ void clientProfile(Client *actualClient)
                 viewProfile(*actualClient);
                 break;
             case 2:
-                modifyProfile(actualClient);
+                modifyProfile(actualClient, &clientModified);
                 break;
             case 3:
-                saveClient(*actualClient);
+                if(clientModified)
+                {
+                    printf("Saving...\n");
+                    saveClient(*actualClient);
+                    clientModified = false;
+                }
                 back = true;
                 break;
             default:
@@ -195,7 +205,7 @@ void viewProfile(Client actualClient)
     printf("#-----------------------------------------------------\n");
 }
 
-void modifyProfile(Client *actualClient)
+void modifyProfile(Client *actualClient, bool *clientModified)
 {
     int option;
     bool back = false;
@@ -223,7 +233,7 @@ void modifyProfile(Client *actualClient)
             case 6:
             case 7:
             case 8:
-                modifyField(actualClient, option);
+                modifyField(actualClient, option, clientModified);
                 break;
             case 9:
                 back = true;
@@ -235,8 +245,44 @@ void modifyProfile(Client *actualClient)
     } while(!back);
 }
 
+void clientProducts(Client *actualClient)
+{
+    bool back = false;
+    bool clientModified = false;
+    do
+    {
+        int option;
+        printf("1. View profile\n");
+        printf("2. Modify profile\n");
+        printf("3. Back\n");
 
-void modifyField(Client *actualClient, int field)
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                viewProfile(*actualClient);
+                break;
+            case 2:
+                modifyProfile(actualClient, &clientModified);
+                break;
+            case 3:
+                if(clientModified)
+                {
+                    printf("Saving...\n");
+                    saveClient(*actualClient);
+                    clientModified = false;
+                }
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+
+void modifyField(Client *actualClient, int field, bool *clientModified)
 {
     bool correct = false;
     do
@@ -251,6 +297,7 @@ void modifyField(Client *actualClient, int field)
         printf("The new value is: %s\n", buffer);
         if(askCorrect())
         {
+            *clientModified = strcmp(buffer, actualClient->fields[field]) != 0;
             unsigned long newSize = strlen(buffer);
             //actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
             actualClient->fields[field] = reallocate(actualClient->fields[field], sizeof(char)*newSize, "Actual client modified field");
@@ -261,7 +308,3 @@ void modifyField(Client *actualClient, int field)
 
 }
 
-int searchClient(Client actualClient, Client *clientArray, const char *textToSearch)
-{
-    return 0;
-}

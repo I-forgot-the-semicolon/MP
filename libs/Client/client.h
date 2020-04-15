@@ -27,11 +27,11 @@ int signUpNewClient();
 
 int clientMenu(User *user);
 void clientProfile(Client *actualClient);
+void clientProducts(Client *actualClient);
 void viewProfile(Client actualClient);
-void modifyProfile(Client *actualClient);
-void modifyField(Client *actualClient, int field);
+void modifyProfile(Client *actualClient, bool *clientModified);
+void modifyField(Client *actualClient, int field, bool *clientModified);
 void logoutClient(int *flag);
 
-int searchClient(Client actualClient, Client *clientArray, const char *textToSearch);
 
 #endif
