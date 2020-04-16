@@ -338,30 +338,29 @@ void confirmDeliver(Carrier *actualCarrier)
 }
 void viewLockerInfo(Carrier *actualCarrier)
 {
-   int deliversNumber;
-   //Locker *locker = getLocker(&deliverNumber);
+   int lockersNumber;
+   Locker *locker = getLockers(&lockersNumber);
    //Create function
-   for(int i=0; i<deliversNumber;i++)
+   for(int i=0; i < lockersNumber; i++)
    {
        printf("#-----------------------------------------------------\n");
        printf("#The Locker info: \n");
-       printf("#Locker ID: %i\n", locker->field[lockerID]);
-       printf("#Locker City: %i\n", locker->field[lockerCity]);
-       printf("#Locker Provice: %i\n", locker->field[lockerProvice]);
-       printf("#Locker Position: %i\n", locker->field[lockerPosition]);
-       printf("#Total Space: %i\n", locker->field[lockerTotalSpace]);
-       printf("#Locker Busy Space: %i\n", locker->field[lockerBusySpace]);
+       printf("#Locker ID: %s\n", locker[i].fields[lockerID]);
+       printf("#Locker City: %s\n", locker[i].fields[lockerCity]);
+       printf("#Locker Provice: %s\n", locker[i].fields[lockerProvice]);
+       printf("#Locker Position: %s\n", locker[i].fields[lockerPosition]);
+       printf("#Total Space: %s\n", locker[i].fields[lockerTotalSpace]);
+       printf("#Locker Busy Space: %s\n", locker[i].fields[lockerBusySpace]);
        printf("#-----------------------------------------------------\n");
 
    }
 
-    for(int i=0; i < deliversNumber; i++)
+    for(int i=0; i < lockersNumber; i++)
     {
-        for(int j=0; j < ProductOrderFieldNumber; j++)
+        for(int j=0; j < LockerFieldNumber; j++)
             deallocate(locker[i].fields[j],"Locker");
     }
     deallocate(locker, "Locker");
-
 }
 
 void modifyLockerInfo(Carrier *actualCarrier)

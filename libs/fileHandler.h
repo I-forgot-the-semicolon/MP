@@ -58,5 +58,7 @@ void getCategoriesFromFile(char *input, int field, int maxFields, Category *cate
 Discount* getDiscounts(int *discountsNumber);
 void getDiscountsFromFile(char *input, int field, int maxFields, Discount *discountArray, int discountNumber);
 
+Locker* getLockers(int *lockersNumber);
+void getLockersFromFile(char *input, int field, int maxFields, Locker *lockerArray, int lockerNumber);
 
 #endif
