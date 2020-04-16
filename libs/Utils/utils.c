@@ -107,7 +107,8 @@ bool isValidLine(char *tmp)
     unsigned int lineLength = strlen(tmp);
     for(int i = 0; i < lineLength; i++)
     {
-        if(!iscntrl(tmp[i]))
+        //if(!iscntrl(tmp[i]))
+        if(tmp[i] != '\n' && tmp[i] != '\r')
             validLine = true;
     }
     return validLine && lineLength > 0;

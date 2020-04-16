@@ -6,11 +6,15 @@
 
 #IncludeRegexTransform: 
 
-../libs/Utils/debug.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
 stdio.h
 -
 stdlib.h
 -
+
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.c
+utils.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
 
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
 stdio.h
@@ -27,18 +31,4 @@ debug.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
 
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
-
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.c
-fileHandler.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
-
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
-string.h
--
-Utils/utils.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
-dataTypes.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
-debug.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/debug.h
 

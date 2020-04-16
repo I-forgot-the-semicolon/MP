@@ -93,7 +93,7 @@ void showProductByCategory(char *id)
     int productsNumber, actualCounter = 0;
     Product *products = getProducts(&productsNumber);
 
-    /*for(int i = 0; i < productsNumber; i++)
+    for(int i = 0; i < productsNumber; i++)
     {
         if(strcmp(id, products[i].fields[productCategoryID]) == 0)
         {
@@ -109,7 +109,7 @@ void showProductByCategory(char *id)
     }
 
     if(!found)
-        printf("Nothing found!\n");*/
+        printf("Nothing found!\n");
 
     for(int i = 0; i < productsNumber; i++)
     {

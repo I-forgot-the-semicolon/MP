@@ -1,5 +1,5 @@
 001/TV y Video
-002/Audio
-003/Electrodomesticos y hogar
-004/Jardin y botanica
-005/Ropa y complementos
+002/Audio y HIFI
+003/Electrodomesticos y Hogar
+004/Electronica y Computación
+

@@ -277,8 +277,8 @@ Product* getProducts(int *products)
 
         while(!feof(inputFile))
         {
-            char *tmp = malloc(sizeof(char)*1024);
-            //char *tmp = allocate(sizeof(char)*1024, "tmp string");
+            //char *tmp = malloc(sizeof(char)*1024);
+            char *tmp = allocate(sizeof(char)*1024, "tmp string");
 
             fgets(tmp, 1024, inputFile);
             if(isValidLine(tmp) && !feof(inputFile))
@@ -303,8 +303,8 @@ Product* getProducts(int *products)
 
                 getProductFromFile(tmp, 0, ProductFieldNumber, tmpProducts, *products - 1);
             }
-            free(tmp);
-            //deallocate(tmp, "tmp string");
+            //free(tmp);
+            deallocate(tmp, "tmp string");
         }
         fclose(inputFile);
     }
