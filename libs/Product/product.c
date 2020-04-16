@@ -28,19 +28,19 @@ void showProductCompany(char *id)
     int providersNumber;
     AdminProvider *adminProviders = getAdminsProviders(&providersNumber);
 
-    bool categoryFound = false;
-    for(int j = 0; j < providersNumber && !categoryFound; j++)
+    bool providerFound = false;
+    for(int j = 0; j < providersNumber && !providerFound; j++)
     {
         if(strcmp(id, adminProviders[j].fields[adminProviderId]) == 0)
         {
-            printf("\tCategory:\t%s.\n", adminProviders[j].fields[categoryDescription]);
-            categoryFound = true;
+            printf("\tCompany:\t%s\n", adminProviders[j].fields[adminProviderName]);
+            providerFound = true;
         }
     }
 
     for(int i = 0; i < providersNumber; i++)
     {
-        for(int j = 0; j < CategoryFieldNumber; j++)
+        for(int j = 0; j < AdminProviderFieldNumber; j++)
             deallocate(adminProviders[i].fields[j], "Field from categories array...");
     }
     deallocate(adminProviders, "Categories Array");
@@ -67,7 +67,8 @@ void searchProductByName()
             showProductCategory(products[i].fields[productCategoryID]);
             printf("\tPrice:\t\t%s€\n", products[i].fields[productPrice]);
             printf("\tStock:\t\t%s.\n", products[i].fields[productStock]);
-            printf("\tCompany:\t%s\n", products[i].fields[productCompanyID]);
+            //printf("\tCompany:\t%s\n", products[i].fields[productCompanyID]);
+            showProductCompany(products[i].fields[productCompanyID]);
             printf("\tDelivery in less than %s days\n\n", products[i].fields[productMaxDaysDelay]);
             found = true;
         }

@@ -70,22 +70,9 @@ CMakeFiles/MP.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MP.dir/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ruben/Escritorio/Escritorio/Coding/C/MP/main.c -o CMakeFiles/MP.dir/main.c.s
 
-CMakeFiles/MP.dir/libs/Admin/admin.c.o: CMakeFiles/MP.dir/flags.make
-CMakeFiles/MP.dir/libs/Admin/admin.c.o: ../libs/Admin/admin.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/MP.dir/libs/Admin/admin.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Admin/admin.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin/admin.c
-
-CMakeFiles/MP.dir/libs/Admin/admin.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MP.dir/libs/Admin/admin.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin/admin.c > CMakeFiles/MP.dir/libs/Admin/admin.c.i
-
-CMakeFiles/MP.dir/libs/Admin/admin.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MP.dir/libs/Admin/admin.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin/admin.c -o CMakeFiles/MP.dir/libs/Admin/admin.c.s
-
 CMakeFiles/MP.dir/libs/Carrier/carrier.c.o: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/Carrier/carrier.c.o: ../libs/Carrier/carrier.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/MP.dir/libs/Carrier/carrier.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/MP.dir/libs/Carrier/carrier.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Carrier/carrier.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.c
 
 CMakeFiles/MP.dir/libs/Carrier/carrier.c.i: cmake_force
@@ -98,7 +85,7 @@ CMakeFiles/MP.dir/libs/Carrier/carrier.c.s: cmake_force
 
 CMakeFiles/MP.dir/libs/Client/client.c.o: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/Client/client.c.o: ../libs/Client/client.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/MP.dir/libs/Client/client.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/MP.dir/libs/Client/client.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Client/client.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.c
 
 CMakeFiles/MP.dir/libs/Client/client.c.i: cmake_force
@@ -111,7 +98,7 @@ CMakeFiles/MP.dir/libs/Client/client.c.s: cmake_force
 
 CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o: ../libs/AdminProvider/adminProvider.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.c
 
 CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.i: cmake_force
@@ -124,7 +111,7 @@ CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.s: cmake_force
 
 CMakeFiles/MP.dir/libs/Utils/utils.c.o: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/Utils/utils.c.o: ../libs/Utils/utils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/MP.dir/libs/Utils/utils.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/MP.dir/libs/Utils/utils.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Utils/utils.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.c
 
 CMakeFiles/MP.dir/libs/Utils/utils.c.i: cmake_force
@@ -137,7 +124,7 @@ CMakeFiles/MP.dir/libs/Utils/utils.c.s: cmake_force
 
 CMakeFiles/MP.dir/libs/Product/product.c.o: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/Product/product.c.o: ../libs/Product/product.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/MP.dir/libs/Product/product.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/MP.dir/libs/Product/product.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Product/product.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.c
 
 CMakeFiles/MP.dir/libs/Product/product.c.i: cmake_force
@@ -150,7 +137,7 @@ CMakeFiles/MP.dir/libs/Product/product.c.s: cmake_force
 
 CMakeFiles/MP.dir/libs/controller.c.o: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/controller.c.o: ../libs/controller.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/MP.dir/libs/controller.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/MP.dir/libs/controller.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/controller.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.c
 
 CMakeFiles/MP.dir/libs/controller.c.i: cmake_force
@@ -163,7 +150,7 @@ CMakeFiles/MP.dir/libs/controller.c.s: cmake_force
 
 CMakeFiles/MP.dir/libs/fileHandler.c.o: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/fileHandler.c.o: ../libs/fileHandler.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/MP.dir/libs/fileHandler.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/MP.dir/libs/fileHandler.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/fileHandler.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.c
 
 CMakeFiles/MP.dir/libs/fileHandler.c.i: cmake_force
@@ -176,7 +163,7 @@ CMakeFiles/MP.dir/libs/fileHandler.c.s: cmake_force
 
 CMakeFiles/MP.dir/libs/Utils/debug.c.o: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/Utils/debug.c.o: ../libs/Utils/debug.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/MP.dir/libs/Utils/debug.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/MP.dir/libs/Utils/debug.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Utils/debug.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.c
 
 CMakeFiles/MP.dir/libs/Utils/debug.c.i: cmake_force
@@ -190,7 +177,6 @@ CMakeFiles/MP.dir/libs/Utils/debug.c.s: cmake_force
 # Object files for target MP
 MP_OBJECTS = \
 "CMakeFiles/MP.dir/main.c.o" \
-"CMakeFiles/MP.dir/libs/Admin/admin.c.o" \
 "CMakeFiles/MP.dir/libs/Carrier/carrier.c.o" \
 "CMakeFiles/MP.dir/libs/Client/client.c.o" \
 "CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o" \
@@ -204,7 +190,6 @@ MP_OBJECTS = \
 MP_EXTERNAL_OBJECTS =
 
 MP: CMakeFiles/MP.dir/main.c.o
-MP: CMakeFiles/MP.dir/libs/Admin/admin.c.o
 MP: CMakeFiles/MP.dir/libs/Carrier/carrier.c.o
 MP: CMakeFiles/MP.dir/libs/Client/client.c.o
 MP: CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o
@@ -215,7 +200,7 @@ MP: CMakeFiles/MP.dir/libs/fileHandler.c.o
 MP: CMakeFiles/MP.dir/libs/Utils/debug.c.o
 MP: CMakeFiles/MP.dir/build.make
 MP: CMakeFiles/MP.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable MP"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable MP"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MP.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

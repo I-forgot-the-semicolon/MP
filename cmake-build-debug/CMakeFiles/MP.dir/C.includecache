@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
-../libs/Utils/debug.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.c
+product.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h
+
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h
+../Utils/utils.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
+../fileHandler.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
+
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
 stdio.h
 -
 stdlib.h
@@ -27,10 +37,6 @@ debug.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
 
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
-
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.c
-fileHandler.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
 
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
 string.h

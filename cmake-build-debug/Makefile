@@ -123,33 +123,6 @@ MP/fast:
 	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/build
 .PHONY : MP/fast
 
-libs/Admin/admin.o: libs/Admin/admin.c.o
-
-.PHONY : libs/Admin/admin.o
-
-# target to build an object file
-libs/Admin/admin.c.o:
-	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Admin/admin.c.o
-.PHONY : libs/Admin/admin.c.o
-
-libs/Admin/admin.i: libs/Admin/admin.c.i
-
-.PHONY : libs/Admin/admin.i
-
-# target to preprocess a source file
-libs/Admin/admin.c.i:
-	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Admin/admin.c.i
-.PHONY : libs/Admin/admin.c.i
-
-libs/Admin/admin.s: libs/Admin/admin.c.s
-
-.PHONY : libs/Admin/admin.s
-
-# target to generate assembly for a file
-libs/Admin/admin.c.s:
-	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Admin/admin.c.s
-.PHONY : libs/Admin/admin.c.s
-
 libs/AdminProvider/adminProvider.o: libs/AdminProvider/adminProvider.c.o
 
 .PHONY : libs/AdminProvider/adminProvider.o
@@ -402,9 +375,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... MP"
-	@echo "... libs/Admin/admin.o"
-	@echo "... libs/Admin/admin.i"
-	@echo "... libs/Admin/admin.s"
 	@echo "... libs/AdminProvider/adminProvider.o"
 	@echo "... libs/AdminProvider/adminProvider.i"
 	@echo "... libs/AdminProvider/adminProvider.s"

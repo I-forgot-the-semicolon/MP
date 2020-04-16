@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/MP.dir/libs/Admin/admin.c.o"
   "CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o"
   "CMakeFiles/MP.dir/libs/Carrier/carrier.c.o"
   "CMakeFiles/MP.dir/libs/Client/client.c.o"
