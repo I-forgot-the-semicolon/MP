@@ -37,7 +37,9 @@ Client* getClients(int *clientsNumber)
             if(isValidLine(tmp) && !feof(inputFile))
             {
                 (*clientsNumber)++;
+                #ifdef DEBUG
                 printf("Client number: %d\n", *clientsNumber);
+                #endif
                 //tmpClients = realloc(tmpClients, sizeof(Client)*(*clientsNumber));
 
                 if (*clientsNumber > 1)
@@ -206,7 +208,9 @@ AdminProvider* getAdminsProviders(int *adminsProvidersNumber)
             if(isValidLine(tmp) && !feof(inputFile))
             {
                 (*adminsProvidersNumber)++;
+                #ifdef DEBUG
                 printf("Admin/provider number: %d\n", *adminsProvidersNumber);
+                #endif
                 //tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
 
                 if(*adminsProvidersNumber > 1)
@@ -220,7 +224,7 @@ AdminProvider* getAdminsProviders(int *adminsProvidersNumber)
                 }
 
                 sanitize(tmp);
-                printf("Tmp: %s\n", tmp);
+                //printf("Tmp: %s\n", tmp);
 
                 getAdminsProvidersFromFile(tmp, 0, AdminProviderFieldNumber, tmpAdminsProviders, *adminsProvidersNumber-1);
             }
@@ -357,7 +361,9 @@ Carrier* getCarriers(int *carriersNumber)
             if(isValidLine(tmp) && !feof(inputFile))
             {
                 (*carriersNumber)++;
-                printf("Admin/provider number: %d\n", *carriersNumber);
+                #ifdef DEBUG
+                printf("Carrier number: %d\n", *carriersNumber);
+                #endif
                 //tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
 
                 if(*carriersNumber > 1)

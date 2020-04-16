@@ -268,7 +268,7 @@ void clientProducts(Client *actualClient)
                 searchProductByName();
                 break;
             case 2:
-
+                searchProductByCategory();
                 break;
             case 3:
                 back = true;

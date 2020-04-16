@@ -33,7 +33,7 @@ void showProductCompany(char *id)
     {
         if(strcmp(id, adminProviders[j].fields[adminProviderId]) == 0)
         {
-            printf("\tCompany:\t%s\n", adminProviders[j].fields[adminProviderName]);
+            printf("\tCompany:\t%s.\n", adminProviders[j].fields[adminProviderName]);
             providerFound = true;
         }
     }
@@ -74,6 +74,8 @@ void searchProductByName()
         }
         deallocate(tmpLowCaseDescription, "tmp low case description");
     }
+    deallocate(lowCaseProductName, "Product name");
+
     if(!found)
         printf("Nothing found!\n");
 
@@ -83,6 +85,75 @@ void searchProductByName()
             deallocate(products[i].fields[j], "Field from product array...");
     }
     deallocate(products, "Products Array");
+}
 
-    deallocate(lowCaseProductName, "Product name");
+void showProductByCategory(char *id)
+{
+    bool found = false;
+    int productsNumber, actualCounter = 0;
+    Product *products = getProducts(&productsNumber);
+
+    for(int i = 0; i < productsNumber; i++)
+    {
+        if(strcmp(id, products[i].fields[productCompanyID]) == 0)
+        {
+            actualCounter++;
+            printf("[%d]\tProduct:\t%s.\n", actualCounter, products[i].fields[productDescription]);
+            showProductCategory(products[i].fields[productCategoryID]);
+            printf("\tPrice:\t\t%s€\n", products[i].fields[productPrice]);
+            printf("\tStock:\t\t%s.\n", products[i].fields[productStock]);
+            showProductCompany(products[i].fields[productCompanyID]);
+            printf("\tDelivery in less than %s days\n\n", products[i].fields[productMaxDaysDelay]);
+            found = true;
+        }
+    }
+
+    if(!found)
+        printf("Nothing found!\n");
+
+    for(int i = 0; i < productsNumber; i++)
+    {
+        for(int j = 0; j < ProductFieldNumber; j++)
+            deallocate(products[i].fields[j], "Field from product array...");
+    }
+    deallocate(products, "Products Array");
+}
+
+void searchProductByCategory()
+{
+    int categoriesNumber;
+    Category *categories = getCategories(&categoriesNumber);
+
+    bool back = false;
+    do
+    {
+        int option;
+        for(int i = 0; i < categoriesNumber; i++)
+        {
+            printf("%d. %s\n", i+1, categories[i].fields[categoryDescription]);
+        }
+        printf("%d. Back\n", categoriesNumber+1);
+        printf("Select an option: ");
+        clearBuffer();
+        scanf("%d", &option);
+
+        if(option >= 1 && option <= categoriesNumber)
+        {
+            showProductByCategory(categories[option-1].fields[categoryID]);
+        }
+        else
+        {
+            if(option == categoriesNumber+1)
+                back = true;
+            else
+                printf("Invalid option...\n");
+        }
+    } while(!back);
+
+    for(int i = 0; i < categoriesNumber; i++)
+    {
+        for(int j = 0; j < CategoryFieldNumber; j++)
+            deallocate(categories[i].fields[j], "Categories array field");
+    }
+    deallocate(categories, "Categories array");
 }

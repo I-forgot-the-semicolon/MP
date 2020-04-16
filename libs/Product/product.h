@@ -25,5 +25,5 @@ void searchProductByName();
 void searchProductByCategory();
 void showProductCompany(char *id);
 void showProductCategory(char *id);
-
+void showProductByCategory(char *id);
 #endif
