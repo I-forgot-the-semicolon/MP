@@ -231,6 +231,33 @@ libs/Client/client.c.s:
 	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Client/client.c.s
 .PHONY : libs/Client/client.c.s
 
+libs/Product/product.o: libs/Product/product.c.o
+
+.PHONY : libs/Product/product.o
+
+# target to build an object file
+libs/Product/product.c.o:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Product/product.c.o
+.PHONY : libs/Product/product.c.o
+
+libs/Product/product.i: libs/Product/product.c.i
+
+.PHONY : libs/Product/product.i
+
+# target to preprocess a source file
+libs/Product/product.c.i:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Product/product.c.i
+.PHONY : libs/Product/product.c.i
+
+libs/Product/product.s: libs/Product/product.c.s
+
+.PHONY : libs/Product/product.s
+
+# target to generate assembly for a file
+libs/Product/product.c.s:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Product/product.c.s
+.PHONY : libs/Product/product.c.s
+
 libs/Utils/debug.o: libs/Utils/debug.c.o
 
 .PHONY : libs/Utils/debug.o
@@ -387,6 +414,9 @@ help:
 	@echo "... libs/Client/client.o"
 	@echo "... libs/Client/client.i"
 	@echo "... libs/Client/client.s"
+	@echo "... libs/Product/product.o"
+	@echo "... libs/Product/product.i"
+	@echo "... libs/Product/product.s"
 	@echo "... libs/Utils/debug.o"
 	@echo "... libs/Utils/debug.i"
 	@echo "... libs/Utils/debug.s"

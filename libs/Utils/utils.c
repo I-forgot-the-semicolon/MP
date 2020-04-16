@@ -276,7 +276,9 @@ unsigned int getFieldLength(char *input)
 
 void sanitize(char *string)
 {
+    #ifdef DEBUG
     printf("Sanitazing...\n");
+    #endif
     bool hasToSanitize = false;
     unsigned int stringLength = strlen(string);
     int pos = 0;

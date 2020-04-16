@@ -22,6 +22,8 @@ add_executable(MP
         libs/AdminProvider/adminProvider.h
         libs/Utils/utils.c
         libs/Utils/utils.h
+        libs/Product/product.c
+        libs/Product/product.h
         libs/controller.c
         libs/controller.h
         libs/dataTypes.h

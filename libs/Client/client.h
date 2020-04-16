@@ -21,6 +21,7 @@
 #include <string.h>
 #include "../Utils/utils.h"
 #include "../fileHandler.h"
+#include "../Product/product.h"
 
 Client loginClient(char *email, char *password, int *pos);
 int signUpNewClient();
@@ -28,9 +29,6 @@ int signUpNewClient();
 int clientMenu(User *user);
 void clientProfile(Client *actualClient);
 void clientProducts(Client *actualClient);
-
-void searchProductByName();
-void searchProductByCategory();
 
 void viewProfile(Client actualClient);
 void modifyProfile(Client *actualClient, bool *clientModified);

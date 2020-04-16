@@ -118,6 +118,12 @@
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h">
 			<Option target="MP"/>
 		</Unit>
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.c">
+			<Option target="MP"/>
+		</Unit>
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h">
+			<Option target="MP"/>
+		</Unit>
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.c">
 			<Option target="MP"/>
 		</Unit>

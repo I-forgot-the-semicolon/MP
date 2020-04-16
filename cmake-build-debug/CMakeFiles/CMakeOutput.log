@@ -832,3 +832,87 @@ Parsed CXX implicit link information from above output:
   implicit fwks: []
 
 
+Determining if the function XOpenDisplay exists in the /usr/lib/libX11.so;/usr/lib/libXext.so passed with the following output:
+Change Dir: /home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dd33c/fast && /usr/bin/make -f CMakeFiles/cmTC_dd33c.dir/build.make CMakeFiles/cmTC_dd33c.dir/build
+make[1]: se entra en el directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dd33c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTC_dd33c.dir/CheckFunctionExists.c.o   -c /opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dd33c
+/opt/clion/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd33c.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTC_dd33c.dir/CheckFunctionExists.c.o  -o cmTC_dd33c  /usr/lib/libX11.so /usr/lib/libXext.so 
+make[1]: se sale del directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_81162/fast && /usr/bin/make -f CMakeFiles/cmTC_81162.dir/build.make CMakeFiles/cmTC_81162.dir/build
+make[1]: se entra en el directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_81162.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTC_81162.dir/CheckFunctionExists.c.o   -c /opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_81162
+/opt/clion/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_81162.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTC_81162.dir/CheckFunctionExists.c.o  -o cmTC_81162 
+make[1]: se sale del directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0bfe3/fast && /usr/bin/make -f CMakeFiles/cmTC_0bfe3.dir/build.make CMakeFiles/cmTC_0bfe3.dir/build
+make[1]: se entra en el directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0bfe3.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTC_0bfe3.dir/CheckFunctionExists.c.o   -c /opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0bfe3
+/opt/clion/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0bfe3.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTC_0bfe3.dir/CheckFunctionExists.c.o  -o cmTC_0bfe3 
+make[1]: se sale del directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9726f/fast && /usr/bin/make -f CMakeFiles/cmTC_9726f.dir/build.make CMakeFiles/cmTC_9726f.dir/build
+make[1]: se entra en el directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9726f.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTC_9726f.dir/CheckFunctionExists.c.o   -c /opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9726f
+/opt/clion/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9726f.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTC_9726f.dir/CheckFunctionExists.c.o  -o cmTC_9726f 
+make[1]: se sale del directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_91165/fast && /usr/bin/make -f CMakeFiles/cmTC_91165.dir/build.make CMakeFiles/cmTC_91165.dir/build
+make[1]: se entra en el directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_91165.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTC_91165.dir/CheckFunctionExists.c.o   -c /opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_91165
+/opt/clion/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91165.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTC_91165.dir/CheckFunctionExists.c.o  -o cmTC_91165 
+make[1]: se sale del directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_24f8e/fast && /usr/bin/make -f CMakeFiles/cmTC_24f8e.dir/build.make CMakeFiles/cmTC_24f8e.dir/build
+make[1]: se entra en el directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_24f8e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTC_24f8e.dir/CheckFunctionExists.c.o   -c /opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_24f8e
+/opt/clion/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_24f8e.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTC_24f8e.dir/CheckFunctionExists.c.o  -o cmTC_24f8e  -lICE 
+make[1]: se sale del directorio '/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+

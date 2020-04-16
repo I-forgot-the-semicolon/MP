@@ -2,4 +2,4 @@
 000002/Auriculares inalámbricos/002/0001/125/1/45
 000003/PC/002/0001/125/1/600
 000004/Auriculares Audiotechnica/002/0001/125/1/600
-000005/Auriculares Goodmasters con diadema/002/0001/125/1/600
+000005/Auriculares Goodmasters con diademah/002/0001/125/1/600

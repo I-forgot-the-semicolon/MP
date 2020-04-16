@@ -20,6 +20,14 @@ CMakeFiles/MP.dir/libs/Carrier/carrier.c.o
 CMakeFiles/MP.dir/libs/Client/client.c.o
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.c
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
+CMakeFiles/MP.dir/libs/Product/product.c.o
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.c
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
@@ -36,6 +44,7 @@ CMakeFiles/MP.dir/libs/controller.c.o
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.c
@@ -53,6 +62,7 @@ CMakeFiles/MP.dir/main.c.o
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h
+ /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
  /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.h

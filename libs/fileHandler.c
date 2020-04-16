@@ -279,7 +279,9 @@ Product* getProducts(int *products)
             if(isValidLine(tmp) && !feof(inputFile))
             {
                 (*products)++;
+                #ifdef DEBUG
                 printf("Product number: %d\n", *products);
+                #endif
                 //tmpAdminsProviders = realloc(tmpAdminsProviders, sizeof(AdminProvider)*(*adminsProvidersNumber));
 
                 if(*products > 1)
@@ -293,7 +295,7 @@ Product* getProducts(int *products)
                 }
 
                 sanitize(tmp);
-                printf("Tmp: %s\n", tmp);
+                //printf("Tmp: %s\n", tmp);
 
                 getProductFromFile(tmp, 0, ProductFieldNumber, tmpProducts, *products - 1);
             }
@@ -369,7 +371,7 @@ Carrier* getCarriers(int *carriersNumber)
                 }
 
                 sanitize(tmp);
-                printf("Tmp: %s\n", tmp);
+                //printf("Tmp: %s\n", tmp);
 
                 getCarrierFromFile(tmp, 0, CarrierFieldNumber, tmpCarriers, *carriersNumber-1);
             }
@@ -598,34 +600,51 @@ Category* getCategories(int *categoriesNumber)
     *categoriesNumber = 0;
     Category *tmpCategories = nullptr;
     FILE *inputFile = fopen("../databases/categories.txt", "r");
+
     if(inputFile != nullptr)
     {
-        tmpCategories = malloc(sizeof(Category));
-        if(tmpCategories != nullptr)
-        {
-            while(!feof(inputFile))
-            {
-                char *tmp = malloc(sizeof(char)*1024);
-                fgets(tmp, 1024, inputFile);
-                if(strlen(tmp) > 0)
-                {
-                    #ifdef DEBUG
-                    printf("Nueva linea!\n");
-                    #endif
-                    (*categoriesNumber)++;
+        //tmpAdminsProviders = malloc(sizeof(AdminProvider));
+        tmpCategories = allocate(sizeof(Category), "Tmp Carriers Array");
 
-                    tmpCategories = realloc(tmpCategories, sizeof(Category)*(*categoriesNumber));
-                    getCategoriesFromFile(tmp, 0, CategoryFieldNumber, tmpCategories, *categoriesNumber-1);
+        while(!feof(inputFile))
+        {
+            //char *tmp = malloc(sizeof(char)*1024);
+            char *tmp = allocate(sizeof(char)*1024, "tmp string");
+            fgets(tmp, 1024, inputFile);
+            unsigned int lineLength = strlen(tmp);
+            if(isValidLine(tmp) && !feof(inputFile))
+            {
+                (*categoriesNumber)++;
+                #ifdef DEBUG
+                printf("Category number: %d\n", *categoriesNumber);
+                #endif
+                if(*categoriesNumber > 1)
+                {
+                    tmpCategories = reallocate(tmpCategories, sizeof(Category) * (*categoriesNumber), "Tmp carriers array");
+                    tmpCategories[*categoriesNumber - 1].categoryID = *categoriesNumber;
                 }
-                free(tmp);
+                else
+                {
+                    tmpCategories->categoryID = *categoriesNumber;
+                }
+
+                sanitize(tmp);
+                //printf("Tmp: %s\n", tmp);
+
+                getCategoriesFromFile(tmp, 0, CategoryFieldNumber, tmpCategories, *categoriesNumber - 1);
             }
-        }  
-        fclose(inputFile); 
+
+            //free(tmp);
+            deallocate(tmp, "tmp string");
+        }
+        fclose(inputFile);
     }
     else
     {
-        printf("Error opening!\n");
+        printf("Error opening carriers database\n");
+        exit(-1);
     }
+
     return tmpCategories;
 }
 
@@ -640,7 +659,7 @@ void getCategoriesFromFile(char *input, int field, int maxFields, Category *cate
         tmpString[i] = input[i];
     }
     tmpString[pos] = '\x00';
-    categoryArray[categoryNumber].fields[field] = malloc(sizeof(char)*strlen(tmpString));
+    categoryArray[categoryNumber].fields[field] = allocate(sizeof(char)*strlen(tmpString), "get categories from file field");
     strcpy(categoryArray[categoryNumber].fields[field], tmpString);
     free(tmpString);
     truncateString(input, pos + 1);
