@@ -22,18 +22,21 @@
 #include "../fileHandler.h"
 
 Carrier loginCarrier(char *email, char *password, int *pos);
-void CarrierMenu(User *user, bool *runing);
+void CarrierMenu(User *user);
 void carrierProfile(Carrier *actualCarrier);
 void logoutCarrier(int *flag);
 void viewProfile(Carrier *actualCarrier);
 void modifyProfile(Carrier *actualCarrier);
 void modifyField(Carrier *actualCarrier, int field);
 int searchCarrier(Carrier actualCarrier, Carrier *carrierArray, const char *textToSearch);
-void deliverMenu(ProductOrder *actualProductOrder, Locker *actualLocker, Order *actualOrder);
-void viewDeliver(ProductOrder *actualProductOrder, Order *actualOrder);
-void modifyDeliver (ProductOrder *actualProductOrder, Order *actualOrder);
-void modifyLockerInfo(ProductOrder *actualProductOrder, Locker *actualLocker);
-void returnMenu();
+void deliverMenu(Carrier *actualCarrier);
+void viewDeliver(Carrier *actualCarrier);
+void modifyDeliver (Carrier *actualCarrier);
+void confirmDeliver(Carrier *actualCarrier);
+void modifyLockerInfo(Carrier *actualCarrier);
+void confirmDeliver(Carrier *actualCarrier);
+void returnMenu(Carrier *actualCarrier);
+void viewLockerInfo(Carrier *actualCarrier);
 void ShowDistributionMenu(ProductOrder actualProductOrder);
 
 #endif

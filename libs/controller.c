@@ -76,11 +76,9 @@ int redirectUser(User *user)
 
 int login(User *user)
 {
-    char *username = nullptr;
-    char *password = nullptr;
+    char *username = askForField("Username",false);
+    char *password = askForField("Password",false);
 
-    username = askForField("Username", username, false);
-    password = askForField("Password", password, false);
 
     int pos = wrongLogin;
     int mode = 0;

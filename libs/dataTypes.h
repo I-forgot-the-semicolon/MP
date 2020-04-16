@@ -103,6 +103,8 @@ typedef struct
     char *fields[7];
 } Product;
 #define ProductFieldNumber 7
+enum ProductFields {productID, productDescription, productCategoryID,
+    productCompanyID, productStock, productMaxDaysDelay, productPrice};
 
 typedef struct 
 {

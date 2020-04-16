@@ -38,10 +38,6 @@ Client loginClient(char *email, char *password, int *pos)
                 printf("With id: %d\n", tmpClient.id);
                 *pos = i;
             }
-            /*else
-            {
-                *pos = wrongLogin;
-            }*/
         }
 
         for(int i = 0; i < clientsArraySize; i++)
@@ -66,13 +62,13 @@ int signUpNewClient()
 
     Client newClient = {0, 0, nullptr};
     newClient.fields[clientID] = getNextID(index, 6);
-    newClient.fields[clientName] = askForField("Name", newClient.fields[clientName], true);
-    newClient.fields[clientSurname] = askForField("Last Name", newClient.fields[clientSurname], true);
-    newClient.fields[clientAddress] = askForField("Address", newClient.fields[clientAddress], true);
-    newClient.fields[clientCity] = askForField("City", newClient.fields[clientCity], true);
-    newClient.fields[clientProvince] = askForField("Province", newClient.fields[clientProvince], true);
-    newClient.fields[clientEmail] = askForField("Email", newClient.fields[clientEmail], true);
-    newClient.fields[clientPassword] = askForField("Password", newClient.fields[clientPassword], true);
+    newClient.fields[clientName] = askForField("Name", true);
+    newClient.fields[clientSurname] = askForField("Last Name", true);
+    newClient.fields[clientAddress] = askForField("Address", true);
+    newClient.fields[clientCity] = askForField("City", true);
+    newClient.fields[clientProvince] = askForField("Province", true);
+    newClient.fields[clientEmail] = askForField("Email", true);
+    newClient.fields[clientPassword] = askForField("Password", true);
     newClient.fields[clientWallet] = allocate(sizeof(char)*5, "New client wallet");
     strcpy(newClient.fields[clientWallet], "0");
 
@@ -114,6 +110,9 @@ int clientMenu(User *user)
             case 1:
                 clientProfile(&actualClient);
                 break;
+            case 2:
+                clientProducts(&actualClient);
+                break;
             case 6:
                 logoutClient(&flag);
                 break;
@@ -128,31 +127,40 @@ int clientMenu(User *user)
 
 void logoutClient(int *flag)
 {
-    int option;
-    printf("1. Exit to login\n");
-    printf("2. Exit program\n");
-    printf("3. Back\n");
-    printf("Select an option: ");
-    scanf("%d", &option);
-    switch (option)
+    bool validOption = false;
+    do
     {
-        case 1:
+        int option;
+        printf("1. Exit to login\n");
+        printf("2. Exit program\n");
+        printf("3. Back\n");
+        printf("Select an option: ");
+        clearBuffer();
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                validOption = true;
                 *flag = loginFlag;
                 break;
-        case 2:
+            case 2:
+                validOption = true;
                 *flag = exitFlag;
                 break;
-        case 3:
-            break;
-        default:
+            case 3:
+                validOption = true;
+                break;
+            default:
                 printf("Invalid option\n");
                 break;
-    }
+        }
+    } while (!validOption);
 }
 
 void clientProfile(Client *actualClient)
 {
     bool back = false;
+    bool clientModified = false;
     do
     {
         int option;
@@ -168,10 +176,15 @@ void clientProfile(Client *actualClient)
                 viewProfile(*actualClient);
                 break;
             case 2:
-                modifyProfile(actualClient);
+                modifyProfile(actualClient, &clientModified);
                 break;
             case 3:
-                saveClient(*actualClient);
+                if(clientModified)
+                {
+                    printf("Saving...\n");
+                    saveClient(*actualClient);
+                    clientModified = false;
+                }
                 back = true;
                 break;
             default:
@@ -195,7 +208,7 @@ void viewProfile(Client actualClient)
     printf("#-----------------------------------------------------\n");
 }
 
-void modifyProfile(Client *actualClient)
+void modifyProfile(Client *actualClient, bool *clientModified)
 {
     int option;
     bool back = false;
@@ -223,7 +236,7 @@ void modifyProfile(Client *actualClient)
             case 6:
             case 7:
             case 8:
-                modifyField(actualClient, option);
+                modifyField(actualClient, option, clientModified);
                 break;
             case 9:
                 back = true;
@@ -235,8 +248,75 @@ void modifyProfile(Client *actualClient)
     } while(!back);
 }
 
+void clientProducts(Client *actualClient)
+{
+    bool back = false;
+    bool clientModified = false;
+    do
+    {
+        int option;
+        printf("1. Search by name\n");
+        printf("2. Search by category\n");
+        printf("3. Back\n");
 
-void modifyField(Client *actualClient, int field)
+        printf("Select an option: ");
+        clearBuffer();
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                searchProductByName();
+                break;
+            case 2:
+                modifyProfile(actualClient, &clientModified);
+                break;
+            case 3:
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+
+void searchProductByName()
+{
+    bool found = false;
+
+    int productsNumber, actualCounter = 1;
+    Product *products = getProducts(&productsNumber);
+
+    char *productName = askForField("Product name", false);
+    char *lowCaseProductName = toLowerCase(productName);
+    deallocate(productName, "Product name");
+
+    for(int i = 0; i < productsNumber; i++)
+    {
+        char *tmpLowCaseDescription = toLowerCase(products[i].fields[productDescription]);
+        //printf("Comparing %s with %s\n", lowCaseProductName, tmpLowCaseDescription);
+        if(strstr(tmpLowCaseDescription, lowCaseProductName) != nullptr)
+        {
+            printf("[%d] %s\n", actualCounter, products[i].fields[productDescription]);
+            actualCounter++;
+            found = true;
+        }
+        deallocate(tmpLowCaseDescription, "tmp low case description");
+    }
+    if(!found)
+        printf("Nothing found!\n");
+
+    for(int i = 0; i < productsNumber; i++)
+    {
+        for(int j = 0; j < ProductFieldNumber; j++)
+            deallocate(products[i].fields[j], "Field from product array...");
+    }
+
+    deallocate(products, "Products Array");
+    deallocate(lowCaseProductName, "Product name");
+}
+
+void modifyField(Client *actualClient, int field, bool *clientModified)
 {
     bool correct = false;
     do
@@ -251,6 +331,7 @@ void modifyField(Client *actualClient, int field)
         printf("The new value is: %s\n", buffer);
         if(askCorrect())
         {
+            *clientModified = strcmp(buffer, actualClient->fields[field]) != 0;
             unsigned long newSize = strlen(buffer);
             //actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
             actualClient->fields[field] = reallocate(actualClient->fields[field], sizeof(char)*newSize, "Actual client modified field");
@@ -261,7 +342,3 @@ void modifyField(Client *actualClient, int field)
 
 }
 
-int searchClient(Client actualClient, Client *clientArray, const char *textToSearch)
-{
-    return 0;
-}

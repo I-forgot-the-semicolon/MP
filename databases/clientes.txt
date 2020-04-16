@@ -1,4 +1,4 @@
 000001/Juan/Pérez/Plaza Marco Antonio/Puerto Real/Cádiz/juan/psw/300
 000002/Pedro/Matias/Calle Plocia 2 11100/Cádiz/Cádiz/pedrolopez@gmail.com/123456/500
 000003/Rubén/Cordero Ramos/Avd Puerta del Sur, Edificio Primero de Mayo/Jerez de la Frontera/Cadiz/ruben/123456/1811
-000004/David/Abuin Sanchez/Er retiroh/Jerez de la Frontera/Cádiz/david/123456/120
+000004/David/Abuin Sanchez/Er retiroh/Jerez de la Frontera/Cádiz/david/123456/0

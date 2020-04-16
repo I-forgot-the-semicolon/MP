@@ -61,8 +61,8 @@ Carrier loginCarrier(char *email, char *password, int *pos)
 int carrierMenu(User *user)
 {
     int flag = loggedFlag;
-    Carrier actualCarrier = user->actualCarrier;
-    printf("Welcome user: %s\n", user->clientUser.fields[clientEmail]);
+    Carrier actualCarrier = user->carrierUser;
+    printf("Welcome user: %s\n", user->carrierUser.fields[carrierEmail]);
     do
         {
             int option;
@@ -121,7 +121,7 @@ void logoutCarrier(int *flag)
         }
 }
 
-void carrierProfile(Client *actualCarrier)
+void carrierProfile(Carrier *actualCarrier)
 {
     bool back = false;
     do
@@ -142,7 +142,7 @@ void carrierProfile(Client *actualCarrier)
                 modifyProfile(actualCarrier);
                 break;
             case 3:
-                saveClient(*actualCarrier);
+                //saveCarrier(actualCarrier);
                 back = true;
                 break;
             default:
@@ -226,7 +226,7 @@ int searchCarrier(Carrier actualCarrier, Carrier *carrierArray, const char *text
     return 0;
 
 }
-void deliverMenu(ProductOrder *actualProductOrder, Locker *actualLocker, Order *actualOrder)
+void deliverMenu(Carrier *actualCarrier)
 {
     int option;
     bool back = false;
@@ -234,22 +234,28 @@ void deliverMenu(ProductOrder *actualProductOrder, Locker *actualLocker, Order *
     printf("Select an option\n");
     printf("1.View Deliver Info\n");
     printf("2. Modify Deliver Info\n");
-    printf("3. Modify Locker Info\n");
-    printf("4.Exit\n");
+    printf("3. Confirm Deliver\n");
+    printf("4. Modify Locker Info\n");
+    printf("5.Exit\n");
 
     scanf("%i",&option);
     switch (option)
     {
         case 1:
-            viewDeliver(actualProductOrder, actualOrder);
+            viewDeliver(actualCarrier);
             break;
         case 2:
-            modifyDeliver(actualProductOrder, actualOrder);
+            modifyDeliver(actualCarrier);
             break;
         case 3:
-            modifyLockerInfo(actualProductOrder, actualLocker);
+            confirmDeliver(actualCarrier);
             break;
         case 4:
+            viewLockerInfo(actualCarrier);
+            break;
+        case 5:
+
+        case 6:
             back = true;
             break;
         default:
@@ -259,20 +265,36 @@ void deliverMenu(ProductOrder *actualProductOrder, Locker *actualLocker, Order *
 
 }
 
-void viewDeliver(ProductOrder *actualProductOrder, Order *actualOrder)
+void viewDeliver(Carrier *actualCarrier)
 {
-    printf("#-----------------------------------------------------\n");
-    printf("# OrderID: %i\n", actualProductOrder->fields[orderID]);
-    printf("# ProductID: %i\n",actualProductOrder->fields[productOrderID]);
-    printf("# Unit Number: %i\n",actualProductOrder->fields[productOrderUnitNumber]);
-    printf("# Locker Code: %i\n", actualProductOrder->fields[orderLockerCode]);
-    printf("# Deliver Date: %i\n", actualProductOrder->deliveryDate);
-    printf("# Deliver Place: %s\n", actualOrder->fields[orderDeliveryPlace]);
-    printf("#-----------------------------------------------------\n");
+    int deliversNumber;
+    ProductOrder *productOrder = getProductOrders(&deliversNumber);
+    for(int i=0; i< deliversNumber; i++)
+    {
+        if(strcmp(actualCarrier->fields[carrierID], productOrder->fields[productOrderCarrierID])==0)
+        {
+            printf("#-----------------------------------------------------\n");
+            printf("# OrderID: %i\n",productOrder->fields[productOrderID] );
+            printf("# ProductID: %i\n",productOrder->fields[productOrderID]);
+            printf("# Unit Number: %i\n",productOrder->fields[productOrderUnitNumber]);
+            printf("# Carrier ID: %i\n", productOrder->fields[carrierID]);
+            printf("# Locker Code: %i\n",productOrder->fields[productOrderLockerCode]);
+            printf("# Delivery Date: %i\n", productOrder->fields[productOrderDeliveryDate]);
+            printf("#-----------------------------------------------------\n");
+        }
 
+    }
+
+    for(int i=0; i < deliversNumber; i++)
+    {
+        for(int j=0; j < ProductOrderFieldNumber; j++)
+            deallocate(productOrder[i].fields[j],"ProductOrders");
+    }
+    deallocate(productOrder, "ProductOrders");
 }
-void modifyDeliver (ProductOrder *actualProductOrder, Order *actualOrder)
+void modifyDeliver (Carrier *actualCarrier)
 {
+    //Copy struct to modify
     int option;
     bool back = false;
     do
@@ -280,10 +302,11 @@ void modifyDeliver (ProductOrder *actualProductOrder, Order *actualOrder)
         printf("1. OrderID\n");
         printf("2. ProductID\n");
         printf("3. Unit Number\n");
-        printf("4. Locker Code\n");
-        printf("5. Deliver Date\n");
-        printf("6. Deliver Place\n");
-
+        printf("4. CarrierID\n");
+        printf("5. Locker Code\n");
+        printf("6. Deliver Date\n");
+        printf("7. Deliver Place\n");
+        printf("8. Exit\n");
         printf("Select an option: ");
         scanf("%d", &option);
         switch (option)
@@ -292,13 +315,12 @@ void modifyDeliver (ProductOrder *actualProductOrder, Order *actualOrder)
             case 2:
             case 3:
             case 4:
-                modifyField(actualProductOrder,option);
-                break;
             case 5:
             case 6:
-                modifyField(actualOrder,option);
+            case 7:
+                modifyField(actualCarrier,option);
                 break;
-            case 9:
+            case 8:
                 back = true;
                 break;
             default:
@@ -307,7 +329,74 @@ void modifyDeliver (ProductOrder *actualProductOrder, Order *actualOrder)
         }
     } while(!back);
 }
-void modifyLockerInfo(ProductOrder *actualProductOrder, Locker *actualLocker)
-{
 
+
+void confirmDeliver(Carrier *actualCarrier)
+{
+    //Confirm Deliver Status
+
+}
+void viewLockerInfo(Carrier *actualCarrier)
+{
+   int deliversNumber;
+   //Locker *locker = getLocker(&deliverNumber);
+   //Create function
+   for(int i=0; i<deliversNumber;i++)
+   {
+       printf("#-----------------------------------------------------\n");
+       printf("#The Locker info: \n");
+       printf("#Locker ID: %i\n", locker->field[lockerID]);
+       printf("#Locker City: %i\n", locker->field[lockerCity]);
+       printf("#Locker Provice: %i\n", locker->field[lockerProvice]);
+       printf("#Locker Position: %i\n", locker->field[lockerPosition]);
+       printf("#Total Space: %i\n", locker->field[lockerTotalSpace]);
+       printf("#Locker Busy Space: %i\n", locker->field[lockerBusySpace]);
+       printf("#-----------------------------------------------------\n");
+
+   }
+
+    for(int i=0; i < deliversNumber; i++)
+    {
+        for(int j=0; j < ProductOrderFieldNumber; j++)
+            deallocate(locker[i].fields[j],"Locker");
+    }
+    deallocate(locker, "Locker");
+
+}
+
+void modifyLockerInfo(Carrier *actualCarrier)
+{
+    //Copy struct to modify
+
+    int option;
+    bool back = false;
+    do
+    {
+        printf("1. Locker ID\n");
+        printf("2. Locker City\n");
+        printf("3. Locker Provice\n");
+        printf("4. Total Space\n");
+        printf("5. Locker Code\n");
+        printf("6. Locker Busy Space\n");
+        printf("7. Exit\n");
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                modifyField(actualCarrier,option);
+                break;
+            case 7:
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
 }
