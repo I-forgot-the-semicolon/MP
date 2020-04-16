@@ -92,6 +92,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+<<<<<<< HEAD
 		<Unit filename="C:/Users/David Texmoz/MP/libs/Admin/admin.c">
 			<Option target="MP"/>
 		</Unit>
@@ -99,6 +100,9 @@
 			<Option target="MP"/>
 		</Unit>
 		<Unit filename="C:/Users/David Texmoz/MP/libs/AdminProvider/adminProvider.c">
+=======
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.c">
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 			<Option target="MP"/>
 		</Unit>
 		<Unit filename="C:/Users/David Texmoz/MP/libs/AdminProvider/adminProvider.h">
@@ -116,7 +120,17 @@
 		<Unit filename="C:/Users/David Texmoz/MP/libs/Client/client.h">
 			<Option target="MP"/>
 		</Unit>
+<<<<<<< HEAD
 		<Unit filename="C:/Users/David Texmoz/MP/libs/Utils/debug.c">
+=======
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.c">
+			<Option target="MP"/>
+		</Unit>
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h">
+			<Option target="MP"/>
+		</Unit>
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.c">
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 			<Option target="MP"/>
 		</Unit>
 		<Unit filename="C:/Users/David Texmoz/MP/libs/Utils/debug.h">

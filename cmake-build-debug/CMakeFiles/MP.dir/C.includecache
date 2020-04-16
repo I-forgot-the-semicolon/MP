@@ -7,6 +7,7 @@
 #IncludeRegexTransform: 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ../libs/Utils/debug.h
 stdio.h
 -
@@ -45,6 +46,13 @@ C:/Users/David Texmoz/MP/libs/Client/client.h
 C:/Users/David Texmoz/MP/libs/Client/client.h
 string.h
 -
+=======
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.c
+product.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h
+
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 ../Utils/utils.h
 C:/Users/David Texmoz/MP/libs/Utils/utils.h
 ../fileHandler.h

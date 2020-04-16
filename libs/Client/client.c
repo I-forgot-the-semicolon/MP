@@ -268,7 +268,7 @@ void clientProducts(Client *actualClient)
                 searchProductByName();
                 break;
             case 2:
-                modifyProfile(actualClient, &clientModified);
+                searchProductByCategory();
                 break;
             case 3:
                 back = true;
@@ -278,42 +278,6 @@ void clientProducts(Client *actualClient)
                 break;
         }
     } while(!back);
-}
-
-void searchProductByName()
-{
-    bool found = false;
-
-    int productsNumber, actualCounter = 1;
-    Product *products = getProducts(&productsNumber);
-
-    char *productName = askForField("Product name", false);
-    char *lowCaseProductName = toLowerCase(productName);
-    deallocate(productName, "Product name");
-
-    for(int i = 0; i < productsNumber; i++)
-    {
-        char *tmpLowCaseDescription = toLowerCase(products[i].fields[productDescription]);
-        //printf("Comparing %s with %s\n", lowCaseProductName, tmpLowCaseDescription);
-        if(strstr(tmpLowCaseDescription, lowCaseProductName) != nullptr)
-        {
-            printf("[%d] %s\n", actualCounter, products[i].fields[productDescription]);
-            actualCounter++;
-            found = true;
-        }
-        deallocate(tmpLowCaseDescription, "tmp low case description");
-    }
-    if(!found)
-        printf("Nothing found!\n");
-
-    for(int i = 0; i < productsNumber; i++)
-    {
-        for(int j = 0; j < ProductFieldNumber; j++)
-            deallocate(products[i].fields[j], "Field from product array...");
-    }
-
-    deallocate(products, "Products Array");
-    deallocate(lowCaseProductName, "Product name");
 }
 
 void modifyField(Client *actualClient, int field, bool *clientModified)

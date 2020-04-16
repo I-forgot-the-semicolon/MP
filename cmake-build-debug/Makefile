@@ -122,6 +122,7 @@ MP/fast:
 	$(MAKE) -f CMakeFiles\MP.dir\build.make CMakeFiles/MP.dir/build
 .PHONY : MP/fast
 
+<<<<<<< HEAD
 libs/Admin/admin.obj: libs/Admin/admin.c.obj
 
 .PHONY : libs/Admin/admin.obj
@@ -150,6 +151,9 @@ libs/Admin/admin.c.s:
 .PHONY : libs/Admin/admin.c.s
 
 libs/AdminProvider/adminProvider.obj: libs/AdminProvider/adminProvider.c.obj
+=======
+libs/AdminProvider/adminProvider.o: libs/AdminProvider/adminProvider.c.o
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 
 .PHONY : libs/AdminProvider/adminProvider.obj
 
@@ -230,7 +234,38 @@ libs/Client/client.c.s:
 	$(MAKE) -f CMakeFiles\MP.dir\build.make CMakeFiles/MP.dir/libs/Client/client.c.s
 .PHONY : libs/Client/client.c.s
 
+<<<<<<< HEAD
 libs/Utils/debug.obj: libs/Utils/debug.c.obj
+=======
+libs/Product/product.o: libs/Product/product.c.o
+
+.PHONY : libs/Product/product.o
+
+# target to build an object file
+libs/Product/product.c.o:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Product/product.c.o
+.PHONY : libs/Product/product.c.o
+
+libs/Product/product.i: libs/Product/product.c.i
+
+.PHONY : libs/Product/product.i
+
+# target to preprocess a source file
+libs/Product/product.c.i:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Product/product.c.i
+.PHONY : libs/Product/product.c.i
+
+libs/Product/product.s: libs/Product/product.c.s
+
+.PHONY : libs/Product/product.s
+
+# target to generate assembly for a file
+libs/Product/product.c.s:
+	$(MAKE) -f CMakeFiles/MP.dir/build.make CMakeFiles/MP.dir/libs/Product/product.c.s
+.PHONY : libs/Product/product.c.s
+
+libs/Utils/debug.o: libs/Utils/debug.c.o
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 
 .PHONY : libs/Utils/debug.obj
 
@@ -367,6 +402,7 @@ main.c.s:
 
 # Help Target
 help:
+<<<<<<< HEAD
 	@echo The following are some of the valid targets for this Makefile:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
@@ -401,6 +437,42 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+=======
+	@echo "The following are some of the valid targets for this Makefile:"
+	@echo "... all (the default if no target is provided)"
+	@echo "... clean"
+	@echo "... depend"
+	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... MP"
+	@echo "... libs/AdminProvider/adminProvider.o"
+	@echo "... libs/AdminProvider/adminProvider.i"
+	@echo "... libs/AdminProvider/adminProvider.s"
+	@echo "... libs/Carrier/carrier.o"
+	@echo "... libs/Carrier/carrier.i"
+	@echo "... libs/Carrier/carrier.s"
+	@echo "... libs/Client/client.o"
+	@echo "... libs/Client/client.i"
+	@echo "... libs/Client/client.s"
+	@echo "... libs/Product/product.o"
+	@echo "... libs/Product/product.i"
+	@echo "... libs/Product/product.s"
+	@echo "... libs/Utils/debug.o"
+	@echo "... libs/Utils/debug.i"
+	@echo "... libs/Utils/debug.s"
+	@echo "... libs/Utils/utils.o"
+	@echo "... libs/Utils/utils.i"
+	@echo "... libs/Utils/utils.s"
+	@echo "... libs/controller.o"
+	@echo "... libs/controller.i"
+	@echo "... libs/controller.s"
+	@echo "... libs/fileHandler.o"
+	@echo "... libs/fileHandler.i"
+	@echo "... libs/fileHandler.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 .PHONY : help
 
 

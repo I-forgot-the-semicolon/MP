@@ -70,6 +70,7 @@ CMakeFiles/MP.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MP.dir/main.c.s"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\David Texmoz\MP\main.c" -o CMakeFiles\MP.dir\main.c.s
 
+<<<<<<< HEAD
 CMakeFiles/MP.dir/libs/Admin/admin.c.obj: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/Admin/admin.c.obj: CMakeFiles/MP.dir/includes_C.rsp
 CMakeFiles/MP.dir/libs/Admin/admin.c.obj: ../libs/Admin/admin.c
@@ -89,6 +90,12 @@ CMakeFiles/MP.dir/libs/Carrier/carrier.c.obj: CMakeFiles/MP.dir/includes_C.rsp
 CMakeFiles/MP.dir/libs/Carrier/carrier.c.obj: ../libs/Carrier/carrier.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\David Texmoz\MP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/MP.dir/libs/Carrier/carrier.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\MP.dir\libs\Carrier\carrier.c.obj   -c "C:\Users\David Texmoz\MP\libs\Carrier\carrier.c"
+=======
+CMakeFiles/MP.dir/libs/Carrier/carrier.c.o: CMakeFiles/MP.dir/flags.make
+CMakeFiles/MP.dir/libs/Carrier/carrier.c.o: ../libs/Carrier/carrier.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/MP.dir/libs/Carrier/carrier.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Carrier/carrier.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.c
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 
 CMakeFiles/MP.dir/libs/Carrier/carrier.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MP.dir/libs/Carrier/carrier.c.i"
@@ -98,11 +105,18 @@ CMakeFiles/MP.dir/libs/Carrier/carrier.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MP.dir/libs/Carrier/carrier.c.s"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\David Texmoz\MP\libs\Carrier\carrier.c" -o CMakeFiles\MP.dir\libs\Carrier\carrier.c.s
 
+<<<<<<< HEAD
 CMakeFiles/MP.dir/libs/Client/client.c.obj: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/Client/client.c.obj: CMakeFiles/MP.dir/includes_C.rsp
 CMakeFiles/MP.dir/libs/Client/client.c.obj: ../libs/Client/client.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\David Texmoz\MP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/MP.dir/libs/Client/client.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\MP.dir\libs\Client\client.c.obj   -c "C:\Users\David Texmoz\MP\libs\Client\client.c"
+=======
+CMakeFiles/MP.dir/libs/Client/client.c.o: CMakeFiles/MP.dir/flags.make
+CMakeFiles/MP.dir/libs/Client/client.c.o: ../libs/Client/client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/MP.dir/libs/Client/client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Client/client.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.c
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 
 CMakeFiles/MP.dir/libs/Client/client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MP.dir/libs/Client/client.c.i"
@@ -112,11 +126,18 @@ CMakeFiles/MP.dir/libs/Client/client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MP.dir/libs/Client/client.c.s"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\David Texmoz\MP\libs\Client\client.c" -o CMakeFiles\MP.dir\libs\Client\client.c.s
 
+<<<<<<< HEAD
 CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.obj: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.obj: CMakeFiles/MP.dir/includes_C.rsp
 CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.obj: ../libs/AdminProvider/adminProvider.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\David Texmoz\MP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\MP.dir\libs\AdminProvider\adminProvider.c.obj   -c "C:\Users\David Texmoz\MP\libs\AdminProvider\adminProvider.c"
+=======
+CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o: CMakeFiles/MP.dir/flags.make
+CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o: ../libs/AdminProvider/adminProvider.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.c
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 
 CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.i"
@@ -126,11 +147,18 @@ CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.s"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\David Texmoz\MP\libs\AdminProvider\adminProvider.c" -o CMakeFiles\MP.dir\libs\AdminProvider\adminProvider.c.s
 
+<<<<<<< HEAD
 CMakeFiles/MP.dir/libs/Utils/utils.c.obj: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/Utils/utils.c.obj: CMakeFiles/MP.dir/includes_C.rsp
 CMakeFiles/MP.dir/libs/Utils/utils.c.obj: ../libs/Utils/utils.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\David Texmoz\MP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/MP.dir/libs/Utils/utils.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\MP.dir\libs\Utils\utils.c.obj   -c "C:\Users\David Texmoz\MP\libs\Utils\utils.c"
+=======
+CMakeFiles/MP.dir/libs/Utils/utils.c.o: CMakeFiles/MP.dir/flags.make
+CMakeFiles/MP.dir/libs/Utils/utils.c.o: ../libs/Utils/utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/MP.dir/libs/Utils/utils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Utils/utils.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.c
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 
 CMakeFiles/MP.dir/libs/Utils/utils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MP.dir/libs/Utils/utils.c.i"
@@ -140,11 +168,31 @@ CMakeFiles/MP.dir/libs/Utils/utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MP.dir/libs/Utils/utils.c.s"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\David Texmoz\MP\libs\Utils\utils.c" -o CMakeFiles\MP.dir\libs\Utils\utils.c.s
 
+<<<<<<< HEAD
 CMakeFiles/MP.dir/libs/controller.c.obj: CMakeFiles/MP.dir/flags.make
 CMakeFiles/MP.dir/libs/controller.c.obj: CMakeFiles/MP.dir/includes_C.rsp
 CMakeFiles/MP.dir/libs/controller.c.obj: ../libs/controller.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\David Texmoz\MP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/MP.dir/libs/controller.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\MP.dir\libs\controller.c.obj   -c "C:\Users\David Texmoz\MP\libs\controller.c"
+=======
+CMakeFiles/MP.dir/libs/Product/product.c.o: CMakeFiles/MP.dir/flags.make
+CMakeFiles/MP.dir/libs/Product/product.c.o: ../libs/Product/product.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/MP.dir/libs/Product/product.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/Product/product.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.c
+
+CMakeFiles/MP.dir/libs/Product/product.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MP.dir/libs/Product/product.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.c > CMakeFiles/MP.dir/libs/Product/product.c.i
+
+CMakeFiles/MP.dir/libs/Product/product.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MP.dir/libs/Product/product.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.c -o CMakeFiles/MP.dir/libs/Product/product.c.s
+
+CMakeFiles/MP.dir/libs/controller.c.o: CMakeFiles/MP.dir/flags.make
+CMakeFiles/MP.dir/libs/controller.c.o: ../libs/controller.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/MP.dir/libs/controller.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MP.dir/libs/controller.c.o   -c /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.c
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 
 CMakeFiles/MP.dir/libs/controller.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MP.dir/libs/controller.c.i"
@@ -184,6 +232,7 @@ CMakeFiles/MP.dir/libs/Utils/debug.c.s: cmake_force
 
 # Object files for target MP
 MP_OBJECTS = \
+<<<<<<< HEAD
 "CMakeFiles/MP.dir/main.c.obj" \
 "CMakeFiles/MP.dir/libs/Admin/admin.c.obj" \
 "CMakeFiles/MP.dir/libs/Carrier/carrier.c.obj" \
@@ -193,10 +242,22 @@ MP_OBJECTS = \
 "CMakeFiles/MP.dir/libs/controller.c.obj" \
 "CMakeFiles/MP.dir/libs/fileHandler.c.obj" \
 "CMakeFiles/MP.dir/libs/Utils/debug.c.obj"
+=======
+"CMakeFiles/MP.dir/main.c.o" \
+"CMakeFiles/MP.dir/libs/Carrier/carrier.c.o" \
+"CMakeFiles/MP.dir/libs/Client/client.c.o" \
+"CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o" \
+"CMakeFiles/MP.dir/libs/Utils/utils.c.o" \
+"CMakeFiles/MP.dir/libs/Product/product.c.o" \
+"CMakeFiles/MP.dir/libs/controller.c.o" \
+"CMakeFiles/MP.dir/libs/fileHandler.c.o" \
+"CMakeFiles/MP.dir/libs/Utils/debug.c.o"
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 
 # External object files for target MP
 MP_EXTERNAL_OBJECTS =
 
+<<<<<<< HEAD
 MP.exe: CMakeFiles/MP.dir/main.c.obj
 MP.exe: CMakeFiles/MP.dir/libs/Admin/admin.c.obj
 MP.exe: CMakeFiles/MP.dir/libs/Carrier/carrier.c.obj
@@ -212,6 +273,21 @@ MP.exe: CMakeFiles/MP.dir/objects1.rsp
 MP.exe: CMakeFiles/MP.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\David Texmoz\MP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable MP.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\MP.dir\link.txt --verbose=$(VERBOSE)
+=======
+MP: CMakeFiles/MP.dir/main.c.o
+MP: CMakeFiles/MP.dir/libs/Carrier/carrier.c.o
+MP: CMakeFiles/MP.dir/libs/Client/client.c.o
+MP: CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o
+MP: CMakeFiles/MP.dir/libs/Utils/utils.c.o
+MP: CMakeFiles/MP.dir/libs/Product/product.c.o
+MP: CMakeFiles/MP.dir/libs/controller.c.o
+MP: CMakeFiles/MP.dir/libs/fileHandler.c.o
+MP: CMakeFiles/MP.dir/libs/Utils/debug.c.o
+MP: CMakeFiles/MP.dir/build.make
+MP: CMakeFiles/MP.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable MP"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MP.dir/link.txt --verbose=$(VERBOSE)
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 
 # Rule to build all files generated by this target.
 CMakeFiles/MP.dir/build: MP.exe

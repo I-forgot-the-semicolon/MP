@@ -12,8 +12,6 @@ include_directories(libs/Utils)
 
 add_executable(MP
         main.c
-        libs/Admin/admin.c
-        libs/Admin/admin.h
         libs/Carrier/carrier.c
         libs/Carrier/carrier.h
         libs/Client/client.c
@@ -22,6 +20,8 @@ add_executable(MP
         libs/AdminProvider/adminProvider.h
         libs/Utils/utils.c
         libs/Utils/utils.h
+        libs/Product/product.c
+        libs/Product/product.h
         libs/controller.c
         libs/controller.h
         libs/dataTypes.h

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+<<<<<<< HEAD
   "CMakeFiles/MP.dir/libs/Admin/admin.c.obj"
   "CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.obj"
   "CMakeFiles/MP.dir/libs/Carrier/carrier.c.obj"
@@ -10,6 +11,18 @@ file(REMOVE_RECURSE
   "CMakeFiles/MP.dir/main.c.obj"
   "MP.exe"
   "MP.exe.manifest"
+=======
+  "CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o"
+  "CMakeFiles/MP.dir/libs/Carrier/carrier.c.o"
+  "CMakeFiles/MP.dir/libs/Client/client.c.o"
+  "CMakeFiles/MP.dir/libs/Product/product.c.o"
+  "CMakeFiles/MP.dir/libs/Utils/debug.c.o"
+  "CMakeFiles/MP.dir/libs/Utils/utils.c.o"
+  "CMakeFiles/MP.dir/libs/controller.c.o"
+  "CMakeFiles/MP.dir/libs/fileHandler.c.o"
+  "CMakeFiles/MP.dir/main.c.o"
+  "MP"
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
   "MP.pdb"
   "libMP.dll.a"
 )

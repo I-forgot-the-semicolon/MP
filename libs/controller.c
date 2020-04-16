@@ -83,7 +83,9 @@ int login(User *user)
     int pos = wrongLogin;
     int mode = 0;
 
+    #ifdef DEBUG
     printf("Searching...\n");
+    #endif
     while(pos < 0 && mode < 4)
     {
         switch (mode)

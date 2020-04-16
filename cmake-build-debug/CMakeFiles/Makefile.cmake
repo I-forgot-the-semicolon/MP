@@ -103,10 +103,38 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/JetBrains/CLion 2019.2.2/bin/cmake/win/share/cmake-3.15/Modules/Platform/WindowsPaths.cmake"
   "C:/Program Files/JetBrains/CLion 2019.2.2/bin/cmake/win/share/cmake-3.15/Modules/ProcessorCount.cmake"
   "../CMakeLists.txt"
+<<<<<<< HEAD
   "CMakeFiles/3.15.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeRCCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeSystem.cmake"
+=======
+  "CMakeFiles/3.16.5/CMakeCCompiler.cmake"
+  "CMakeFiles/3.16.5/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.16.5/CMakeSystem.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CMakeCInformation.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CMakeCXXInformation.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CMakeCommonLanguageInclude.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CMakeFindCodeBlocks.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CMakeGenericSystem.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CMakeInitializeConfigs.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CMakeLanguageInformation.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CMakeSystemSpecificInformation.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/Compiler/GNU-C.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/Compiler/GNU-CXX.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/Compiler/GNU.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/Internal/CMakeCheckCompilerFlag.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/Platform/Linux-GNU-C.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/Platform/Linux-GNU-CXX.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/Platform/Linux-GNU.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/Platform/Linux.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/Platform/UnixPaths.cmake"
+  "/opt/clion/bin/cmake/linux/share/cmake-3.16/Modules/ProcessorCount.cmake"
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
   )
 
 # The corresponding makefile is:
@@ -117,12 +145,15 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
+<<<<<<< HEAD
   "CMakeFiles/3.15.3/CMakeSystem.cmake"
   "CMakeFiles/3.15.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeRCCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeCXXCompiler.cmake"
+=======
+>>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
