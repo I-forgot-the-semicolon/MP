@@ -124,6 +124,7 @@ void logoutCarrier(int *flag)
 void carrierProfile(Carrier *actualCarrier)
 {
     bool back = false;
+    bool carrierModified = false;
     do
     {
         int option;
@@ -136,10 +137,10 @@ void carrierProfile(Carrier *actualCarrier)
         switch (option)
         {
             case 1:
-                viewCarrierProfile(actualCarrier);
+                viewCarrierProfile(*actualCarrier);
                 break;
             case 2:
-                modifyCarrierProfile(actualCarrier);
+                modifyCarrierProfile(actualCarrier,&carrierModified);
                 break;
             case 3:
                 //saveCarrier(actualCarrier);

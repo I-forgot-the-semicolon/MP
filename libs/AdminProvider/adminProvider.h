@@ -24,8 +24,25 @@
 #include "../fileHandler.h"
 
 AdminProvider loginAdminProvider(char *email, char *password, int *pos);
-void adminMenu(User *user, bool *running, AdminProvider actualAdminProvider);
-void profileMenu(AdminProvider actualAdminProvider);
-void ShowAdminProviderInfo(AdminProvider actualAdminProvider);
-void ModifyAdminProviderInfo(AdminProvider actualAdminProvider);
+void adminMenu(User *user);
+void adminProfile(AdminProvider actualAdmin);
+void adminClient(AdminProvider actualAdmin);
+void adminProvider(AdminProvider actualAdmin);
+void adminProduct(AdminProvider actualAdmin);
+void adminCategory(AdminProvider actualAdmin);
+void adminOrder(AdminProvider actualAdmin);
+void adminCarrier(AdminProvider actualAdmin);
+void adminDiscount(AdminProvider actualAdmin);
+void adminReturn(AdminProvider actualAdmin);
+void logoutAdmin(int *flag);
+void adminProfile(AdminProvider *actualAdmin);
+void viewAdminProfile(AdminProvider actualAdmin);
+void modifyAdminField(AdminProvider *actualAdmin, int field, bool *adminModified);
+void saveAdmin(AdminProvider *actualAdmin);
+void adminClient(AdminProvider actualAdmin);
+void viewAdminClientProfile(AdminProvider *actualAdmin);
+void modifyAdminClientProfile(Client actualClient,int field, bool *adminClientModified);
+void saveClientAdmin(AdminProvider *actualAdmin);
+void modifyAdminClientField(Client *actualClient, int field, bool *adminClientModified);
+
 #endif
