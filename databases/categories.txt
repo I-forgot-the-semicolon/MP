@@ -1,2 +1,5 @@
-001/tv video y home cinema
-002/audio y HIFI
+001/TV y Video
+002/Audio
+003/Electrodomesticos y hogar
+004/Jardin y botanica
+005/Ropa y complementos

@@ -1,7 +1,1 @@
-<<<<<<< HEAD
-"C:\Program Files\JetBrains\CLion 2019.2.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\MP.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\MP.dir/objects.a @CMakeFiles\MP.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\MP.dir/objects.a -Wl,--no-whole-archive  -o MP.exe -Wl,--out-implib,libMP.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\MP.dir\linklibs.rsp
-=======
 /usr/bin/cc -g   CMakeFiles/MP.dir/main.c.o CMakeFiles/MP.dir/libs/Carrier/carrier.c.o CMakeFiles/MP.dir/libs/Client/client.c.o CMakeFiles/MP.dir/libs/AdminProvider/adminProvider.c.o CMakeFiles/MP.dir/libs/Utils/utils.c.o CMakeFiles/MP.dir/libs/Product/product.c.o CMakeFiles/MP.dir/libs/controller.c.o CMakeFiles/MP.dir/libs/fileHandler.c.o CMakeFiles/MP.dir/libs/Utils/debug.c.o  -o MP 
->>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011

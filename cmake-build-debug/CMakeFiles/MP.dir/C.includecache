@@ -6,81 +6,13 @@
 
 #IncludeRegexTransform: 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ../libs/Utils/debug.h
 stdio.h
 -
 stdlib.h
 -
 
-C:/Users/David Texmoz/MP/libs/Admin/admin.c
-
-C:/Users/David Texmoz/MP/libs/AdminProvider/adminProvider.c
-adminProvider.h
-C:/Users/David Texmoz/MP/libs/AdminProvider/adminProvider.h
-
-C:/Users/David Texmoz/MP/libs/AdminProvider/adminProvider.h
-string.h
--
-../fileHandler.h
-C:/Users/David Texmoz/MP/libs/fileHandler.h
-
-C:/Users/David Texmoz/MP/libs/Carrier/carrier.c
-carrier.h
-C:/Users/David Texmoz/MP/libs/Carrier/carrier.h
-
-C:/Users/David Texmoz/MP/libs/Carrier/carrier.h
-string.h
--
-../fileHandler.h
-C:/Users/David Texmoz/MP/libs/fileHandler.h
-
-C:/Users/David Texmoz/MP/libs/Client/client.c
-=======
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.c
->>>>>>> 0a27b2422ae4069bddec0c2b40fcf8548c883132
-client.h
-C:/Users/David Texmoz/MP/libs/Client/client.h
-
-C:/Users/David Texmoz/MP/libs/Client/client.h
-string.h
--
-=======
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.c
-product.h
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h
-
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.h
->>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
-../Utils/utils.h
-C:/Users/David Texmoz/MP/libs/Utils/utils.h
-../fileHandler.h
-C:/Users/David Texmoz/MP/libs/fileHandler.h
-
-<<<<<<< HEAD
-C:/Users/David Texmoz/MP/libs/Utils/debug.c
-debug.h
-C:/Users/David Texmoz/MP/libs/Utils/debug.h
-
-C:/Users/David Texmoz/MP/libs/Utils/debug.h
-=======
-/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
->>>>>>> 0a27b2422ae4069bddec0c2b40fcf8548c883132
-stdio.h
--
-stdlib.h
--
-
-<<<<<<< HEAD
-C:/Users/David Texmoz/MP/libs/Utils/utils.c
-utils.h
-C:/Users/David Texmoz/MP/libs/Utils/utils.h
-
-C:/Users/David Texmoz/MP/libs/Utils/utils.h
-=======
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
->>>>>>> 0a27b2422ae4069bddec0c2b40fcf8548c883132
 stdio.h
 -
 stdlib.h
@@ -90,62 +22,23 @@ string.h
 ctype.h
 -
 ../dataTypes.h
-C:/Users/David Texmoz/MP/libs/dataTypes.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
 debug.h
-C:/Users/David Texmoz/MP/libs/Utils/debug.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h
 
-<<<<<<< HEAD
-C:/Users/David Texmoz/MP/libs/controller.c
-controller.h
-C:/Users/David Texmoz/MP/libs/controller.h
-Utils/utils.h
-C:/Users/David Texmoz/MP/libs/Utils/utils.h
-Utils/debug.h
-C:/Users/David Texmoz/MP/libs/Utils/debug.h
-
-C:/Users/David Texmoz/MP/libs/controller.h
-fileHandler.h
-C:/Users/David Texmoz/MP/libs/fileHandler.h
-Client/client.h
-C:/Users/David Texmoz/MP/libs/Client/client.h
-Carrier/carrier.h
-C:/Users/David Texmoz/MP/libs/Carrier/carrier.h
-AdminProvider/adminProvider.h
-C:/Users/David Texmoz/MP/libs/AdminProvider/adminProvider.h
-
-C:/Users/David Texmoz/MP/libs/dataTypes.h
-
-C:/Users/David Texmoz/MP/libs/fileHandler.c
-fileHandler.h
-C:/Users/David Texmoz/MP/libs/fileHandler.h
-
-C:/Users/David Texmoz/MP/libs/fileHandler.h
-=======
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
 
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.c
+fileHandler.h
 /home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
->>>>>>> 0a27b2422ae4069bddec0c2b40fcf8548c883132
+
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h
 string.h
 -
 Utils/utils.h
-C:/Users/David Texmoz/MP/libs/Utils/utils.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h
 dataTypes.h
-C:/Users/David Texmoz/MP/libs/dataTypes.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h
 debug.h
-C:/Users/David Texmoz/MP/libs/debug.h
+/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/debug.h
 
-<<<<<<< HEAD
-C:/Users/David Texmoz/MP/main.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-libs/controller.h
-C:/Users/David Texmoz/MP/libs/controller.h
-libs/Utils/debug.h
-C:/Users/David Texmoz/MP/libs/Utils/debug.h
-
-=======
->>>>>>> 0a27b2422ae4069bddec0c2b40fcf8548c883132

@@ -8,121 +8,110 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/David Texmoz/MP/cmake-build-debug"/>
+				<Option working_dir="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/David Texmoz/MP/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="MP">
-				<Option output="C:/Users/David Texmoz/MP/cmake-build-debug/MP.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/David Texmoz/MP/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Users/David Texmoz/MP/libs"/>
-					<Add directory="C:/Users/David Texmoz/MP/libs/Admin"/>
-					<Add directory="C:/Users/David Texmoz/MP/libs/Carrier"/>
-					<Add directory="C:/Users/David Texmoz/MP/libs/Client"/>
-					<Add directory="C:/Users/David Texmoz/MP/libs/AdminProvider"/>
-					<Add directory="C:/Users/David Texmoz/MP/libs/Utils"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/mingw32"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/backward"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 MP"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="MP/fast">
-				<Option output="C:/Users/David Texmoz/MP/cmake-build-debug/MP.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/David Texmoz/MP/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Users/David Texmoz/MP/libs"/>
-					<Add directory="C:/Users/David Texmoz/MP/libs/Admin"/>
-					<Add directory="C:/Users/David Texmoz/MP/libs/Carrier"/>
-					<Add directory="C:/Users/David Texmoz/MP/libs/Client"/>
-					<Add directory="C:/Users/David Texmoz/MP/libs/AdminProvider"/>
-					<Add directory="C:/Users/David Texmoz/MP/libs/Utils"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/mingw32"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/backward"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 MP/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/David Texmoz/MP/cmake-build-debug"/>
+				<Option working_dir="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/David Texmoz/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MP">
+				<Option output="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/MP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 MP"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MP/fast">
+				<Option output="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/MP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Admin"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider"/>
+					<Add directory="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 MP/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ruben/Escritorio/Escritorio/Coding/C/MP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-<<<<<<< HEAD
-		<Unit filename="C:/Users/David Texmoz/MP/libs/Admin/admin.c">
-			<Option target="MP"/>
-		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/Admin/admin.h">
-			<Option target="MP"/>
-		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/AdminProvider/adminProvider.c">
-=======
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.c">
->>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/AdminProvider/adminProvider.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/AdminProvider/adminProvider.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/Carrier/carrier.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/Carrier/carrier.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Carrier/carrier.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/Client/client.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/Client/client.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Client/client.h">
 			<Option target="MP"/>
 		</Unit>
-<<<<<<< HEAD
-		<Unit filename="C:/Users/David Texmoz/MP/libs/Utils/debug.c">
-=======
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Product/product.c">
 			<Option target="MP"/>
 		</Unit>
@@ -130,37 +119,36 @@
 			<Option target="MP"/>
 		</Unit>
 		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.c">
->>>>>>> 7d42179eef74dd669d65d6c2e48972d9bc712011
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/Utils/debug.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/debug.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/Utils/utils.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/Utils/utils.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/Utils/utils.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/controller.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/controller.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/controller.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/dataTypes.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/dataTypes.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/fileHandler.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/libs/fileHandler.h">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/libs/fileHandler.h">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/main.c">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/main.c">
 			<Option target="MP"/>
 		</Unit>
-		<Unit filename="C:/Users/David Texmoz/MP/CMakeLists.txt">
+		<Unit filename="/home/ruben/Escritorio/Escritorio/Coding/C/MP/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

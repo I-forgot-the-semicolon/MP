@@ -83,7 +83,7 @@ int carrierMenu(User *user)
                     deliverMenu(&actualCarrier);
                     break;
                 case 3:
-                    returnMenu(&actualCarrier);
+                    //returnMenu(&actualCarrier);
                     break;
                 case 4:
                     logoutCarrier(&flag);
@@ -136,10 +136,10 @@ void carrierProfile(Carrier *actualCarrier)
         switch (option)
         {
             case 1:
-                viewProfile(actualCarrier);
+                viewCarrierProfile(actualCarrier);
                 break;
             case 2:
-                modifyProfile(actualCarrier);
+                modifyCarrierProfile(actualCarrier);
                 break;
             case 3:
                 //saveCarrier(actualCarrier);
@@ -152,7 +152,7 @@ void carrierProfile(Carrier *actualCarrier)
     } while(!back);
 }
 
-void viewProfile(Carrier *actualCarrier)
+void viewCarrierProfile(Carrier *actualCarrier)
 {
     printf("#-----------------------------------------------------\n");
     printf("# ID: %s\n", actualCarrier->id);
@@ -163,7 +163,7 @@ void viewProfile(Carrier *actualCarrier)
     printf("#-----------------------------------------------------\n");
 }
 
-void modifyProfile(Carrier *actualCarrier)
+void modifyCarrierProfile(Carrier *actualCarrier)
 {
     int option;
     bool back = false;
@@ -184,7 +184,7 @@ void modifyProfile(Carrier *actualCarrier)
             case 3:
             case 4:
             case 5:
-                modifyField(actualCarrier,option);
+                modifyCarrierField(actualCarrier, option);
                 break;
                 case 9:
                     back = true;
@@ -196,7 +196,7 @@ void modifyProfile(Carrier *actualCarrier)
         } while(!back);
 }
 
-void modifyField(Carrier *actualCarrier, int field)
+void modifyCarrierField(Carrier *actualCarrier, int field)
 {
     bool correct = false;
     do
@@ -318,7 +318,7 @@ void modifyDeliver (Carrier *actualCarrier)
             case 5:
             case 6:
             case 7:
-                modifyField(actualCarrier,option);
+                modifyCarrierField(actualCarrier, option);
                 break;
             case 8:
                 back = true;
@@ -338,10 +338,10 @@ void confirmDeliver(Carrier *actualCarrier)
 }
 void viewLockerInfo(Carrier *actualCarrier)
 {
-   int lockersNumber;
+   /*int lockersNumber;
    Locker *locker = getLockers(&lockersNumber);
    //Create function
-   for(int i=0; i < lockersNumber; i++)
+   for(int i = 0; i < lockersNumber; i++)
    {
        printf("#-----------------------------------------------------\n");
        printf("#The Locker info: \n");
@@ -352,7 +352,6 @@ void viewLockerInfo(Carrier *actualCarrier)
        printf("#Total Space: %s\n", locker[i].fields[lockerTotalSpace]);
        printf("#Locker Busy Space: %s\n", locker[i].fields[lockerBusySpace]);
        printf("#-----------------------------------------------------\n");
-
    }
 
     for(int i=0; i < lockersNumber; i++)
@@ -360,7 +359,7 @@ void viewLockerInfo(Carrier *actualCarrier)
         for(int j=0; j < LockerFieldNumber; j++)
             deallocate(locker[i].fields[j],"Locker");
     }
-    deallocate(locker, "Locker");
+    deallocate(locker, "Locker");*/
 }
 
 void modifyLockerInfo(Carrier *actualCarrier)
@@ -388,7 +387,7 @@ void modifyLockerInfo(Carrier *actualCarrier)
             case 4:
             case 5:
             case 6:
-                modifyField(actualCarrier,option);
+                modifyCarrierField(actualCarrier, option);
                 break;
             case 7:
                 back = true;
