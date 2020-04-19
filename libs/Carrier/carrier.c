@@ -83,7 +83,7 @@ int carrierMenu(User *user)
                     deliverMenu(&actualCarrier);
                     break;
                 case 3:
-                    //returnMenu(&actualCarrier);
+                    returnMenu(&actualCarrier);
                     break;
                 case 4:
                     logoutCarrier(&flag);
@@ -398,4 +398,9 @@ void modifyLockerInfo(Carrier *actualCarrier)
                 break;
         }
     } while(!back);
+}
+
+void returnMenu(Carrier *actualCarrier)
+{
+
 }

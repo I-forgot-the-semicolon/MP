@@ -299,7 +299,7 @@ void viewAdminClientProfile(AdminProvider actualAdmin)
 {
     int clientNumber;
     Client *clients = getClients(&clientNumber)
-    for (int i = 0; i <customerNumber; ++i)
+    for (int i = 0; i <clientNumber; ++i)
     {
         if(strcmp(actualAdmin->fields[adminProviderId], clients->fields[clientID])==0)
         {
@@ -398,3 +398,601 @@ void modifyAdminClientField(Client *actualClient, int field, bool *adminClientMo
     } while (!correct);
 }
 
+void adminProvider(AdminProvider actualAdmin)
+{
+    bool back = false;
+    bool adminProviderProviderModified = false;
+    do
+    {
+        int option;
+        printf("1. View Provider's Information\n");
+        printf("2. Modify Provider's Information\n");
+        printf("3. Back\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                viewAdminProviderProviderProfile(*actualAdmin);
+                break;
+            case 2:
+                modifyAdminProviderProviderProfile(actualAdmin, &adminProviderProviderModified);
+                break;
+                //Function to register and unsubscribe providers, also to search info about clients
+            case 3:
+                if(adminProviderProviderModified)
+                {
+                    printf("Saving...\n");
+                    saveProviderProviderAdmin(*actualAdmin);
+                    adminProviderProviderModified = false;
+                }
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+
+void viewAdminProviderProviderProfile(AdminProvider *actualAdminProvider)
+{
+    int providerNumber;
+    AdminProvider *provider = getProviders(&providerNumber)//Should go a function called 'getProviders'
+    for (int i = 0; i <providerNumber; ++i)
+    {
+        if(strcmp(actualAdmin->fields[adminProviderId], provider->fields[adminProviderId])==0)//
+        {
+            printf("#-----------------------------------------------------\n");
+            printf("# Name: %s\n", actualAdmin.fields[adminProviderName]);
+            printf("# ID: %s\n", actualAdmin.fields[adminProviderId]);
+            printf("# Email: %s\n", actualAdmin.fields[adminProviderEmail]);
+            printf("# Password: %s\n", actualAdmin.fields[adminProviderPassword]);
+            printf("# Type: %s\n", actualAdmin.fields[adminProviderType]);
+            printf("#-----------------------------------------------------\n");
+
+        }
+    }
+}
+
+void modifyAdminProviderProviderProfile(AdminProvider *actualAdminProvider, &adminProviderModified)
+{
+    bool correct = false;
+    do
+    {
+    char buffer[1024];
+
+    printf("The actual value is: %s\n", provider->fields[field]);
+    printf("Type the new value: ");
+    clearBuffer();
+    scanf("%[^\n]", buffer);
+
+    printf("The new value is: %s\n", buffer);
+    if(askCorrect())
+    {
+    *adminAdminProviderModified = strcmp(buffer, actualAdminProvider->fields[field]) != 0;
+    unsigned long newSize = strlen(buffer);
+    //actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
+    actualAdminProvider->fields[field] = reallocate(actualAdminProvider->fields[field], sizeof(char)*newSize, "Actual Provider modified field");
+    strcpy(actualAdminProvider->fields[field], buffer);
+    correct = true;
+    }
+    } while (!correct);
+}
+
+void adminProduct(AdminProvider actualAdmin)
+{
+    bool back = false;
+    bool adminProductModified = false;
+    do
+    {
+        int option;
+        printf("1. View Product's Information\n");
+        printf("2. Modify Product's Information\n");
+        printf("3. Search for a product.\n");
+        printf("4. Create a Product List.\n");
+        printf("5. Changes about the Providers.\n");
+        printf("6. Back\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                viewProductAdmin(actualAdmin);
+                break;
+            case 2:
+                modifyProductAdmin(actualAdmin, &adminProductModified);
+                break;
+                //Function to register and unsubscribe clients, also to search info about clients
+            case 3:
+                searchProductAdmin(actualAdmin);
+                break;
+            case 4:
+                createProductList(actualAdmin);
+                break;
+            case 5:
+                providerChanges(actualAdmin);
+                break;
+            case 6:
+                if(adminProductModified)
+                {
+                    printf("Saving...\n");
+                    saveProductAdmin(*actualAdmin);
+                    adminProductModified = false;
+                }
+                back = true;
+                break;
+
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+
+void viewProductAdmin(AdminProvider *actualAdmin)
+{
+    int productsNumber;
+    AdminProvider *products = getProducts(&providerNumber)//Should go a function called 'getProviders'
+    for (int i = 0; i <productsNumber; ++i)
+    {
+        if(strcmp(actualAdmin->fields[adminProviderId], products->fields[adminProviderId])==0)//
+        {
+            printf("#-----------------------------------------------------\n");
+
+            printf("# ID: %s\n", actualAdmin.fields[productOrderID]);
+            printf("# Description: %s\n", actualAdmin.fields[productDescription]);
+            printf("# Category: %s\n", actualAdmin.fields[productCategoryID]);
+            printf("# Product Manager: %s\n", actualAdmin.fields[productCompanyID]);
+            printf("# Stock: \n", actualAdmin.fields[productStock]);
+            printf("# Estimated delivery time: \n", actualAdmin.fields[productMaxDaysDelay]);
+            pritnf("# Prize: \n", actualAdmin.fields[productPrice]);
+            printf("#-----------------------------------------------------\n");
+
+        }
+    }
+}
+void void modifyProductAdmin(AdminProvider actualAdmin, bool adminProductModified)
+{
+    bool correct = false;
+    do
+    {
+        char buffer[1024];
+
+        printf("The actual value is: %s\n", products->fields[field]);
+        printf("Type the new value: ");
+        clearBuffer();
+        scanf("%[^\n]", buffer);
+
+        printf("The new value is: %s\n", buffer);
+        if(askCorrect())
+        {
+            *adminAdminProviderModified = strcmp(buffer, actualAdminProvider->fields[field]) != 0;
+            unsigned long newSize = strlen(buffer);
+            //actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
+            actualAdminProvider->fields[field] = reallocate(actualAdminProvider->fields[field], sizeof(char)*newSize, "Actual Product modified field");
+            strcpy(actualAdminProvider->fields[field], buffer);
+            correct = true;
+        }
+    } while (!correct);
+}
+
+void searchProductAdmin(AdminProvider actualAdmin)
+{
+
+}
+void createProductList(AdminProvider actualAdmin)
+{
+
+}
+void providerChanges(AdminProvider actualAdmin)
+{
+
+}
+
+void adminCategory(AdminProvider actualAdmin)
+{
+    bool back = false;
+    bool adminCategoryModified = false;
+    do
+    {
+        int option;
+        printf("1. View Category Information\n");
+        printf("2. Sign up/ Unsusbcribe products from category.\n");
+        printf("3. Generate lists of products.\n");
+        printf("4. Back\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                viewAdminCategory(*actualAdmin);
+                break;
+            case 2:
+                signUpDownCategory(actualAdmin, &adminCategoryModified);
+                break;
+            case 3:
+                generateListAdmin(actualAdmin);
+                break;
+            case 4:
+                if(adminProviderProviderModified)
+                {
+                    printf("Saving...\n");
+                    saveCategoryAdmin(*actualAdmin);
+                    adminCategoryModified = false;
+                }
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+void viewAdminCategory(AdminProvider *actualAdmin)
+{
+    int categoryNumber;
+    AdminProvider *category = getCategories(&categoryNumber)//Should go a function called 'getProviders'
+    for (int i = 0; i <categoryNumber; ++i)
+    {
+        if(strcmp(actualAdmin->fields[adminProviderId], products->fields[adminProviderId])==0)//?
+        {
+            printf("#-----------------------------------------------------\n");
+            printf("# ID: %s\n", actualAdmin.fields[categoryID]);
+            printf("# Description: %s\n", actualAdmin.fields[categoryDescription]);
+            printf("#-----------------------------------------------------\n");
+
+        }
+    }
+}
+void signUpDownCategory(AdminProvider actualAdmin, bool adminCategoryModified)
+{
+
+}
+
+void generateListAdmin(AdminProvider actualAdmin)
+{
+
+}
+void saveCategoryAdmin(AdminProvider *actualAdmin)
+{
+
+}
+
+void adminOrder(AdminProvider actualAdmin)
+{
+    bool back = false;
+    bool adminOrderModified = false;
+    do
+    {
+        int option;
+        printf("1. View Order Information\n");
+        printf("2. Sign up/ Unsusbcribe products from category.\n");
+        printf("3. Search for Orders.\n");
+        printf("4. Generate Lists of orders.\n");
+        printf("5. Modify Order Information.\n");
+        printf("4. Back\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                viewAdminOrder(*actualAdmin);
+                break;
+            case 2:
+                signUpDownOrder(actualAdmin);
+                break;
+            case 3:
+                searchOrderAdmin(actualAdmin);
+                break;
+            case 3:
+                generateListAdmin(actualAdmin);
+                break;
+            case 4:
+                modifyAdminOrder(actualAdmin, &adminOrderModified);
+                break;
+            case 5:
+                assignAdminCarrier(actualAdmin);
+                break;
+            case 6:
+                assignAdminLocker(actualAdmin);
+                break;
+            case 7:
+                if(adminOrderModified)
+                {
+                    printf("Saving...\n");
+                    saveOrderAdmin(*actualAdmin);
+                    adminoOrderModified = false;
+                }
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+
+void viewAdminOrder(AdminProvider *actualAdmin)
+{
+    int orderNumber;
+    AdminProvider *orders = getOrders(&orderNumber)//Should go a function called 'getProviders'
+    for (int i = 0; i <orderNumber; ++i)
+    {
+        if(strcmp(actualAdmin->fields[adminProviderId], orders->fields[adminProviderId])==0)//?
+        {
+            printf("#-----------------------------------------------------\n");
+            printf("# ID: %i\n", actualAdmin.fields[orderID]);
+            printf("# Order Date: %s\n", actualAdmin.fields[orderDate]);
+            printf("# Client ID: %s\n", actualAdmin.fields[orderClientID]);
+            printf("# Delivery Place: %s\n", actualAdmin.fields[orderDeliveryPlace]);
+            printf("# Locker ID: %s\n", actualAdmin.fields[orderLockerCode]);
+            printf("# Giftcard code: %s\n", actualAdmin.fields[orderGiftDiscount]);
+            printf("# Promotional code: %s\n", actualAdmin.fields[orderPromotionalCode]);
+            printf("#-----------------------------------------------------\n");
+
+        }
+    }
+
+}
+void signUpDownOrder(AdminProvider actualAdmin,bool adminOrderModified)
+{
+
+}
+void searchOrderAdmin(AdminProvider actualAdmin)
+{
+
+}
+void generateListAdmin(AdminProvider actualAdmin)
+{
+
+}
+void modifyAdminOrder(AdminProvider actualAdmin,  bool adminOrderModified)
+{
+    bool correct = false;
+    do
+    {
+        char buffer[1024];
+
+        printf("The actual value is: %s\n", orders->fields[field]);
+        printf("Type the new value: ");
+        clearBuffer();
+        scanf("%[^\n]", buffer);
+
+        printf("The new value is: %s\n", buffer);
+        if(askCorrect())
+        {
+            *adminOrderModified = strcmp(buffer, actualAdmin->fields[field]) != 0;
+            unsigned long newSize = strlen(buffer);
+            //actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
+            actualAdmin->fields[field] = reallocate(actualAdmin->fields[field], sizeof(char)*newSize, "Actual Product modified field");
+            strcpy(actualAdminProvider->fields[field], buffer);
+            correct = true;
+        }
+    } while (!correct);
+}
+void assignAdminCarrier(AdminProvider actualAdmin)
+{
+
+}
+void assignAdminLocker(AdminProvider actualAdmin)
+{
+
+}
+void adminCarrier(AdminProvider actualAdmin)
+{
+    bool back = false;
+    bool adminCarrierModified = false;
+    do
+    {
+        int option;
+        printf("1. View Carrier Information.\n");
+        printf("2. Sign up/ Unsusbcribe Carriers.\n");
+        printf("3. Search for Carriers.\n");
+        printf("4. Generate lists of products.\n");
+        printf("5. Modify Carrier Information.\n");
+        printf("6. Back\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                viewAdminCarrier(*actualAdmin);
+                break;
+            case 2:
+                signUpDownCarrier(actualAdmin);
+                break;
+            case 3:
+                searchAdminCarrier(actualAdmin);
+                break;
+            case 4:
+                generateListAdmin(actualAdmin);
+                break;
+            case 5:
+                modifyAdminCarrier(actualAdmin, &adminCarrierModified);
+                break;
+            case 6:
+                if(adminProviderProviderModified)
+                {
+                    printf("Saving...\n");
+                    saveCarrierAdmin(*actualAdmin);
+                    adminCarrierModified = false;
+                }
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+
+void viewAdminCarrier(AdminProvider *actualAdmin)
+{
+    int carrierNumber;
+    AdminProvider *carriers = getClients(&carrierNumber)
+    for (int i = 0; i <carrierNumber; ++i)
+    {
+        if(strcmp(actualAdmin->fields[adminProviderId], orders->fields[adminProviderId])==0)//?
+        {
+            printf("#-----------------------------------------------------\n");
+            printf("# Carrier ID: %s\n", actualAdmin.fields[carrierID]);
+            printf("# Email: %s\n", actualAdmin.fields[carrierEmail]);
+            printf("# Password: %s\n", actualAdmin.fields[carrierPassword]);
+            printf("# Company: %s\n", actualAdmin.fields[carrierCompany]);
+            printf("# City: %s\n", actualAdmin.fields[carrierCity]);
+            printf("#-----------------------------------------------------\n");
+
+        }
+    }
+}
+void signUpDownCarrier(AdminProvider actualAdmin)
+{
+
+}
+void searchAdminCarrier(AdminProvider actualAdmin)
+{
+
+}
+void generateListAdmin(AdminProvider actualAdmin)
+{
+
+}
+void modifyAdminCarrier(AdminProvider actualAdmin,bool adminCarrierModified)
+{
+    bool correct = false;
+    do
+    {
+        char buffer[1024];
+
+        printf("The actual value is: %s\n", carriers->fields[field]);
+        printf("Type the new value: ");
+        clearBuffer();
+        scanf("%[^\n]", buffer);
+
+        printf("The new value is: %s\n", buffer);
+        if(askCorrect())
+        {
+            *adminCarrierModified = strcmp(buffer, actualAdmin->fields[field]) != 0;
+            unsigned long newSize = strlen(buffer);
+            //actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
+            actualAdmin->fields[field] = reallocate(actualAdmin->fields[field], sizeof(char)*newSize, "Actual Carrier modified field");
+            strcpy(actualAdmin->fields[field], buffer);
+            correct = true;
+        }
+    } while (!correct);
+}
+
+void adminDiscount(AdminProvider actualAdmin)
+{
+    bool back = false;
+    bool adminDiscountModified = false;
+    do
+    {
+        int option;
+        printf("1. View Discount Information.\n");
+        printf("2. Sign up/ Unsusbcribe Discount.\n");
+        printf("3. Modify Discount Information.\n");
+        printf("4. Generate lists of clients with Discount codes.\n");
+        printf("5. Create a New Discount Code.\n");
+        printf("6. Back\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                viewAdminDiscount(*actualAdmin);
+                break;
+            case 2:
+                signUpDownDiscount(actualAdmin);
+                break;
+            case 3:
+                modifyAdminDiscount(actualAdmin, &adminDiscountModified);
+                break;
+            case 4:
+                generateListAdmin(actualAdmin);
+                break;
+            case 5:
+                createAdminDiscount(actualAdmin);
+                break;
+            case 6:
+                if(adminProviderProviderModified)
+                {
+                    printf("Saving...\n");
+                    saveDiscountAdmin(*actualAdmin);
+                    adminDiscountModified = false;
+                }
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+void viewAdminDiscount(AdminProvider *actualAdmin)
+{
+    int discountNumber;
+    AdminProvider *discounts = getClients(&discountNumber)
+    for (int i = 0; i <discountNumber; ++i)
+    {
+        if(strcmp(actualAdmin->fields[adminProviderId], discounts->fields[adminProviderId])==0)//?
+        {
+            printf("#-----------------------------------------------------\n");
+            printf("# Discount ID: %s\n", actualAdmin.fields[discountID]);
+            printf("# Description: %s\n", actualAdmin.fields[discountDescription]);
+            printf("# Type: %s\n", actualAdmin.fields[discountType]);
+            printf("# Status: %s\n", actualAdmin.fields[discountStatus]);
+            printf("# Amount: %s\n", actualAdmin.fields[discountMoney]);
+            printf("# Applicability: %s\n", actualAdmin.fields[discountApply]);
+            printf("#-----------------------------------------------------\n");
+
+        }
+    }
+}
+void signUpDownDiscount(AdminProvider actualAdmin)
+{
+
+}
+void modifyAdminDiscount(AdminProvider actualAdmin,bool adminDiscountModified)
+{
+    bool correct = false;
+    do
+    {
+        char buffer[1024];
+
+        printf("The actual value is: %s\n", discounts->fields[field]);
+        printf("Type the new value: ");
+        clearBuffer();
+        scanf("%[^\n]", buffer);
+
+        printf("The new value is: %s\n", buffer);
+        if(askCorrect())
+        {
+            *adminDiscountModified = strcmp(buffer, actualAdmin->fields[field]) != 0;
+            unsigned long newSize = strlen(buffer);
+            //actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
+            actualAdmin->fields[field] = reallocate(actualAdmin->fields[field], sizeof(char)*newSize, "Actual Discount modified field");
+            strcpy(actualAdmin->fields[field], buffer);
+            correct = true;
+        }
+    } while (!correct);
+}
+void generateListAdmin(AdminProvider actualAdmin)
+{
+
+}
+void createAdminDiscount(AdminProvider actualAdmin)
+{
+
+}
+void saveDiscountAdmin(AdminProvider *actualAdmin)
+{
+
+}
