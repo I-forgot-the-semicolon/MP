@@ -84,4 +84,9 @@ void modifyAdminDiscount(AdminProvider actualAdmin,bool adminDiscountModified);
 void generateListAdmin(AdminProvider actualAdmin);
 void saveDiscountAdmin(AdminProvider *actualAdmin);
 void createAdminDiscount(AdminProvider actualAdmin);
+void viewAdminReturn(AdminProvider *actualAdmin);
+void manageAdminReturn(AdminProvider actualAdmin);
+void signUpDownReturn(AdminProvider actualAdmin);
+void modifyAdminReturn(AdminProvider actualAdmin, bool adminReturnModified);
+void saveReturnAdmin(AdminProvider *actualAdmin);
 #endif

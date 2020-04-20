@@ -996,3 +996,116 @@ void saveDiscountAdmin(AdminProvider *actualAdmin)
 {
 
 }
+
+void adminReturn(AdminProvider actualAdmin)
+{
+    bool back = false;
+    bool adminReturnModified = false;
+    do
+    {
+        int option;
+        printf("1. View Return Information.\n");
+        printf("2. Manage Returns.\n");//Para realizar devoluciones por parte del admin
+        printf("3. Sign up/ Unsusbcribe Discount.\n");//Realizar bajas y altas de las devoluciones
+        printf("4. Modify Return Information.\n");//Modificar datos de las devoluciones
+        printf("5. Update Returns\n");//Actualizar si un pedido ha sido aceptado o no, para ver si se repone el stock
+        printf("6. Back\n");
+
+        printf("Select an option: ");
+        scanf("%d", &option);
+        switch (option)
+        {
+            case 1:
+                viewAdminReturn(*actualAdmin);
+                break;
+            case 2:
+                manageAdminReturn(actualAdmin);
+                break;
+            case 3:
+                signUpDownReturn(actualAdmin);
+                break;
+            case 4:
+                modifyAdminReturn(actualAdmin, &adminReturnModified);
+                break;
+            case 5:
+                updateAdminReturn(actualAdmin);
+                break;
+            case 6:
+                if(adminReturnModified)
+                {
+                    printf("Saving...\n");
+                    saveReturnAdmin(*actualAdmin);
+                    adminReturnModified = false;
+                }
+                back = true;
+                break;
+            default:
+                printf("Invalid option\n");
+                break;
+        }
+    } while(!back);
+}
+
+void viewAdminReturn(AdminProvider *actualAdmin)
+{
+    int returnNumber;
+    AdminProvider *returns = getRetuns(&discountNumber)//No hay función definida llamada getReturns :(
+    for (int i = 0; i <returnNumber; ++i)
+    {
+        if(strcmp(actualAdmin->fields[adminProviderId], discounts->fields[adminProviderId])==0)//?
+        {
+            printf("#-----------------------------------------------------\n");
+            printf("# Order ID: %s\n", actualAdmin.fields[refundOrderId]);
+            printf("# Product ID: %s\n", actualAdmin.fields[refundProductId]);
+            printf("# Return Date: %s\n", actualAdmin.fields[refundDate]);
+            printf("# Reason for Return: %s\n", actualAdmin.fields[refundReason]);
+            printf("# Status: %s\n", actualAdmin.fields[refundState]);
+            printf("# Acceptance Date: %s\n", actualAdmin.fields[refundAcceptDate]);
+            printf("# Expiration Date: %s\n", actualAdmin.fields[refundExpirationDate]);
+            printf("#-----------------------------------------------------\n");
+
+        }
+    }
+}
+void manageAdminReturn(AdminProvider actualAdmin)
+{
+
+}
+void signUpDownReturn(AdminProvider actualAdmin)
+{
+
+}
+void modifyAdminReturn(AdminProvider actualAdmin, bool adminReturnModified)
+{
+    bool correct = false;
+    do
+    {
+        char buffer[1024];
+
+        printf("The actual value is: %s\n", returns->fields[field]);
+        printf("Type the new value: ");
+        clearBuffer();
+        scanf("%[^\n]", buffer);
+
+        printf("The new value is: %s\n", buffer);
+        if(askCorrect())
+        {
+            *adminDiscountModified = strcmp(buffer, actualAdmin->fields[field]) != 0;
+            unsigned long newSize = strlen(buffer);
+            //actualClient->fields[field] = realloc(actualClient->fields[field], sizeof(char)*newSize);
+            actualAdmin->fields[field] = reallocate(actualAdmin->fields[field], sizeof(char)*newSize, "Actual Return modified field");
+            strcpy(actualAdmin->fields[field], buffer);
+            correct = true;
+        }
+    } while (!correct);
+}
+void updateAdminReturn(AdminProvider actualAdmin)
+{
+
+}
+
+void saveReturnAdmin(AdminProvider *actualAdmin)
+{
+
+}
+
